@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="./../css/signup.css">
+</head>
+<body>
+    <!-- //Логотип сайта -->
+    <header class="header signin-container">
+        <div class="logo"><a href="./../index.html">LOGOTIP</a></div>
+    </header>
+
+    <!-- //Поле для регистрации -->
+    <main class='main signin-container'>
+        
+        <!-- //навигационное меню -->
+        <ul class="signin-options">
+            <li class='signin-options__item'><span>Впервые на Asos?</span></li>
+            <li class='signin-options__item'><a href="./sign-in.html">Вы уже Зарегестрированы?</a></li>
+        </ul>
+
+        <!-- //Форма Регистрации -->
+        <form action="" method="POST" class="signin-form">
+                <label class='signin-form__label' for="signin-email">Адрес электронной почты:</label>
+                <input class='signin-form__item' id='signin-email' type="text">
+                
+                <label class='signin-form__label' for="signin-password">Пароль:</label>
+                <input class='signin-form__item' id='signin-password' type="password">
+
+                <label class='signin-form__label' for="replay-password">Повторите пароль:</label>
+                <input class='signin-form__item' id='replay-password' type="password">
+
+                <button class='signin-form__button'>Зарегестрироваться</button>
+        </form>
+    </main>
+</body>
+</html>

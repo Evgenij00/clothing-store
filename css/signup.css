@@ -26,12 +26,12 @@ ul {
   margin: 0;
 }
 
-/* line 4, ../online-store/scss/signin.scss */
+/* line 4, ../online-store/scss/signup.scss */
 body {
   background-color: gray;
 }
 
-/* line 9, ../online-store/scss/signin.scss */
+/* line 8, ../online-store/scss/signup.scss */
 .signin-container {
   width: 600px;
   margin: 0 auto;
@@ -39,7 +39,7 @@ body {
   border: 2px solid red;
 }
 
-/* line 17, ../online-store/scss/signin.scss */
+/* line 16, ../online-store/scss/signup.scss */
 .logo {
   display: flex;
   justify-content: center;
@@ -47,13 +47,13 @@ body {
   border: 1px solid red;
 }
 
-/* line 25, ../online-store/scss/signin.scss */
+/* line 24, ../online-store/scss/signup.scss */
 .main {
   background-color: white;
   border: 2px solid red;
 }
 
-/* line 31, ../online-store/scss/signin.scss */
+/* line 29, ../online-store/scss/signup.scss */
 .signin-options {
   display: flex;
   justify-content: center;
@@ -61,7 +61,7 @@ body {
   border: 1px solid red;
 }
 
-/* line 39, ../online-store/scss/signin.scss */
+/* line 36, ../online-store/scss/signup.scss */
 .signin-options__item {
   display: flex;
   width: 295px;
@@ -70,7 +70,7 @@ body {
   border: 1px solid red;
 }
 
-/* line 48, ../online-store/scss/signin.scss */
+/* line 44, ../online-store/scss/signup.scss */
 .signin-form {
   display: flex;
   flex-direction: column;
@@ -79,23 +79,23 @@ body {
   border: 1px solid red;
 }
 
-/* line 57, ../online-store/scss/signin.scss */
+/* line 52, ../online-store/scss/signup.scss */
 .signin-form__label {
   display: inline;
   margin: 10px 0;
   border: 1px solid red;
 }
 
-/* line 64, ../online-store/scss/signin.scss */
+/* line 58, ../online-store/scss/signup.scss */
 .signin-form__item {
   width: 350px;
   border: 1px solid red;
 }
 
-/* line 70, ../online-store/scss/signin.scss */
+/* line 63, ../online-store/scss/signup.scss */
 .signin-form__button {
   margin-top: 10px;
   align-self: center;
 }
 
-/*# sourceMappingURL=signin.css.map */
+/*# sourceMappingURL=signup.css.map */

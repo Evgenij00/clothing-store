@@ -5,7 +5,6 @@ body {
     background-color: rgb(128, 128, 128);
 }
 
-//sign-in and sign-up
 .signin-container {
     width: 600px;
     margin: 0 auto;
@@ -13,7 +12,7 @@ body {
     border: 2px solid red;
 }
 
-//селектор повторяется!!! //sign-in and sign-up
+//селектор повторяется!!!
 .logo {
     display: flex;
     justify-content: center;
@@ -21,13 +20,12 @@ body {
     border: 1px solid red;
 }
 
-//слишком общий класс //sign-in and sign-up
+//слишком общий класс
 .main {
     background-color: white;
     border: 2px solid red;
 }
 
-//sign-in and sign-up
 .signin-options {
     display: flex;
     justify-content: center;
@@ -35,7 +33,6 @@ body {
     border: 1px solid red;
 }
 
-//sign-in and sign-up
 .signin-options__item {
     display: flex;
     width: 295px;
@@ -44,7 +41,6 @@ body {
     border: 1px solid red;
 }
 
-//sign-in and sign-up
 .signin-form {
     display: flex;
     flex-direction: column;
@@ -53,20 +49,17 @@ body {
     border: 1px solid red;
 }
 
-//sign-in and sign-up
 .signin-form__label {
     display: inline;
     margin: 10px 0;
     border: 1px solid red;
 }
 
-//sign-in and sign-up
 .signin-form__item {
     width: 350px;  //можно регулировать размер инпута
     border: 1px solid red;
 }
 
-//sign-in and sign-up
 .signin-form__button {
     margin-top: 10px;
     align-self: center;
