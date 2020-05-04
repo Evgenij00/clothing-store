@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online-Shop</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+
+    <!-- шапка сайта -->
+    <header class="header">
+        <!-- Информационный блок -->
+        <!-- <div class="header-info"></div> -->
+
+        <!-- Основной блок -->
+        <div class="header-main container">
+            
+            <!-- логотип сайта -->
+            <div class="logo"><a href="#">LOGOTIP</a></div>
+
+            <!-- гендерные разделы -->
+            <ul class="gender">
+                <li class='gender__item'><a href="#">Женское</a></li>
+                <li class='gender__item'><a href="#">Мужское</a></li>
+            </ul>
+
+            <!-- форма поиска -->
+            <form action="" method="get" class="search-form">
+                <input class="search-form__input" name='search-form' type="text" placeholder="Искать">
+                <button type='submit' class="search-form__button">
+                    <img src="./img/icons/icon-search.svg" alt="search">
+                </button>
+            </form>
+
+            <!-- пользовательская панель -->
+            <ul class="user-panel">
+                <li class="user-panel__item"><span>user</span></li>
+                <li class="user-panel__item"><a href="#">избранное</a></li>
+                <li class="user-panel__item"><a href="#">корзина</a></li>
+            </ul>
+        </div>
+
+        <!-- dropdown для пользовательской панели -->
+        <ul class="dropdown user-panel__dropdown">
+            <li class='dropdown__login'>
+                <div class="dropdown__login-item"><a href="#">Войти</a></div>
+                <div class="dropdown__login-item"><a href="#">Регистрация</a></div>
+            </li>
+            <li class='dropdown__item'><a href="#">Личный кабинет</a></li>
+            <li class='dropdown__item'><a href="#">Мои заказы</a></li>
+        </ul>
+
+        <!-- Навигационный блок -->
+        <!-- <div class="header-nav"></div> -->
+    </header>
+
+
+
+
+    <!-- <main class="main">
+
+    </main>
+
+    <footer class="footer">
+
+    </footer> -->
+</body>
+</html>

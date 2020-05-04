@@ -1,0 +1,78 @@
+//Стили для основного блока в шапке
+.header-main {
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid red;
+}
+
+.gender {
+    display: flex;
+    border: 1px solid red;
+}
+
+.gender__item {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid red;
+}
+
+.search-form {
+    display: flex;
+    flex-grow: 1;
+    border: 1px solid red;
+}
+
+.search-form__input {
+    flex-grow: 1;
+    padding: 0 10px;
+    border: 1px solid red;
+}
+.search-form__button {
+    width: 30px;
+    border: 1px solid red;
+}
+
+.user-panel {
+    display: flex;
+    border: 1px solid red;
+}
+
+.user-panel__item {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid red;
+}
+
+.user-panel__dropdown {
+    position: absolute;
+    left: 1050px;
+}
+
+.dropdown {
+    display: inline-block;
+    border: 1px solid red;
+}
+
+.dropdown__item {
+    padding: 10px;
+    border: 1px solid red;
+}
+
+.dropdown__login {
+    display: flex;
+}
+
+.dropdown__login-item {
+    padding: 10px;
+    border: 1px solid red;
+}
+
