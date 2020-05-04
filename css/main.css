@@ -1,44 +1,39 @@
-/* line 2, ../asos/scss/base/_base.scss */
+/* line 2, ../online-store/scss/base/_base.scss */
 * {
   box-sizing: border-box;
 }
 
-/* line 6, ../asos/scss/base/_base.scss */
+/* line 6, ../online-store/scss/base/_base.scss */
 body {
   margin: 0;
 }
 
-/* line 10, ../asos/scss/base/_base.scss */
+/* line 10, ../online-store/scss/base/_base.scss */
 .container {
   max-width: 1110px;
   margin: 0 auto;
 }
 
-/* line 15, ../asos/scss/base/_base.scss */
+/* line 15, ../online-store/scss/base/_base.scss */
 .hidden {
   display: none;
 }
 
-/* line 19, ../asos/scss/base/_base.scss */
+/* line 19, ../online-store/scss/base/_base.scss */
 ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-/* line 1, ../asos/scss/blocks/_header.scss */
-.header {
-  border: 1px solid red;
-}
-
-/* line 2, ../asos/scss/blocks/_header-main.scss */
+/* line 2, ../online-store/scss/blocks/_header-main.scss */
 .header-main {
   display: flex;
   justify-content: center;
   border: 1px solid red;
 }
 
-/* line 8, ../asos/scss/blocks/_header-main.scss */
+/* line 8, ../online-store/scss/blocks/_header-main.scss */
 .logo {
   display: flex;
   align-items: center;
@@ -46,13 +41,13 @@ ul {
   border: 1px solid red;
 }
 
-/* line 15, ../asos/scss/blocks/_header-main.scss */
+/* line 15, ../online-store/scss/blocks/_header-main.scss */
 .gender {
   display: flex;
   border: 1px solid red;
 }
 
-/* line 20, ../asos/scss/blocks/_header-main.scss */
+/* line 20, ../online-store/scss/blocks/_header-main.scss */
 .gender__item {
   display: flex;
   align-items: center;
@@ -60,33 +55,33 @@ ul {
   border: 1px solid red;
 }
 
-/* line 27, ../asos/scss/blocks/_header-main.scss */
+/* line 27, ../online-store/scss/blocks/_header-main.scss */
 .search-form {
   display: flex;
   flex-grow: 1;
   border: 1px solid red;
 }
 
-/* line 33, ../asos/scss/blocks/_header-main.scss */
+/* line 33, ../online-store/scss/blocks/_header-main.scss */
 .search-form__input {
   flex-grow: 1;
   padding: 0 10px;
   border: 1px solid red;
 }
 
-/* line 38, ../asos/scss/blocks/_header-main.scss */
+/* line 38, ../online-store/scss/blocks/_header-main.scss */
 .search-form__button {
   width: 30px;
   border: 1px solid red;
 }
 
-/* line 43, ../asos/scss/blocks/_header-main.scss */
+/* line 43, ../online-store/scss/blocks/_header-main.scss */
 .user-panel {
   display: flex;
   border: 1px solid red;
 }
 
-/* line 48, ../asos/scss/blocks/_header-main.scss */
+/* line 48, ../online-store/scss/blocks/_header-main.scss */
 .user-panel__item {
   display: flex;
   align-items: center;
@@ -94,32 +89,37 @@ ul {
   border: 1px solid red;
 }
 
-/* line 55, ../asos/scss/blocks/_header-main.scss */
+/* line 55, ../online-store/scss/blocks/_header-main.scss */
 .user-panel__dropdown {
   position: absolute;
   left: 1050px;
 }
 
-/* line 60, ../asos/scss/blocks/_header-main.scss */
+/* line 60, ../online-store/scss/blocks/_header-main.scss */
 .dropdown {
   display: inline-block;
   border: 1px solid red;
 }
 
-/* line 65, ../asos/scss/blocks/_header-main.scss */
+/* line 65, ../online-store/scss/blocks/_header-main.scss */
 .dropdown__item {
   padding: 10px;
   border: 1px solid red;
 }
 
-/* line 70, ../asos/scss/blocks/_header-main.scss */
+/* line 70, ../online-store/scss/blocks/_header-main.scss */
 .dropdown__login {
   display: flex;
 }
 
-/* line 74, ../asos/scss/blocks/_header-main.scss */
+/* line 74, ../online-store/scss/blocks/_header-main.scss */
 .dropdown__login-item {
   padding: 10px;
+  border: 1px solid red;
+}
+
+/* line 3, ../online-store/scss/blocks/_header.scss */
+.header {
   border: 1px solid red;
 }
 
