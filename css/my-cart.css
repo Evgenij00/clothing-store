@@ -1,0 +1,120 @@
+/* line 2, ../online-store/scss/base/_base.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 6, ../online-store/scss/base/_base.scss */
+body {
+  margin: 0;
+}
+
+/* line 10, ../online-store/scss/base/_base.scss */
+h1, p {
+  margin: 0;
+}
+
+/* line 14, ../online-store/scss/base/_base.scss */
+.container {
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+/* line 19, ../online-store/scss/base/_base.scss */
+.hidden {
+  display: none;
+}
+
+/* line 23, ../online-store/scss/base/_base.scss */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 3, ../online-store/scss/my-cart.scss */
+* {
+  border: 1px solid red;
+}
+
+/* line 7, ../online-store/scss/my-cart.scss */
+.main {
+  display: flex;
+  justify-content: center;
+  border: 1px solid red;
+}
+
+/* line 13, ../online-store/scss/my-cart.scss */
+.shopping-cart__head {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  justify-content: space-between;
+  border: 1px solid red;
+}
+
+/* line 21, ../online-store/scss/my-cart.scss */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+/* line 28, ../online-store/scss/my-cart.scss */
+.cart-item__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 34, ../online-store/scss/my-cart.scss */
+.cart-item__image {
+  width: 100px;
+}
+
+/* line 38, ../online-store/scss/my-cart.scss */
+.cart-item__title {
+  font-size: 16px;
+}
+
+/* line 42, ../online-store/scss/my-cart.scss */
+.cart-item__control-quentity {
+  display: flex;
+}
+
+/* line 46, ../online-store/scss/my-cart.scss */
+.cart-item__input-quentity {
+  text-align: center;
+  width: 32px;
+}
+
+/* line 52, ../online-store/scss/my-cart.scss */
+.btn-remove,
+.btn-like,
+.btn-plus,
+.btn-minus {
+  width: 35px;
+}
+
+/* line 59, ../online-store/scss/my-cart.scss */
+.total-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  border: 2px solid blue;
+}
+
+/* line 67, ../online-store/scss/my-cart.scss */
+.total__price-wrap {
+  display: flex;
+  align-self: stretch;
+  justify-content: space-between;
+}
+
+/* line 73, ../online-store/scss/my-cart.scss */
+.btn-pay-order {
+  align-self: stretch;
+}
+
+/*# sourceMappingURL=my-cart.css.map */

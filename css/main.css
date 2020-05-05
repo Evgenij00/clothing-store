@@ -9,17 +9,22 @@ body {
 }
 
 /* line 10, ../online-store/scss/base/_base.scss */
+h1, p {
+  margin: 0;
+}
+
+/* line 14, ../online-store/scss/base/_base.scss */
 .container {
   max-width: 1110px;
   margin: 0 auto;
 }
 
-/* line 15, ../online-store/scss/base/_base.scss */
+/* line 19, ../online-store/scss/base/_base.scss */
 .hidden {
   display: none;
 }
 
-/* line 19, ../online-store/scss/base/_base.scss */
+/* line 23, ../online-store/scss/base/_base.scss */
 ul {
   list-style-type: none;
   padding: 0;

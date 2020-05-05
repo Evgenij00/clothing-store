@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="./../css/my-cart.css">
+</head>
+<body>
+    <!-- header -->
+    <main class="main">
+        <div class="shopping-cart">
+            <div class="shopping-cart__head">
+                <h1>Моя корзина</h1>
+                <p>Товары будут зарезервированы на 60 минут</p>
+            </div>
+
+            <!-- //блок с товарами -->
+            <ul class="cart-goods">
+                <!-- пример товара -->
+                <li class="cart-item">
+                        <!-- блок кнопок -->
+                    <div class="cart-item__buttons">
+                        <button class="btn-remove"><img src="/img/icons/icon-remove.svg" alt="удалить"></button>
+                        <button class="btn-like"><img src="/img/icons/icon-love.svg" alt="Добавить в избранное"></button>
+                    </div>
+
+                    <!-- //блок изображение -->
+                    <div class="cart-item__image-wrap">
+                        <a href="#"><img class='cart-item__image' src="./../img/goods/14247601-1-sesame.jpg" alt="изображение товара"></a>
+                    </div>
+
+                    <!-- блок описание -->
+                    <div class="cart-item__description">
+                        <h1 class="cart-item__title">Lorem ipsum dolor sit amet.</h1>
+                        <!-- //сырая реализация свойств -->
+                        <p class="cart-item__property-text">Lorem, ipsum.</p>
+                    </div>
+
+                    <!-- блок количество товара -->
+                    <div class="cart-item__control-quentity">
+                        <button class="btn-plus"><img src="/img/icons/icon-plus.svg" alt="Прибавить"></button>
+                        <input class='cart-item__input-quentity' type="text" value="1">
+                        <button class="btn-minus"><img src="/img/icons/icon-minus.svg" alt="уменьшить"></button>
+                    </div>
+
+                    <!-- блок цена -->
+                    <div class="cart-item__total-price">$549</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- //Блок "ИТОГО" - сырой, нужно подумать насчет высоты -->
+        <div class="total-wrap">
+            <div class="total__head">Итого</div>
+
+            <div class="total__price-wrap">
+                <span>Всего</span>
+                <span>Подсчитанная цена</span>
+            </div>
+
+            <!-- рассмотреть вариант формы -->
+            <label for="delivery-pay">Доставка</label>
+
+            <select class='total__select-delivery' value='Доставка' name="" id="delivery-pay">
+                <option>Стандартная доставка</option>
+                <option>Стандартная доставка - Пункт самовызова</option>
+                <option>Экспресс - доставка</option>
+                <option>Экспресс - доставка курьером Пункт выдачи товаров</option>
+            </select>
+            
+            <button type="submit" class="btn-pay-order">Оплатить</button>
+        </div>
+    </main>
+    <!-- footer -->
+</body>
+</html>
