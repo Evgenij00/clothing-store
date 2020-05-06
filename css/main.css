@@ -4,27 +4,32 @@
 }
 
 /* line 6, ../online-store/scss/base/_base.scss */
+* {
+  border: 1px solid red;
+}
+
+/* line 10, ../online-store/scss/base/_base.scss */
 body {
   margin: 0;
 }
 
-/* line 10, ../online-store/scss/base/_base.scss */
+/* line 14, ../online-store/scss/base/_base.scss */
 h1, p {
   margin: 0;
 }
 
-/* line 14, ../online-store/scss/base/_base.scss */
+/* line 18, ../online-store/scss/base/_base.scss */
 .container {
   max-width: 1110px;
   margin: 0 auto;
 }
 
-/* line 19, ../online-store/scss/base/_base.scss */
+/* line 23, ../online-store/scss/base/_base.scss */
 .hidden {
   display: none;
 }
 
-/* line 23, ../online-store/scss/base/_base.scss */
+/* line 27, ../online-store/scss/base/_base.scss */
 ul {
   list-style-type: none;
   padding: 0;
@@ -130,6 +135,36 @@ ul {
 /* line 3, ../online-store/scss/blocks/_header.scss */
 .header {
   border: 1px solid red;
+}
+
+/* line 1, ../online-store/scss/blocks/_section-goods.scss */
+.goods {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* line 8, ../online-store/scss/blocks/_section-goods.scss */
+.goods__item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 250px;
+  padding: 10px;
+}
+
+/* line 16, ../online-store/scss/blocks/_section-goods.scss */
+.goods__item-image {
+  width: 100%;
+}
+
+/* line 20, ../online-store/scss/blocks/_section-goods.scss */
+.goods__item-btnlike {
+  position: absolute;
+  width: 32px;
+  bottom: 10px;
+  right: 10px;
 }
 
 /*# sourceMappingURL=main.css.map */
