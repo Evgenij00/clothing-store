@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/css/checkout.css">
+</head>
+<body class="container">
+   <header class='header'>
+        <a href="/index.html" class="logo">LOGOTIP</a>
+        <h1 class="head-title">Оформление заказа</h1>
+    </header> 
+    <main class="main">
+        <div class="container-check">
+            <div class="email">
+                <h2>Адрес электронной почты</h2>
+                <p>porojtyg@gmail.com</p>
+            </div>
+    
+            <form action="" method="POST">
+                <div class='adress-box'>
+                    <h2 class="form-adress-title">Адрес доставки</h1>
+        
+                    <label class='adress__label' for="first-name">Имя:</label>
+                    <input type="text" id="first-name" name="first-name">
+        
+                    <label class='adress__label' for="last-name">Фамилия:</label>
+                    <input type="text" id="last-name" name="last-name">
+                    
+                    <label class='adress__label' for="middle-name">Отчество:</label>
+                    <input type="text" id="middle-name" name="middle-name">
+        
+                    <label class='adress__label' for="phone-contact">Мобильный телефон:</label>
+                    <input type="text" id="phone-contact" name="phone-contact">
+        
+                    <label class='adress__label' for="country">Страна:</label>
+                    <input type="text" id="country" name="country">
+        
+                    <label class='adress__label' for="city">Город:</label>
+                    <input type="text" id="city" name="city">
+        
+                    <label class='adress__label' for="street-adress">Улица, дом, квартира</label>
+                    <input type="text" id="street-adress" name="street-adress">
+        
+                    <label class='adress__label' for="post-index">Почтовый идекс</label>
+                    <input type="text" id="post-index" name="post-index">
+        
+                    <button class='btn-adress'>Доставить по этому адрессу</button>
+                </div>
+        
+                <div class="delivery-way">
+                    <h2 class="delivery-way__title">Способы доставки</h2>
+                    <div class="delivery-way__item">
+                        <p>Бесплатно</p>
+                        <div class="descripton-way">
+                            <p>Стандартная доставка:</p>
+                            <p>Ожидаемая дата доставки Вторник, 2 июнь, 2020</p>
+                        </div>
+                        <input type="radio" id="check-way-1" checked name="check-way" value="free">
+                    </div>
+                    <div class="delivery-way__item">
+                        <p>Бесплатно</p>
+                        <div class="descripton-way">
+                            <p>Экспресс доставка:</p>
+                            <p>Ожидаемая дата доставки Среда, 20 май, 2020</p>
+                        </div>
+                        <input type="radio" id="check-way-2" name="check-way" value="express">
+                    </div>
+                </div>
+        
+                <div class="pay-way">
+                    <h2 class="pay-way__title">Способ оплаты</h2>
+                    <button>Добавитькредитною/дебетовую карту</button>
+                    <span>или</span>
+                    <button>Paypal</button>
+                </div>
+        
+                <button type="submit">Заказать</button>
+            </form>
+        </div>
+
+        <div class="goods-info-box">
+            <div class="goods-info__head">
+                <div class="goods-info__title">
+                    <h2>Количество товаров - </h2>
+                    <span>1</span>
+                </div>
+                <a href="./card.html" class="link-cart">Изменить</a>
+            </div>
+
+            <div class="goods__item">
+                <img class='img' src="/img/goods/14247601-1-sesame.jpg" alt="товар">
+
+                <div class="goods__description">
+                    <span>1260.00 руб</span>
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing.</span>
+                    <span>Lorem, ipsum dolor.</span>
+                    <span>Кол-во:<span>1</span></span>
+                </div>
+            </div>
+
+            <div class="goods__item">
+                <img class='img' src="/img/goods/14247601-1-sesame.jpg" alt="товар">
+
+                <div class="goods__description">
+                    <span>1260.00 руб</span>
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing.</span>
+                    <span>Lorem, ipsum dolor.</span>
+                    <span>Кол-во:<span>1</span></span>
+                </div>
+            </div>
+
+            <div class="goods__total">
+                <div class="total-price-goods">
+                    <span>Итого</span>
+                    <span>1260.00 руб</span>
+                </div>
+                <div class="total-price-all">
+                    <h2>Всего к оплате</h2>
+                    <span>1260.00 руб</span>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <footer></footer>
+</body>
+</html>

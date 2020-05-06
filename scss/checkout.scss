@@ -1,0 +1,91 @@
+@import './base/base';
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.container-check {
+    width: 500px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.head-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.adress-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.adress__label {
+    margin: 10px 0;
+}
+
+.btn-adress {
+    margin: 10px 0;
+}
+
+.delivery-way__item {
+    display: flex;
+}
+
+.pay-way {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.goods-info-box {
+    position: sticky;
+    top: 0;
+    border: 2px solid blue;
+}
+
+.goods-info__head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.goods-info__title {
+    display: flex;
+}
+
+.goods__item {
+    display: flex;
+}
+
+.img {
+    width: 100px;
+}
+
+.goods__description {
+    display: flex;
+    flex-direction: column;
+}
+
+.total-price-goods {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-price-all {
+    display: flex;
+    justify-content: space-between;
+}

@@ -14,7 +14,7 @@ body {
 }
 
 /* line 14, ../online-store/scss/base/_base.scss */
-h1, p {
+h1, p, h2 {
   margin: 0;
 }
 
@@ -26,7 +26,7 @@ h1, p {
 
 /* line 23, ../online-store/scss/base/_base.scss */
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /* line 27, ../online-store/scss/base/_base.scss */
