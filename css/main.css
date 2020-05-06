@@ -87,39 +87,43 @@ ul {
 }
 
 /* line 48, ../online-store/scss/blocks/_header-main.scss */
-.user-panel__item {
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  border: 1px solid red;
+.up-dropdown {
+  position: relative;
 }
 
-/* line 55, ../online-store/scss/blocks/_header-main.scss */
-.user-panel__dropdown {
+/* line 52, ../online-store/scss/blocks/_header-main.scss */
+.up-dropdown__btn {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 57, ../online-store/scss/blocks/_header-main.scss */
+.up-dropdown__content {
   position: absolute;
-  left: 1050px;
 }
 
-/* line 60, ../online-store/scss/blocks/_header-main.scss */
-.dropdown {
-  display: inline-block;
-  border: 1px solid red;
+/* line 61, ../online-store/scss/blocks/_header-main.scss */
+.up-dropdown__head {
+  display: flex;
 }
 
 /* line 65, ../online-store/scss/blocks/_header-main.scss */
-.dropdown__item {
+.up-dropdown__head-item {
   padding: 10px;
   border: 1px solid red;
 }
 
 /* line 70, ../online-store/scss/blocks/_header-main.scss */
-.dropdown__login {
-  display: flex;
+.up-dropdown__item {
+  padding: 10px;
+  border: 1px solid red;
 }
 
-/* line 74, ../online-store/scss/blocks/_header-main.scss */
-.dropdown__login-item {
-  padding: 10px;
+/* line 75, ../online-store/scss/blocks/_header-main.scss */
+.up__item {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
   border: 1px solid red;
 }
 
