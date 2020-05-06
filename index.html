@@ -64,16 +64,50 @@
     </header>
 
 
-    <main class="main">
-        <div class="goods container">
+    <main class="main container">
+        <div class="product-box">
+            <ul class="product-list-img">
+                <li><img class="img-item" src="./img/goods/14247601-1-sesame.jpg" alt=""></li>
+                <li><img class="img-item" src="./img/goods/14247601-1-sesame.jpg" alt=""></li>
+                <li><img class="img-item" src="./img/goods/14247601-1-sesame.jpg" alt=""></li>
+                <li><img class="img-item" src="./img/goods/14247601-1-sesame.jpg" alt=""></li>
+            </ul>
+            <div class="product__main-image">
+                <img src="./img/goods/14247601-1-sesame.jpg" alt="">
+            </div>
+            <div class="product__info">
+                <h1 class="product__title">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet, perspiciatis?</h1>
+                <p class="product__price">1790,00 руб</p>
+                <!-- //сырая реализация свойств -->
+                <p class="product__propery">Lorem, ipsum dolor.</p>
+                <label for="product-size">Размер:</label>
+                <select class='select-size' name="" id="product-size">
+                    <option value="">Пожалуйста, выберите</option>
+                    <option value="xs">XS</option>
+                    <option value="s">S</option>
+                    <option value="m">M</option>
+                    <option value="l">L</option>
+                    <option value="xl">XL</option>
+                </select>
+                <button class="btn__add-cart">Добавить в корзину</button>
+                <!-- //одна и та же кнопка!!! -->
+                <button class="btn__like-cart"><img src="/img/icons/icon-love.svg" alt="Избранное"></button>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- БЛОК С ТОВАРАМИ -->
+        <!-- <div class="goods container">
             <div class="goods__item">
                 <a href="#"><img class="goods__item-image" src="/img/goods/14247601-1-sesame.jpg" alt="товар"></a>
-
                 <span class="goods__item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, accusantium?</span>
                 <span class="goods__item-price">1090.00 руб</span>
                 <button class="goods__item-btnlike"><img src="/img/icons/icon-love.svg" alt="Избранное"></button>
             </div>
-        </div>
+        </div> -->
     </main>
 
     <footer class="footer">

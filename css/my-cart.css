@@ -45,10 +45,11 @@ ul {
 .main {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   border: 1px solid red;
 }
 
-/* line 13, ../online-store/scss/my-cart.scss */
+/* line 14, ../online-store/scss/my-cart.scss */
 .shopping-cart__head {
   display: flex;
   align-items: center;
@@ -57,7 +58,7 @@ ul {
   border: 1px solid red;
 }
 
-/* line 21, ../online-store/scss/my-cart.scss */
+/* line 22, ../online-store/scss/my-cart.scss */
 .cart-item {
   display: flex;
   justify-content: space-between;
@@ -65,35 +66,35 @@ ul {
   padding: 10px;
 }
 
-/* line 28, ../online-store/scss/my-cart.scss */
+/* line 29, ../online-store/scss/my-cart.scss */
 .cart-item__buttons {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* line 34, ../online-store/scss/my-cart.scss */
+/* line 35, ../online-store/scss/my-cart.scss */
 .cart-item__image {
   width: 100px;
 }
 
-/* line 38, ../online-store/scss/my-cart.scss */
+/* line 39, ../online-store/scss/my-cart.scss */
 .cart-item__title {
   font-size: 16px;
 }
 
-/* line 42, ../online-store/scss/my-cart.scss */
+/* line 43, ../online-store/scss/my-cart.scss */
 .cart-item__control-quentity {
   display: flex;
 }
 
-/* line 46, ../online-store/scss/my-cart.scss */
+/* line 47, ../online-store/scss/my-cart.scss */
 .cart-item__input-quentity {
   text-align: center;
   width: 32px;
 }
 
-/* line 52, ../online-store/scss/my-cart.scss */
+/* line 53, ../online-store/scss/my-cart.scss */
 .btn-remove,
 .btn-like,
 .btn-plus,
@@ -101,23 +102,25 @@ ul {
   width: 35px;
 }
 
-/* line 59, ../online-store/scss/my-cart.scss */
+/* line 60, ../online-store/scss/my-cart.scss */
 .total-wrap {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 10px;
   border: 2px solid blue;
+  position: sticky;
+  top: 0;
 }
 
-/* line 67, ../online-store/scss/my-cart.scss */
+/* line 71, ../online-store/scss/my-cart.scss */
 .total__price-wrap {
   display: flex;
   align-self: stretch;
   justify-content: space-between;
 }
 
-/* line 73, ../online-store/scss/my-cart.scss */
+/* line 77, ../online-store/scss/my-cart.scss */
 .btn-pay-order {
   align-self: stretch;
 }

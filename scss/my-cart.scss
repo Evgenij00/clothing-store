@@ -7,6 +7,7 @@
 .main {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     border: 1px solid red;
 }
 
@@ -62,6 +63,9 @@
     align-items: flex-start;
     padding: 10px;
     border: 2px solid blue;
+
+    position: sticky;
+    top: 0;
 }
 
 .total__price-wrap {

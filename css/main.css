@@ -167,4 +167,33 @@ ul {
   right: 10px;
 }
 
+/* line 1, ../online-store/scss/blocks/_product.scss */
+.product-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+/* line 7, ../online-store/scss/blocks/_product.scss */
+.product-list-img {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+}
+
+/* line 13, ../online-store/scss/blocks/_product.scss */
+.img-item {
+  width: 100%;
+}
+
+/* line 17, ../online-store/scss/blocks/_product.scss */
+.select-size {
+  display: block;
+}
+
+/* line 21, ../online-store/scss/blocks/_product.scss */
+.btn__like-cart {
+  width: 32px;
+}
+
 /*# sourceMappingURL=main.css.map */

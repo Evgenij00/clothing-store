@@ -1,0 +1,23 @@
+.product-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.product-list-img {
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+}
+
+.img-item {
+    width: 100%;
+}
+
+.select-size {
+    display: block;
+}
+
+.btn__like-cart {
+    width: 32px;
+}
