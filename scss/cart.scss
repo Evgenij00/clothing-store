@@ -1,43 +1,31 @@
 @import './base/base';
 
-* {
-    border: 1px solid red;
-}
-
-.main {
+.main-content {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    border: 1px solid red;
 }
 
 .shopping-cart__head {
     display: flex;
-    align-items: center;
-    padding: 0 10px;
+    //repeate
     justify-content: space-between;
-    border: 1px solid red;
+    align-items: center;
 }
 
 .cart-item {
     display: flex;
+    //repeate
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
 }
 
 .cart-item__buttons {
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .cart-item__image {
     width: 100px;
-}
-
-.cart-item__title {
-    font-size: 16px;
 }
 
 .cart-item__control-quentity {
@@ -54,27 +42,29 @@
 .btn-like,
 .btn-plus,
 .btn-minus {
-    width: 35px;
+    display: flex;
+    width: 32px;
 }
 
-.total-wrap {
+.total-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px;
-    border: 2px solid blue;
 
     position: sticky;
     top: 0;
+    bottom: 0;
 }
 
-.total__price-wrap {
+.total__price-full {
     display: flex;
+    //repeate
     align-self: stretch;
     justify-content: space-between;
 }
 
-.btn-pay-order {
+//шаблон кнопки
+.btn-2 {
+    display: flex;
     align-self: stretch;
 }
-

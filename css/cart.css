@@ -62,93 +62,78 @@ ul {
   align-items: center;
 }
 
-/* line 3, ../online-store/scss/my-cart.scss */
-* {
-  border: 1px solid red;
-}
-
-/* line 7, ../online-store/scss/my-cart.scss */
-.main {
+/* line 3, ../online-store/scss/cart.scss */
+.main-content {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  border: 1px solid red;
 }
 
-/* line 14, ../online-store/scss/my-cart.scss */
+/* line 9, ../online-store/scss/cart.scss */
 .shopping-cart__head {
   display: flex;
-  align-items: center;
-  padding: 0 10px;
   justify-content: space-between;
-  border: 1px solid red;
+  align-items: center;
 }
 
-/* line 22, ../online-store/scss/my-cart.scss */
+/* line 16, ../online-store/scss/cart.scss */
 .cart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
 }
 
-/* line 29, ../online-store/scss/my-cart.scss */
+/* line 23, ../online-store/scss/cart.scss */
 .cart-item__buttons {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-/* line 35, ../online-store/scss/my-cart.scss */
+/* line 27, ../online-store/scss/cart.scss */
 .cart-item__image {
   width: 100px;
 }
 
-/* line 39, ../online-store/scss/my-cart.scss */
-.cart-item__title {
-  font-size: 16px;
-}
-
-/* line 43, ../online-store/scss/my-cart.scss */
+/* line 31, ../online-store/scss/cart.scss */
 .cart-item__control-quentity {
   display: flex;
 }
 
-/* line 47, ../online-store/scss/my-cart.scss */
+/* line 35, ../online-store/scss/cart.scss */
 .cart-item__input-quentity {
   text-align: center;
   width: 32px;
 }
 
-/* line 53, ../online-store/scss/my-cart.scss */
+/* line 41, ../online-store/scss/cart.scss */
 .btn-remove,
 .btn-like,
 .btn-plus,
 .btn-minus {
-  width: 35px;
+  display: flex;
+  width: 32px;
 }
 
-/* line 60, ../online-store/scss/my-cart.scss */
-.total-wrap {
+/* line 49, ../online-store/scss/cart.scss */
+.total-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 10px;
-  border: 2px solid blue;
   position: sticky;
   top: 0;
+  bottom: 0;
 }
 
-/* line 71, ../online-store/scss/my-cart.scss */
-.total__price-wrap {
+/* line 59, ../online-store/scss/cart.scss */
+.total__price-full {
   display: flex;
   align-self: stretch;
   justify-content: space-between;
 }
 
-/* line 77, ../online-store/scss/my-cart.scss */
-.btn-pay-order {
+/* line 67, ../online-store/scss/cart.scss */
+.btn-2 {
+  display: flex;
   align-self: stretch;
 }
 
-/*# sourceMappingURL=my-cart.css.map */
+/*# sourceMappingURL=cart.css.map */
