@@ -2,59 +2,51 @@
 .header-main {
     display: flex;
     justify-content: center;
-    border: 1px solid red;
 }
 
 .logo {
     display: flex;
-    align-items: center;
-    padding: 0 10px;
-    border: 1px solid red;
+    width: 100px;
 }
 
-.gender {
+.gender-menu {
     display: flex;
-    border: 1px solid red;
 }
 
-.gender__item {
+.gender-menu__item {
     display: flex;
-    align-items: center;
-    padding: 0 10px;
-    border: 1px solid red;
+    width: 100px;
 }
 
 .search-form {
     display: flex;
     flex-grow: 1;
-    border: 1px solid red;
 }
 
 .search-form__input {
     flex-grow: 1;
-    padding: 0 10px;
-    border: 1px solid red;
 }
-.search-form__button {
-    width: 30px;
-    border: 1px solid red;
+
+.search-form__btn {
+    display: flex;
+    width: 38px;
 }
 
 .user-panel {
     display: flex;
-    border: 1px solid red;
 }
 
 .up-dropdown {
+    display: flex;
     position: relative;
 }
 
 .up-dropdown__btn {
-    width: 100%;
-    height: 100%;
+    display: flex;
+    width: 100px;
 }
 
-.up-dropdown__content {
+.up-dropdown__select {
     position: absolute;
 }
 
@@ -64,18 +56,10 @@
 
 .up-dropdown__head-item {
     padding: 10px;
-    border: 1px solid red;
-}
-
-.up-dropdown__item {
-    padding: 10px;
-    border: 1px solid red;
 }
 
 .up__item {
     display: flex;
-    align-items: center;
-    padding: 0 10px;
-    border: 1px solid red;
+    width: 100px;
 }
 

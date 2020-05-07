@@ -7,6 +7,10 @@
     border: 1px solid red;
 }
 
+button {
+    padding: 0;
+}
+
 body {
     margin: 0;
 }
@@ -28,4 +32,22 @@ ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+}
+
+.li {
+    padding: 10px;
+}
+
+.icon-20 {
+    width: 20px;
+}
+
+.icon-16 {
+    width: 16px;
+}
+
+//Центрирование контента(Content-Center)
+.cc {
+    justify-content: center;
+    align-items: center;
 }
