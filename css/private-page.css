@@ -1,0 +1,92 @@
+/* line 2, ../online-store/scss/base/_base.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 6, ../online-store/scss/base/_base.scss */
+* {
+  border: 1px solid red;
+}
+
+/* line 10, ../online-store/scss/base/_base.scss */
+body {
+  margin: 0;
+}
+
+/* line 14, ../online-store/scss/base/_base.scss */
+h1, p, h2 {
+  margin: 0;
+}
+
+/* line 18, ../online-store/scss/base/_base.scss */
+.container {
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+/* line 23, ../online-store/scss/base/_base.scss */
+.hidden {
+  display: none !important;
+}
+
+/* line 27, ../online-store/scss/base/_base.scss */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 3, ../online-store/scss/private-page.scss */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+/* line 9, ../online-store/scss/private-page.scss */
+.main {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 3000px;
+}
+
+/* line 16, ../online-store/scss/private-page.scss */
+.person-options {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+/* line 22, ../online-store/scss/private-page.scss */
+.person-info {
+  display: flex;
+}
+
+/* line 26, ../online-store/scss/private-page.scss */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* line 32, ../online-store/scss/private-page.scss */
+.exit {
+  display: flex;
+  align-self: flex-start;
+}
+
+/* line 37, ../online-store/scss/private-page.scss */
+.change-persone-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* line 43, ../online-store/scss/private-page.scss */
+.content {
+  position: sticky;
+  top: 0;
+}
+
+/*# sourceMappingURL=private-page.css.map */

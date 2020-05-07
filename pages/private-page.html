@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="/css/private-page.css">
+</head>
+<body class="container">
+    <header class="header">
+        <a href="/index.html" class="logo">LOGOTIP</a>
+        <h1 class="head-title">Личный кабинет</h1>
+    </header>
+    <main class="main">
+        <div class="person-options">
+            <div class="person-info">
+                <img src="" alt="аватар" class="avatar">
+                <div class="welcome">
+                    <p>Здравствуйте,</p>
+                    <h2 class="person-fullname">Lorem, ipsum.</h2>
+                </div>
+            </div>
+            <ul class="sections">
+                <li><a href="">Мои заказы</a></li>
+                <li><a href="">Моя информация</a></li>
+                <li><a href="">Изменить пароль</a></li>
+                <li><a href="">Адресная книга</a></li>
+                <li><a href="">Мои способы оплаты</a></li>
+            </ul>
+            <button class='exit'>Выйти</button>
+        </div>
+
+        <div class="content hidden">
+            <div class="content__head">
+                <h1>Мои заказы</h1>
+            </div>
+            <div class="content__main">
+                <p>пока хз</p>
+            </div>
+        </div>
+
+        <div class="content hidden">
+            <div class="content__head">
+                <h1>Моя информация</h1>
+            </div>
+            <form class='change-persone-info' action="" method="POST">
+                <label for="first-name">Имя:</label>
+                <input type="text" id='first-name'>
+
+                <label for="last-name">Фамилия:</label>
+                <input type="text" id='last-name'>
+
+                <label for="email">Адресс электронной почты:</label>
+                <input type="text" id='email'>
+
+                <label for="birth-day">День рождения:</label>
+                <input type="date" id='birth-day'>
+
+                <button>Сохранить изменения</button>
+            </form>
+        </div>
+
+        <div class="content hidden">
+            <div class="content__head">
+                <h1>Изменить пароль</h1>
+            </div>
+            <form class='change-persone-info' action="" method="POST">
+                <label for="old-password">Текущий пароль:</label>
+                <input type="password" id='old-password'>
+
+                <label for="new-password">Новый пароль:</label>
+                <input type="password" id='new-password'>
+
+                <button>Сохранить пароль</button>
+            </form>
+        </div>
+
+        <!-- //два состояния - нет адреса - есть адресс -->
+        <div class="content">
+            <div class="content__head">
+                <h1>Добавить новый адрес</h1>
+            </div>
+            <form class='change-persone-info' action="" method="POST">
+                <label for="first-name">Имя:</label>
+                <input type="text" id='first-name'>
+
+                <label for="last-name">Фамилия:</label>
+                <input type="text" id='last-name'>
+
+                <label for="email">Мобильный телефон:</label>
+                <input type="text" id='email'>
+
+                <label class='adress__label' for="country">Страна:</label>
+                <input type="text" id="country" name="country">
+    
+                <label class='adress__label' for="city">Город:</label>
+                <input type="text" id="city" name="city">
+    
+                <label class='adress__label' for="street-adress">Улица, дом, квартира</label>
+                <input type="text" id="street-adress" name="street-adress">
+    
+                <label class='adress__label' for="post-index">Почтовый идекс</label>
+                <input type="text" id="post-index" name="post-index">
+
+                <button>Сохранить адресс</button>
+            </form>
+        </div>
+
+        <div class="content hidden">
+            <div class="content__head">
+                <h1>добавить способ оплаты</h1>
+            </div>
+            <p>???</p>
+        </div>
+    </main>
+    <footer class="footer"></footer>
+</body>
+</html>

@@ -1,0 +1,46 @@
+@import './base/base';
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 3000px;
+}
+
+.person-options {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.person-info {
+    display: flex;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.exit {
+    display: flex;
+    align-self: flex-start;
+}
+
+.change-persone-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.content {
+    position: sticky;
+    top: 0;
+}
