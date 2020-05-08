@@ -66,5 +66,10 @@ ul {
 
 //шаблон
 .label {
+    align-self: flex-start;
     margin: 10px 0;
+}
+
+.inp {
+    width: 250px;
 }

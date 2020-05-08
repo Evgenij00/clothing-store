@@ -78,79 +78,60 @@ ul {
 
 /* line 68, ../online-store/scss/base/_base.scss */
 .label {
+  align-self: flex-start;
   margin: 10px 0;
+}
+
+/* line 73, ../online-store/scss/base/_base.scss */
+.inp {
+  width: 250px;
 }
 
 /* line 4, ../online-store/scss/signin.scss */
 body {
-  background-color: gray;
+  background-color: #e2e2e2;
 }
 
-/* line 9, ../online-store/scss/signin.scss */
-.signin-container {
+/* line 8, ../online-store/scss/signin.scss */
+.auth-container-wrap {
   width: 600px;
   margin: 0 auto;
-  background-color: gray;
-  border: 2px solid red;
+}
+
+/* line 13, ../online-store/scss/signin.scss */
+.logo {
+  display: flex;
 }
 
 /* line 17, ../online-store/scss/signin.scss */
-.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid red;
-}
-
-/* line 25, ../online-store/scss/signin.scss */
-.main {
-  background-color: white;
-  border: 2px solid red;
-}
-
-/* line 31, ../online-store/scss/signin.scss */
-.signin-options {
-  display: flex;
-  justify-content: center;
-  padding: 0 20px;
-  border: 1px solid red;
-}
-
-/* line 39, ../online-store/scss/signin.scss */
-.signin-options__item {
-  display: flex;
-  width: 295px;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid red;
-}
-
-/* line 48, ../online-store/scss/signin.scss */
-.signin-form {
+.content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0 50px;
-  border: 1px solid red;
+  align-items: center;
+  background-color: white;
 }
 
-/* line 57, ../online-store/scss/signin.scss */
-.signin-form__label {
-  display: inline;
-  margin: 10px 0;
-  border: 1px solid red;
+/* line 24, ../online-store/scss/signin.scss */
+.auth-head {
+  display: flex;
+  justify-content: center;
 }
 
-/* line 64, ../online-store/scss/signin.scss */
-.signin-form__item {
-  width: 350px;
-  border: 1px solid red;
+/* line 29, ../online-store/scss/signin.scss */
+.auth-head__item {
+  display: flex;
+  width: 290px;
 }
 
-/* line 70, ../online-store/scss/signin.scss */
-.signin-form__button {
+/* line 35, ../online-store/scss/signin.scss */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 40, ../online-store/scss/signin.scss */
+.auth-form__button {
   margin-top: 10px;
-  align-self: center;
 }
 
 /*# sourceMappingURL=signin.css.map */

@@ -2,72 +2,41 @@
 @import './base/base';
 
 body {
-    background-color: rgb(128, 128, 128);
+    background-color: rgb(226, 226, 226);
 }
 
-//sign-in and sign-up
-.signin-container {
+.auth-container-wrap {
     width: 600px;
     margin: 0 auto;
-    background-color: gray;
-    border: 2px solid red;
 }
 
-//селектор повторяется!!! //sign-in and sign-up
 .logo {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid red;
 }
 
-//слишком общий класс //sign-in and sign-up
-.main {
-    background-color: white;
-    border: 2px solid red;
-}
-
-//sign-in and sign-up
-.signin-options {
-    display: flex;
-    justify-content: center;
-    padding: 0 20px;
-    border: 1px solid red;
-}
-
-//sign-in and sign-up
-.signin-options__item {
-    display: flex;
-    width: 295px;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid red;
-}
-
-//sign-in and sign-up
-.signin-form {
+.content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 0 50px;
-    border: 1px solid red;
+    align-items: center;
+    background-color: white;
 }
 
-//sign-in and sign-up
-.signin-form__label {
-    display: inline;
-    margin: 10px 0;
-    border: 1px solid red;
+.auth-head {
+    display: flex;
+    justify-content: center;
 }
 
-//sign-in and sign-up
-.signin-form__item {
-    width: 350px;  //можно регулировать размер инпута
-    border: 1px solid red;
+.auth-head__item {
+    display: flex;
+    //подумать, можно ли лучше реализовать
+    width: 290px;
 }
 
-//sign-in and sign-up
-.signin-form__button {
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form__button {
     margin-top: 10px;
-    align-self: center;
 }

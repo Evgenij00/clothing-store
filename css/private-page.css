@@ -78,7 +78,13 @@ ul {
 
 /* line 68, ../online-store/scss/base/_base.scss */
 .label {
+  align-self: flex-start;
   margin: 10px 0;
+}
+
+/* line 73, ../online-store/scss/base/_base.scss */
+.inp {
+  width: 250px;
 }
 
 /* line 4, ../online-store/scss/private-page.scss */
