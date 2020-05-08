@@ -62,6 +62,25 @@ ul {
   align-items: center;
 }
 
+/* line 55, ../online-store/scss/base/_base.scss */
+.f-c-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 61, ../online-store/scss/base/_base.scss */
+.main-btn {
+  display: block;
+  width: 100%;
+  background-color: green;
+}
+
+/* line 68, ../online-store/scss/base/_base.scss */
+.label {
+  margin: 10px 0;
+}
+
 /* line 4, ../online-store/scss/signin.scss */
 body {
   background-color: gray;

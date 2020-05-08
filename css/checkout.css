@@ -62,110 +62,119 @@ ul {
   align-items: center;
 }
 
+/* line 55, ../online-store/scss/base/_base.scss */
+.f-c-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 61, ../online-store/scss/base/_base.scss */
+.main-btn {
+  display: block;
+  width: 100%;
+  background-color: green;
+}
+
+/* line 68, ../online-store/scss/base/_base.scss */
+.label {
+  margin: 10px 0;
+}
+
 /* line 3, ../online-store/scss/checkout.scss */
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
 }
 
-/* line 9, ../online-store/scss/checkout.scss */
-.main {
+/* line 8, ../online-store/scss/checkout.scss */
+.logo {
+  display: flex;
+}
+
+/* line 12, ../online-store/scss/checkout.scss */
+.head-title {
+  display: flex;
+}
+
+/* line 16, ../online-store/scss/checkout.scss */
+.main-content {
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 
-/* line 15, ../online-store/scss/checkout.scss */
-.container-check {
+/* line 22, ../online-store/scss/checkout.scss */
+.check-container {
   width: 500px;
 }
 
-/* line 19, ../online-store/scss/checkout.scss */
-.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* line 25, ../online-store/scss/checkout.scss */
-.head-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* line 31, ../online-store/scss/checkout.scss */
-.adress-box {
+/* line 26, ../online-store/scss/checkout.scss */
+.adress-conrainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-/* line 37, ../online-store/scss/checkout.scss */
-.adress__label {
+/* line 32, ../online-store/scss/checkout.scss */
+.adress__btn {
   margin: 10px 0;
 }
 
-/* line 41, ../online-store/scss/checkout.scss */
-.btn-adress {
-  margin: 10px 0;
-}
-
-/* line 45, ../online-store/scss/checkout.scss */
+/* line 36, ../online-store/scss/checkout.scss */
 .delivery-way__item {
   display: flex;
 }
 
-/* line 49, ../online-store/scss/checkout.scss */
+/* line 40, ../online-store/scss/checkout.scss */
 .pay-way {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-/* line 55, ../online-store/scss/checkout.scss */
-.goods-info-box {
+/* line 46, ../online-store/scss/checkout.scss */
+.order-info {
   position: sticky;
   top: 0;
   border: 2px solid blue;
 }
 
-/* line 61, ../online-store/scss/checkout.scss */
-.goods-info__head {
+/* line 53, ../online-store/scss/checkout.scss */
+.order-info__head {
   display: flex;
   justify-content: space-between;
 }
 
+/* line 58, ../online-store/scss/checkout.scss */
+.order-info__title {
+  display: flex;
+}
+
+/* line 62, ../online-store/scss/checkout.scss */
+.order__item {
+  display: flex;
+}
+
 /* line 66, ../online-store/scss/checkout.scss */
-.goods-info__title {
-  display: flex;
-}
-
-/* line 70, ../online-store/scss/checkout.scss */
-.goods__item {
-  display: flex;
-}
-
-/* line 74, ../online-store/scss/checkout.scss */
-.img {
+.order__item-img {
   width: 100px;
 }
 
-/* line 78, ../online-store/scss/checkout.scss */
-.goods__description {
+/* line 70, ../online-store/scss/checkout.scss */
+.order__item-description {
   display: flex;
   flex-direction: column;
 }
 
-/* line 83, ../online-store/scss/checkout.scss */
-.total-price-goods {
+/* line 75, ../online-store/scss/checkout.scss */
+.goods-price {
   display: flex;
   justify-content: space-between;
 }
 
-/* line 88, ../online-store/scss/checkout.scss */
-.total-price-all {
+/* line 80, ../online-store/scss/checkout.scss */
+.order-price {
   display: flex;
   justify-content: space-between;
 }
