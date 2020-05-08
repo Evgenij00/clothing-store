@@ -81,26 +81,23 @@ ul {
   margin: 10px 0;
 }
 
-/* line 3, ../online-store/scss/private-page.scss */
+/* line 4, ../online-store/scss/private-page.scss */
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
 }
 
-/* line 9, ../online-store/scss/private-page.scss */
-.main {
+/* line 10, ../online-store/scss/private-page.scss */
+.main-content {
   display: flex;
   justify-content: center;
-  position: relative;
-  height: 3000px;
+  align-items: flex-start;
 }
 
 /* line 16, ../online-store/scss/private-page.scss */
 .person-options {
   display: flex;
   flex-direction: column;
-  width: 400px;
 }
 
 /* line 22, ../online-store/scss/private-page.scss */
@@ -109,26 +106,19 @@ ul {
 }
 
 /* line 26, ../online-store/scss/private-page.scss */
-.main {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-/* line 32, ../online-store/scss/private-page.scss */
-.exit {
+.exit-btn {
   display: flex;
   align-self: flex-start;
 }
 
-/* line 37, ../online-store/scss/private-page.scss */
-.change-persone-info {
+/* line 31, ../online-store/scss/private-page.scss */
+.form-data {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-/* line 43, ../online-store/scss/private-page.scss */
+/* line 37, ../online-store/scss/private-page.scss */
 .content {
   position: sticky;
   top: 0;

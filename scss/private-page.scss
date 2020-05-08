@@ -1,40 +1,34 @@
 @import './base/base';
 
+//шаблон
 .header {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
 }
 
-.main {
+//шаблон
+.main-content {
     display: flex;
     justify-content: center;
-    position: relative;
-    height: 3000px;
+    align-items: flex-start;
 }
 
 .person-options {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    // width: 400px;
 }
 
 .person-info {
     display: flex;
 }
 
-.main {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.exit {
+.exit-btn {
     display: flex;
     align-self: flex-start;
 }
 
-.change-persone-info {
+.form-data {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
