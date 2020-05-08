@@ -87,76 +87,51 @@ ul {
   width: 250px;
 }
 
-/* line 4, ../online-store/scss/signup.scss */
+/* line 1, ../online-store/scss/blocks/_login.scss */
 body {
-  background-color: gray;
+  background-color: #e2e2e2;
 }
 
-/* line 8, ../online-store/scss/signup.scss */
-.signin-container {
+/* line 5, ../online-store/scss/blocks/_login.scss */
+.auth-container-wrap {
   width: 600px;
   margin: 0 auto;
-  background-color: gray;
-  border: 2px solid red;
 }
 
-/* line 16, ../online-store/scss/signup.scss */
+/* line 10, ../online-store/scss/blocks/_login.scss */
 .logo {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid red;
 }
 
-/* line 24, ../online-store/scss/signup.scss */
-.main {
-  background-color: white;
-  border: 2px solid red;
-}
-
-/* line 29, ../online-store/scss/signup.scss */
-.signin-options {
-  display: flex;
-  justify-content: center;
-  padding: 0 20px;
-  border: 1px solid red;
-}
-
-/* line 36, ../online-store/scss/signup.scss */
-.signin-options__item {
-  display: flex;
-  width: 295px;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid red;
-}
-
-/* line 44, ../online-store/scss/signup.scss */
-.signin-form {
+/* line 14, ../online-store/scss/blocks/_login.scss */
+.content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0 50px;
-  border: 1px solid red;
+  align-items: center;
+  background-color: white;
 }
 
-/* line 52, ../online-store/scss/signup.scss */
-.signin-form__label {
-  display: inline;
-  margin: 10px 0;
-  border: 1px solid red;
+/* line 21, ../online-store/scss/blocks/_login.scss */
+.auth-head {
+  display: flex;
+  justify-content: center;
 }
 
-/* line 58, ../online-store/scss/signup.scss */
-.signin-form__item {
-  width: 350px;
-  border: 1px solid red;
+/* line 26, ../online-store/scss/blocks/_login.scss */
+.auth-head__item {
+  display: flex;
+  width: 290px;
 }
 
-/* line 63, ../online-store/scss/signup.scss */
-.signin-form__button {
+/* line 32, ../online-store/scss/blocks/_login.scss */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 37, ../online-store/scss/blocks/_login.scss */
+.auth-form__btn {
   margin-top: 10px;
-  align-self: center;
 }
 
 /*# sourceMappingURL=signup.css.map */

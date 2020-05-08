@@ -6,34 +6,41 @@
     <title>Регистрация</title>
     <link rel="stylesheet" href="./../css/signup.css">
 </head>
-<body>
+<body class="auth-container-wrap">
+    
     <!-- //Логотип сайта -->
-    <header class="header signin-container">
-        <div class="logo"><a href="./../index.html">LOGOTIP</a></div>
+    <header class="header">
+        <div class="logo cc"><a href="./../index.html">LOGOTIP</a></div>
     </header>
 
-    <!-- //Поле для регистрации -->
-    <main class='main signin-container'>
-        
-        <!-- //навигационное меню -->
-        <ul class="signin-options">
-            <li class='signin-options__item'><span>Впервые на Asos?</span></li>
-            <li class='signin-options__item'><a href="./sign-in.html">Вы уже Зарегестрированы?</a></li>
-        </ul>
+    <main class='main'>
 
-        <!-- //Форма Регистрации -->
-        <form action="" method="POST" class="signin-form">
-                <label class='signin-form__label' for="signin-email">Адрес электронной почты:</label>
-                <input class='signin-form__item' id='signin-email' type="text">
-                
-                <label class='signin-form__label' for="signin-password">Пароль:</label>
-                <input class='signin-form__item' id='signin-password' type="password">
+        <!-- //Поле для регистрации -->
+        <div class="content">
 
-                <label class='signin-form__label' for="replay-password">Повторите пароль:</label>
-                <input class='signin-form__item' id='replay-password' type="password">
+            <!-- //навигационное меню -->
+            <ul class="auth-head">
+                <li class='auth-head__item cc'><span>Впервые на Asos?</span></li>
+                <li class='auth-head__item cc'><a href="./sign-in.html">Вы уже Зарегестрированы?</a></li>
+            </ul>
 
-                <button class='signin-form__button'>Зарегестрироваться</button>
-        </form>
+            <!-- //Форма Регистрации -->
+            <form action="" method="POST" class="auth-form">
+                    <label class='label' for="signup-email">Адрес электронной почты:</label>
+                    <input class='inp' id='signup-email' type="text">
+                    
+                    <label class='label' for="signup-password">Пароль:</label>
+                    <input class='inp' id='signup-password' type="password">
+
+                    <label class='label' for="replay-password">Повторите пароль:</label>
+                    <input class='inp' id='replay-password' type="password">
+
+                    <label class='label' for="birthday">Дата рождения:</label>
+                    <input type="date" id='birthday'>
+
+                    <button class='signin-form__btn'>Зарегестрироваться</button>
+            </form>
+        </div>
     </main>
 </body>
 </html>

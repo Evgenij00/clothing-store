@@ -1,42 +1,5 @@
 //подключение базовых стилей
 @import './base/base';
 
-body {
-    background-color: rgb(226, 226, 226);
-}
-
-.auth-container-wrap {
-    width: 600px;
-    margin: 0 auto;
-}
-
-.logo {
-    display: flex;
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-}
-
-.auth-head {
-    display: flex;
-    justify-content: center;
-}
-
-.auth-head__item {
-    display: flex;
-    //подумать, можно ли лучше реализовать
-    width: 290px;
-}
-
-.auth-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.auth-form__button {
-    margin-top: 10px;
-}
+//подключение отдельных блоков
+@import './blocks/login'

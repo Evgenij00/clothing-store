@@ -87,23 +87,23 @@ ul {
   width: 250px;
 }
 
-/* line 4, ../online-store/scss/signin.scss */
+/* line 1, ../online-store/scss/blocks/_login.scss */
 body {
   background-color: #e2e2e2;
 }
 
-/* line 8, ../online-store/scss/signin.scss */
+/* line 5, ../online-store/scss/blocks/_login.scss */
 .auth-container-wrap {
   width: 600px;
   margin: 0 auto;
 }
 
-/* line 13, ../online-store/scss/signin.scss */
+/* line 10, ../online-store/scss/blocks/_login.scss */
 .logo {
   display: flex;
 }
 
-/* line 17, ../online-store/scss/signin.scss */
+/* line 14, ../online-store/scss/blocks/_login.scss */
 .content {
   display: flex;
   flex-direction: column;
@@ -111,26 +111,26 @@ body {
   background-color: white;
 }
 
-/* line 24, ../online-store/scss/signin.scss */
+/* line 21, ../online-store/scss/blocks/_login.scss */
 .auth-head {
   display: flex;
   justify-content: center;
 }
 
-/* line 29, ../online-store/scss/signin.scss */
+/* line 26, ../online-store/scss/blocks/_login.scss */
 .auth-head__item {
   display: flex;
   width: 290px;
 }
 
-/* line 35, ../online-store/scss/signin.scss */
+/* line 32, ../online-store/scss/blocks/_login.scss */
 .auth-form {
   display: flex;
   flex-direction: column;
 }
 
-/* line 40, ../online-store/scss/signin.scss */
-.auth-form__button {
+/* line 37, ../online-store/scss/blocks/_login.scss */
+.auth-form__btn {
   margin-top: 10px;
 }
 
