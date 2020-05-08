@@ -1,17 +1,24 @@
+// Стили для блока - вся информация о товаре
+
 .product-box {
     display: flex;
     justify-content: space-between;
+    //потом убрать
     margin-top: 50px;
 }
 
 .product-list-img {
     display: flex;
     flex-direction: column;
-    width: 50px;
+    width: 95px;
 }
 
 .img-item {
     width: 100%;
+}
+
+.buttons {
+    display: flex;
 }
 
 .select-size {
