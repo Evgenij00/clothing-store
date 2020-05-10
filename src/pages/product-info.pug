@@ -1,0 +1,46 @@
+extends common/_layout.pug
+
+block head
+    title Корзина
+
+block header
+    include common/_header.pug
+
+block content
+  main.main.container
+    //-Реализация блока - вся информация о товаре
+    .product-box
+        ul.product-list-img
+            li
+                img.img-item(src="/img/goods/14247601-1-sesame.jpg", alt="фото")
+            li
+                img.img-item(src="/img/goods/14247601-1-sesame.jpg", alt="фото")
+            li
+                img.img-item(src="/img/goods/14247601-1-sesame.jpg", alt="фото")
+            li
+                img.img-item(src="/img/goods/14247601-1-sesame.jpg", alt="фото")
+        
+        img.product__main-image(src="/img/goods/14247601-1-sesame.jpg", alt="Главное фото")
+
+        .product__info
+            h1.product__title Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet, perspiciatis?
+
+            p.product__price 1790,00 руб
+
+            //-сырая реализация свойств
+            p.product__property Lorem, ipsum dolor.
+
+            form.product__form(action="#")
+                label(for="product-size") Размер
+                select#product-size.select-size(name="product-size")
+                    option(value="") Пожалуйста, выберите
+                    option(value="xs") xs
+                    option(value="s") s
+                    option(value="m") m
+                    option(value="l") l
+                    option(value="xl") xl
+
+                .buttons
+                    button.btn__add-cart Добавить в корзину
+                    button.btn__like-cart.f-c-c
+                        img.icon-20(src="/img/icons/icon-love.svg", alt="Избранное")

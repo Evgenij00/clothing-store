@@ -1,0 +1,13 @@
+//- блок - смена пароля 
+.content.hidden
+    .content__head
+        h1 Изменить пароль
+
+    form.form-data(action, method='POST')
+        label.label(for='old-password') Текущий пароль:
+        input#old-password(type='password')
+
+        label.label(for='new-password') Новый пароль:
+        input#new-password(type='password')
+
+        button Сохранить пароль

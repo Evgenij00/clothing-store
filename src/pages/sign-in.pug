@@ -1,0 +1,33 @@
+extends common/_layout.pug
+
+block head
+  title Вход
+
+block header
+  //- Логотип сайта 
+  header.header.auth-container-wrap
+    .logo.cc
+      a(href='/index.html') LOGOTIP
+
+block content
+  main.main.auth-container-wrap
+    //- Поле для авторизации 
+    .content
+
+      //- навигационное меню 
+      ul.auth-head
+        li.auth-head__item.cc
+          a(href='/pages/sign-up.html') Впервые на Asos?
+
+        li.auth-head__item.cc
+          span Вы уже Зарегестрированы?
+
+      //- Форма авторизации 
+      form.auth-form(action='#', method='POST')
+        label.label(for='signin-email') Адрес электронной почты:
+        input.inp#signin-email(type='text')
+
+        label.label(for='signin-password') Пароль:
+        input.inp#signin-password(type='password')
+        
+        button.auth-form__btn Войти

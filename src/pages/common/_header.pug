@@ -1,0 +1,51 @@
+//- шапка сайта
+header.header
+    //-Информационный блок
+    //-<div class="header-info"></div>
+
+    //-Основной блок
+    .header-main.container
+
+        //- логотип сайта
+        a.logo.cc(href="/index.html") LOGOTIP
+        
+        //- гендерные разделы
+        .gender-menu
+            a.gender-menu__item.cc(href="/pages/woomen.html") Женское
+            a.gender-menu__item.cc(href="/pages/men.html") Мужское
+
+        //- форма поиска
+        form.search-form(action="#" method='get')
+            input.search-form__input(name='search-form' type="text" placeholder="Искать")
+            button.search-form__btn.cc(type='submit')
+                img.icon-20(src="/img/icons/icon-search.svg", alt="search")
+
+        //- Пользовательская панель
+        .user-panel
+
+            //- два состояния - user вошел - user не вошел
+            //- не вошел
+            .up-dropdow
+                button.up-dropdown__btn.cc
+                    img.icon-20(src="/img/icons/icon-user.svg", alt="User")
+                
+                .up-dropdown__select
+                    .up-dropdown__head
+                        .up-dropdown__head-item
+                            a(href="/pages/sign-in.html") Войти
+                        
+                        .up-dropdown__head-item
+                            a(href="/pages/sign-up.html") Регистрация
+                    
+                    ul.up-dropdown__list
+                        li.up-dropdown__item.li
+                            a(href="/pages/private-page.html") Личный кабинет
+
+                        li.up-dropdown__item.li
+                            a(href="/pages/private-page.html") Мои заказы
+            
+            a.up__item.cc(href="#")
+                img.icon-20(src="/img/icons/icon-like.svg", alt="Избранное")
+
+            a.up__item.cc(href="/pages/cart.html")
+                img.icon-20(src="/img/icons/icon-cart.svg", alt="Корзина")

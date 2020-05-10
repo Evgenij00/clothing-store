@@ -1,0 +1,30 @@
+// Стили для блока - вся информация о товаре
+
+.product-box {
+    display: flex;
+    justify-content: space-between;
+    //потом убрать
+    margin-top: 200px;
+}
+
+.product-list-img {
+    display: flex;
+    flex-direction: column;
+    width: 95px;
+}
+
+.img-item {
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+}
+
+.select-size {
+    display: block;
+}
+
+.btn__like-cart {
+    width: 32px;
+}

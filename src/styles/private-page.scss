@@ -1,0 +1,40 @@
+// Стили для страницы - Личный кабинет
+
+//шаблон
+.header-2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+//шаблон
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.person-options {
+    display: flex;
+    flex-direction: column;
+    // width: 400px;
+}
+
+.person-info {
+    display: flex;
+}
+
+.exit-btn {
+    display: flex;
+    align-self: flex-start;
+}
+
+.form-data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.content {
+    position: sticky;
+    top: 0;
+}

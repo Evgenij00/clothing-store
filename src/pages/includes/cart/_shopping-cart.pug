@@ -1,0 +1,44 @@
+.shopping-cart
+          .shopping-cart__head
+            h2 Моя корзина
+            p Товары будут зарезервированы на 60 минут
+
+          //- блок с товарами 
+          ul.cart-goods
+
+            //- пример товара 
+            li.cart-item
+
+              //- блок кнопок 
+              .cart-item__buttons
+                button.btn-remove.cc
+                  img.icon-20(src='/img/icons/icon-remove.svg', alt='удалить')
+
+                button.btn-like.cc
+                  img.icon-20(src='/img/icons/icon-like.svg', alt='Добавить в избранное')
+
+              //- блок изображение 
+              a(href='/pages/product-info.html')
+                img.cart-item__image(src='/img/goods/14247601-1-sesame.jpg', alt='изображение товара')
+
+              //- блок описание 
+              .cart-item__description
+                a.cart-item__title(href='/pages/product-info.html') Lorem ipsum dolor sitmet.
+
+                //- сырая реализация свойств 
+                p.cart-item__property-text Lorem, ipsum.
+
+              //- блок количество товара 
+              .cart-item__control-quentity
+                button.btn-plus.cc
+                  img.icon-20(src='/img/icons/icon-plus.svg', alt='Прибавить')
+
+                input.cart-item__input-quentity(type='text', value='1')
+
+                button.btn-minus.cc
+                  img.icon-20(src='/img/icons/icon-minus.svg', alt='уменьшить')
+
+              //- блок цена 
+              .cart-item__total-price $549
+
+          .total-price__head Всего 550,00 руб

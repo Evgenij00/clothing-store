@@ -1,0 +1,16 @@
+extends common/_layout.pug
+
+block head
+    title LOGOTIP | Checkout
+
+block header
+  header.header.container
+    a.logo.f-c-c(href='/index.html') LOGOTIP
+    h1.head-title.cc Оформление заказ
+
+block content
+  main.main.container
+      .main-content
+        include includes/checkout/_entering-order-data.pug
+
+        include includes/checkout/_order-info.pug

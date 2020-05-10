@@ -1,0 +1,20 @@
+//- Блок "ИТОГО" - сырой, нужно подумать насчеn высоты 
+.total-container
+    h2.total__head Итого
+
+    .total__price-full
+    span Всего
+    span 550,00 руб
+
+    //- рассмотреть вариант формы 
+    form(action='/pages/checkout.html', method='post')
+    label(for='delivery-pay') Доставка
+    
+    select.total__select-delivery#delivery-pay(name)
+        option(value) Стандартная доставка
+        option(value) Стандартная доставка - Пункт самовызова
+        option(value) Экспресс - доставка
+        option(value) Экспресс - доставка курьером Пункт выдачи товаров
+
+    //- разобраться с обработкой формы!!!! 
+    button.btn-2.btn-pay-order.cc(type='submit') Оплатить

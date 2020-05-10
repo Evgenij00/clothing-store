@@ -1,0 +1,28 @@
+// подключенные стили
+@import "../../../node_modules/normalize.css/normalize";
+
+//мои стили
+@import '../base/base';
+
+//сторонние стили - с хабра
+
+//разобраться
+*, *::before, *::after { 
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,16 @@
+//подключаю базу
+@import './common/global.scss';
+
+
+@import './common/global.scss';
+
+//подключаю отдельные смысловые блоки
+@import './common/header';
+@import './common/section-goods';
+@import './common/product';
+
+//страницы
+@import './auth.scss';
+@import './private-page.scss';
+@import './cart.scss';
+@import './checkout.scss';

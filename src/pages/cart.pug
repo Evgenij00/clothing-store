@@ -1,0 +1,16 @@
+extends common/_layout.pug
+
+block head
+    title Корзина
+
+block header
+    include common/_header.pug
+
+block content
+  main.main
+      .main-content.container
+        include includes/cart/_shopping-cart.pug
+
+        include includes/cart/_total-cart.pug
+      
+      

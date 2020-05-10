@@ -1,0 +1,24 @@
+extends common/_layout.pug
+
+block head
+    title LOGOTIP | ЛК
+
+block header
+  header.header-2.container
+    a.logo.f-c-c(href='/index.html') LOGOTIP
+    h1.head-title Личный кабинет
+
+block content
+  main.main.container
+      .main-content
+        include includes/private-page/_person-options.pug
+
+        include includes/private-page/_my-orders.pug
+
+        include includes/private-page/_my-info.pug
+
+        include includes/private-page/_change-pass.pug
+
+        include includes/private-page/_adress.pug
+        
+        include includes/private-page/_pay.pug

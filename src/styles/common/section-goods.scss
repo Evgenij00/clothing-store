@@ -1,0 +1,28 @@
+// Стили для карточки с товарами
+
+.goods {
+    margin-top: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.goods__item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 250px;
+    padding: 10px;
+}
+
+.goods__item-image {
+    width: 100%;
+}
+
+.goods__item-btnlike {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 10px;
+    right: 10px;
+}

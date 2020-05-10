@@ -1,0 +1,19 @@
+//- блок - информация 
+.content
+    .content__head
+        h1 Моя информация
+
+    form.form-data(action, method='POST')
+        label.label(for='first-name') Имя:
+        input#first-name(type='text')
+
+        label.label(for='last-name') Фамилия:
+        input#last-name(type='text')
+
+        label.label(for='email') Адресс электронной почты:
+        input#email(type='text')
+
+        label.label(for='birthday') Дата рождения:
+        input#birthday(type='date')
+
+        button Сохранить изменения

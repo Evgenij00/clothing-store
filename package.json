@@ -1,0 +1,34 @@
+{
+  "name": "online-store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Evgenij00/online-store.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Evgenij00/online-store/issues"
+  },
+  "homepage": "https://github.com/Evgenij00/online-store#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "del": "^5.1.0",
+    "gulp-html-bem-validator": "^1.0.5",
+    "gulp-html2pug": "^3.0.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-w3c-html-validator": "^2.0.1",
+    "node-sass": "^4.14.1",
+    "normalize.css": "^8.0.1"
+  }
+}

@@ -1,0 +1,29 @@
+//- два состояния - нет адреса - есть адресс 
+//- нет адресса 
+.content.hidden
+    .content__head
+        h1 Добавить новый адрес
+
+    form.form-data(action, method='POST')
+        label.label(for='first-name') Имя:
+        input#first-name(type='text')
+
+        label.label(for='last-name') Фамилия:
+        input#last-name(type='text')
+
+        label.label(for='email') Мобильный телефон:
+        input#email(type='text')
+
+        label.label(for='country') Страна:
+        input#country(type='text', name='country')
+
+        label.label(for='city') Город:
+        input#city(type='text', name='city')
+
+        label.label(for='street-adress') Улица, дом, квартира
+        input#street-adress(type='text', name='street-adress')
+
+        label.label(for='post-index') Почтовый идекс
+        input#post-index(type='text', name='post-index')
+
+        button Сохранить адресс

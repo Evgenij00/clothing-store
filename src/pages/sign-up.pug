@@ -1,0 +1,39 @@
+extends common/_layout.pug
+
+block head
+  title Регистрация
+
+block header
+  //- Логотип сайта 
+  header.header.auth-container-wrap
+    .logo.cc
+      a(href='/index.html') LOGIP
+
+block content
+  main.main.auth-container-wrap
+    //- Поле для регистрации 
+    .content
+
+      //- навигационное меню 
+      ul.auth-head
+        li.auth-head__item.cc
+          span Впервые на Asos?
+
+        li.auth-head__item.cc
+          a(href='/pages/sign-in.html') Вы уже Зарегестрированы?
+
+      //- Форма Регистрации 
+      form.auth-form(action='#', method='POST')
+        label.label(for='signup-email') Адрес электронной почты:
+        input.inp#signup-email(type='text')
+
+        label.label(for='signup-password') Пароль:
+        input.inp#signup-password(type='password')
+
+        label.label(for='replay-password') Повторите пароль:
+        input.inp#replay-password(type='password')
+
+        label.label(for='birthday') Дата рождения:
+        input#birthday(type='date')
+
+        button.signin-form__btn Зарегестрироваться
