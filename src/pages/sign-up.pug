@@ -7,7 +7,7 @@ block header
   //- Логотип сайта 
   header.header.auth-container-wrap
     .logo.cc
-      a(href='/index.html') LOGIP
+      a(href='/index.html') LOGOTIP
 
 block content
   main.main.auth-container-wrap
@@ -23,17 +23,26 @@ block content
           a(href='/pages/sign-in.html') Вы уже Зарегестрированы?
 
       //- Форма Регистрации 
-      form.auth-form(action='#', method='POST')
-        label.label(for='signup-email') Адрес электронной почты:
-        input.inp#signup-email(type='text')
+      form.auth-form(action='/sign-up.php', method='POST')
+        label.label(for='first_name') Имя:
+        input.inp#first_name(type='text' name='first_name' required)
 
-        label.label(for='signup-password') Пароль:
-        input.inp#signup-password(type='password')
+        label.label(for='last_name') Фамилия:
+        input.inp#last_name(type='text' name='last_name' required)
 
-        label.label(for='replay-password') Повторите пароль:
-        input.inp#replay-password(type='password')
+        label.label(for='patronymic') Отчество:
+        input.inp#last_name(type='text' name='patronymic')
 
-        label.label(for='birthday') Дата рождения:
-        input#birthday(type='date')
+        label.label(for='email') Адрес электронной почты:
+        input.inp#email(type='text' name='email' required)
+
+        label.label(for='password') Пароль:
+        input.inp#password(type='password' name='password' required)
+
+        //- label.label(for='replay-password') Повторите пароль:
+        //- input.inp#replay-password(type='password')
+
+        //- label.label(for='birthday') Дата рождения:
+        //- input#birthday(type='date')
 
         button.signin-form__btn Зарегестрироваться

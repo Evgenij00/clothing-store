@@ -35,9 +35,7 @@ pug2htmlindex = function pug2htmlindex(cb) {
 function serve(cb) {
     // разобраться
     server.init({
-        server: {
-            baseDir: 'build' // здесь указываем корневую папку для локального сервера 
-        },
+        proxy: 'project',
         browser: 'chrome',
         notify: false,
     })
@@ -46,6 +44,7 @@ function serve(cb) {
     watch('src/pages/**/*.pug', series(pug2html, pug2htmlindex));
     watch('src/index.pug', series(pug2htmlindex));
     watch('build/**/*.html').on('change', server.reload);
+    watch('build/**/*.php').on('change', server.reload);
     
     return cb();
 }

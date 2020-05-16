@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="/css/main.css"/>
-    <title>Главная</title>
+    <title>Мужчины</title>
   </head>
   <body>
     <header class="header">
@@ -31,5 +31,3 @@
         </div>
       </div>
     </header>
-  </body>
-</html>

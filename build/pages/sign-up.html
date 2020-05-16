@@ -8,7 +8,7 @@
   </head>
   <body>
     <header class="header auth-container-wrap">
-      <div class="logo cc"><a href="/index.html">LOGIP</a></div>
+      <div class="logo cc"><a href="/index.html">LOGOTIP</a></div>
     </header>
     <main class="main auth-container-wrap">
       <div class="content">
@@ -16,15 +16,17 @@
           <li class="auth-head__item cc"><span>Впервые на Asos?</span></li>
           <li class="auth-head__item cc"><a href="/pages/sign-in.html">Вы уже Зарегестрированы?</a></li>
         </ul>
-        <form class="auth-form" action="#" method="POST">
-          <label class="label" for="signup-email">Адрес электронной почты:</label>
-          <input class="inp" id="signup-email" type="text"/>
-          <label class="label" for="signup-password">Пароль:</label>
-          <input class="inp" id="signup-password" type="password"/>
-          <label class="label" for="replay-password">Повторите пароль:</label>
-          <input class="inp" id="replay-password" type="password"/>
-          <label class="label" for="birthday">Дата рождения:</label>
-          <input id="birthday" type="date"/>
+        <form class="auth-form" action="/sign-up.php" method="POST">
+          <label class="label" for="first_name">Имя:</label>
+          <input class="inp" id="first_name" type="text" name="first_name" required="required"/>
+          <label class="label" for="last_name">Фамилия:</label>
+          <input class="inp" id="last_name" type="text" name="last_name" required="required"/>
+          <label class="label" for="patronymic">Отчество:</label>
+          <input class="inp" id="last_name" type="text" name="patronymic"/>
+          <label class="label" for="email">Адрес электронной почты:</label>
+          <input class="inp" id="email" type="text" name="email" required="required"/>
+          <label class="label" for="password">Пароль:</label>
+          <input class="inp" id="password" type="password" name="password" required="required"/>
           <button class="signin-form__btn">Зарегестрироваться</button>
         </form>
       </div>
