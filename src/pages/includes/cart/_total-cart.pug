@@ -7,7 +7,7 @@
     span 550,00 руб
 
     //- рассмотреть вариант формы 
-    form(action='/pages/checkout.html', method='post')
+    form(action='#', method='post')
     label(for='delivery-pay') Доставка
     
     select.total__select-delivery#delivery-pay(name)
@@ -16,5 +16,10 @@
         option(value) Экспресс - доставка
         option(value) Экспресс - доставка курьером Пункт выдачи товаров
 
-    //- разобраться с обработкой формы!!!! 
-    button.btn-2.btn-pay-order.cc(type='submit') Оплатить
+    //- разобраться с обработкой формы!!!!
+
+    //- Реализация кнопкой для php
+    //- button.btn-2.btn-pay-order.cc(type='submit') Оплатить
+
+    //- Реализация ссылкой на время 
+    a.btn-2.btn-pay-order.cc(href="/pages/checkout.html") Оплатить

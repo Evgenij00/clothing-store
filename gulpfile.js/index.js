@@ -35,7 +35,7 @@ pug2htmlindex = function pug2htmlindex(cb) {
 function serve(cb) {
     // разобраться
     server.init({
-        proxy: 'project',
+        proxy: 'onlinestore.loc',
         browser: 'chrome',
         notify: false,
     })
