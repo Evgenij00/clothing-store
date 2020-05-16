@@ -4,10 +4,10 @@
   <div class="goods container">
     <?php foreach ($goods as $item): ?>
         <div class="goods__item">
-          <a href=<?=$item['href']?>>
+          <a href='products/<?=$item['id']?>' >
             <img src=<?=$item['img']?> alt="товар"/>
           </a>
-          <span class="goods__item-title"><?=$item['title']?></span>
+          <span class="goods__item-title"><?=$item['name']?></span>
           <span class="goods__item-price"><?=$item['price']?></span>
           <button class="goods__item-btnlike f-c-c"><img src="/img/icons/icon-like.svg" alt="Избранное"/></button>
         </div>
