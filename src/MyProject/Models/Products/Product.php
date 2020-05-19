@@ -1,48 +1,43 @@
 <?php
 
     namespace MyProject\Models\Products;
+    use MyProject\Services\Db;
+    use MyProject\Models\ActiveRecordEntity;
 
-    class Product {
-
-        private $id;
-        private $name;
-        private $description;
-        private $short_description;
-        private $price;
-        private $status;
-        private $sale;
-
-        private $images;
-        // private $img;
-        // private $title;
-        // private $description;
-        // private $price;
-
-        // public function __construct(string $img, string $title, string $description, string $price) {
-        //     $this->img = $img;
-        //     $this->title = $title;
-        //     $this->description = $description;
-        //     $this->price = $price;
-        // }
-
-        // public function getImg(): string 
-        // {
-        //     return $this->img;
-        // }
+    class Product extends ActiveRecordEntity {
         
-        // public function getTitle(): string 
-        // {
-        //     return $this->title;
-        // }
+        protected $name;
+        protected $description;
+        protected $shortDescription;
+        protected $price;
+        protected $status;
+        protected $sale;
 
-        // public function getDescription(): string 
-        // {
-        //     return $this->description;
-        // }
+        public function getName(): string {
+            return $this->name;
+        }
 
-        // public function getPrice(): string 
-        // {
-        //     return $this->price;
-        // }
-        
+        public function getDescription(): string {
+            return $this->description;
+        }
+
+        public function getShortDescription(): string {
+            return $this->shortDescription;
+        }
+
+        public function getPrice(): float {
+            return $this->price;
+        }
+
+        public function getStatus(): string {
+            return $this->status;
+        }
+
+        public function getSale(): float {
+            return $this->sale;
+        }
+
+        protected static function getTableName(): string {
+            return 'goods';
+        }
     }

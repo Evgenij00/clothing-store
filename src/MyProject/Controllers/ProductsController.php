@@ -3,6 +3,7 @@
     namespace MyProject\Controllers;
     use MyProject\View\View;
     use MyProject\Services\Db;
+    use MyProject\Models\Products\Product;
 
     class ProductsController {
         private $view;
@@ -15,20 +16,15 @@
             $this->db = new Db();
         }
 
-        public function view(string $productId) {
-            
-            $sql = 'SELECT product.*, goods_img.img_src AS img FROM (SELECT * FROM goods WHERE id = :id) AS product INNER JOIN goods_img ON product.id = goods_img.goods_id AND goods_img.is_main = :is_main;';
+        public function view(int $productId) {
 
-            $result = $this->db->query($sql, [
-                ':id' => $productId,
-                ':is_main' => '1'
-            ]);
+            $product = Product::getById($productId);
 
-            if (empty($result)) {
+            if (empty($product)) {  //Сравнить с методом $product === null
                 $this->view->renderHtml('error/404.php', [], 404);
                 return;
             }
 
-            $this->view->renderHtml('product/product.php', ['product' => $result[0]]);
+            $this->view->renderHtml('product/product.php', ['product' => $product]);
         }
     }

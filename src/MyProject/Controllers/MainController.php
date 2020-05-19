@@ -13,17 +13,14 @@
         public function __construct() {
             $this->view = new View(__DIR__ . '/../../../templates');
 
-            $this->db = new Db();
+            // $this->db = new Db();
         }
 
         public function main() {
 
-            $sql = 'SELECT goods.*, goods_img.img_src AS img FROM goods INNER JOIN goods_img ON goods.id = goods_img.goods_id AND goods_img.is_main = :is_main;';
-            $goods = $this->db->query($sql, [':is_main' => '1'], Product::class);
+            $goods = Product::findAll();
 
-            vardump($goods);
-
-            // $this->view->renderHtml('main/main.php', ['goods' => $goods]);
+            $this->view->renderHtml('main/main.php', ['goods' => $goods]);
         }
 
         public function sayHello($name) {

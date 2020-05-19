@@ -3,14 +3,14 @@
 <main class="main container">
       <div class="product-box">
         <ul class="product-list-img">
-          <li><img class="img-item" src=<?= $product['img']?> alt="фото"/></li>
-          <li><img class="img-item" src=<?= $product['img']?> alt="фото"/></li>
-          <li><img class="img-item" src=<?= $product['img']?> alt="фото"/></li>
-          <li><img class="img-item" src=<?= $product['img']?> alt="фото"/></li>
-        </ul><img class="product__main-image" src=<?= $product['img']?> alt="Главное фото"/>
+          <li><img class="img-item" src='#' alt="фото"/></li>
+          <li><img class="img-item" src='#' alt="фото"/></li>
+          <li><img class="img-item" src='#' alt="фото"/></li>
+          <li><img class="img-item" src='#' alt="фото"/></li>
+        </ul><img class="product__main-image" src='#' alt="Главное фото"/>
         <div class="product__info">
-          <h1 class="product__title"><?= $product['name']?></h1>
-          <p class="product__price"><?= $product['price']?></p>
+          <h1 class="product__title"><?= $product->getName() ?></h1>
+          <p class="product__price"><?= $product->getPrice() ?></p>
           <p class="product__property">Lorem, ipsum dolor.</p>
           <form class="product__form" action="#">
             <label for="product-size">Размер</label>
