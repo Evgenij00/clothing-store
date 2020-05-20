@@ -2,12 +2,16 @@
 
 <main class="main container">
       <div class="product-box">
+
+      <!-- Если время хватит!   <ph $images->getProduct()->getMainImg()>
         <ul class="product-list-img">
           <li><img class="img-item" src='#' alt="фото"/></li>
           <li><img class="img-item" src='#' alt="фото"/></li>
           <li><img class="img-item" src='#' alt="фото"/></li>
           <li><img class="img-item" src='#' alt="фото"/></li>
-        </ul><img class="product__main-image" src='#' alt="Главное фото"/>
+        </ul> -->
+        
+        <img class="product__main-image" src='<?= $product->getMainImg() ?>' alt="Главное фото"/>
         <div class="product__info">
           <h1 class="product__title"><?= $product->getName() ?></h1>
           <p class="product__price"><?= $product->getPrice() ?></p>

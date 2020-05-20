@@ -1,24 +1,30 @@
 <?php
     namespace MyProject\Controllers;
+
     use MyProject\View\View;
-    use MyProject\Services\Db;
     use MyProject\Models\Products\Product;
+    use MyProject\Models\Users\User;
+    use MyProject\Models\Images\Image;
 
     class MainController {
 
         private $view;
 
-        private $db;
-
         public function __construct() {
-            $this->view = new View(__DIR__ . '/../../../templates');
 
-            // $this->db = new Db();
+            $this->view = new View(__DIR__ . '/../../../templates');
+            
         }
 
         public function main() {
 
             $goods = Product::findAll();
+            // $goods = User::findAll();
+            // $goods = Image::findAll();
+            
+
+            // vardump($goods);
+            // return;
 
             $this->view->renderHtml('main/main.php', ['goods' => $goods]);
         }

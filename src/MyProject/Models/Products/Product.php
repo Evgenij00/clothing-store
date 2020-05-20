@@ -1,12 +1,13 @@
 <?php
 
     namespace MyProject\Models\Products;
-    use MyProject\Services\Db;
+
     use MyProject\Models\ActiveRecordEntity;
 
     class Product extends ActiveRecordEntity {
         
         protected $name;
+        protected $mainImg;
         protected $description;
         protected $shortDescription;
         protected $price;
@@ -15,6 +16,10 @@
 
         public function getName(): string {
             return $this->name;
+        }
+
+        public function getMainImg(): string {
+            return $this->mainImg;
         }
 
         public function getDescription(): string {

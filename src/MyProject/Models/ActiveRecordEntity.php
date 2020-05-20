@@ -2,6 +2,7 @@
 
     namespace MyProject\Models;
     use MyProject\Services\Db;
+    use MyProject\Models\Users\User;
 
     abstract class ActiveRecordEntity {
 
@@ -11,7 +12,7 @@
             return $this->id;
         }
 
-        public function __set(string $name, $value) { //Динамически создает свойства класса из БД. Если этот метод добавить в класс и попытаться задать ему несуществующее свойство, то вместо динамического добавления такого свойства, будет вызван этот метод. При этом в первый аргумент $name, попадёт имя свойства, а во второй аргумент $value – его значение. А внутри этого метода мы уже сможем решить, что с этими данными делать.
+        public function __set(string $name, $value) { //Динамически создает свойства класса из БД. Если этот метод добавить в класс и попытаться задать ему несуществующее свойство, то вместо динамического добавления такого свойства, будет вызван этот метод. При этом в первый аргумент $name, попадёт имя свойства, а во второй аргумент $value – его значение. А внутри этого метода мы уже сможем решить, что с этими данными делать. Все магические методы ДОЛЖНЫ быть объявлены как public.
             $camelCaseName = $this->underscoreToCamelCase($name);
             $this->$camelCaseName = $value;
         }
@@ -34,8 +35,10 @@
 
         abstract protected static function getTableName(): string; //интерфейс
 
-        public static function getById(int $id): ?self {
+        public static function getById(int $id): ?self { //   (: ?self) - ПОДУМАТЬ, ЧТО С ЭТИМ ДЕЛАТЬ!!!
             $db = new Db();
+
+            // echo static::getTableName();
 
             $sql = 'SELECT * FROM ' . static::getTableName() . ' WHERE id = :id';
 

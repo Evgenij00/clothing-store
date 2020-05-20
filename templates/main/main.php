@@ -5,7 +5,7 @@
     <?php foreach ($goods as $product): ?>
         <div class="goods__item">
           <a href='products/<?= $product->getId() ?>' >
-            <img src='#' alt="товар"/>
+            <img src='<?= $product->getMainImg() ?>' alt="товар"/>
           </a>
           <span class="goods__item-title"><?= $product->getName() ?></span>
           <span class="goods__item-price"><?= $product->getPrice() ?></span>
