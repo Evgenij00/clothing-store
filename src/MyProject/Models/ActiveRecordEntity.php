@@ -18,9 +18,8 @@
         }
 
         public static function findAll(): array {
-
-            $db = new Db();
-
+            $db = Db::getInstace();
+            
             $sql = 'SELECT * FROM ' . static::getTableName() . ';'; //  (;) и `` - всегда!!!
             return $db->query(
                 $sql, 
@@ -36,7 +35,7 @@
         abstract protected static function getTableName(): string; //интерфейс
 
         public static function getById(int $id): ?self { //   (: ?self) - ПОДУМАТЬ, ЧТО С ЭТИМ ДЕЛАТЬ!!!
-            $db = new Db();
+            $db = Db::getInstace();
 
             // echo static::getTableName();
 

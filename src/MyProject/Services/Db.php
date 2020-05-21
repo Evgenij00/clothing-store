@@ -4,9 +4,19 @@
 
     class Db {
 
+        private static $instace;
         private $pdo;
 
-        public function __construct(){
+        public static function getInstace(): self {
+
+            if (!isset(self::$instace)) { //(self::$instance === null) потом сравнить!
+                self::$instace = new self();
+            }
+
+            return self::$instace;
+        }
+
+        private function __construct(){
             $dbOptions = (require __DIR__ . '/../../settings.php')['db'];
 
             $this->pdo = new \PDO(

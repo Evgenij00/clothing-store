@@ -15,7 +15,7 @@
         public function __construct() {
             $this->view = new View(__DIR__ . '/../../../templates');
 
-            $this->db = new Db();
+            $this->db = Db::getInstace();
         }
 
         public function view(int $productId) {

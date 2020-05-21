@@ -2,13 +2,13 @@
     // index.php - FRONT CONTROLLER!
 
     //Функции - printr & vardump - для красивого вывода на страницу
-    function printr($var) {
-        static $int=0;
-        echo '<pre><b style="background: red;padding: 1px 5px;">'.$int.'</b> ';
-        print_r($var);
-        echo '</pre>';
-        $int++;
-    }
+    // function printr($var) {
+    //     static $int=0;
+    //     echo '<pre><b style="background: red;padding: 1px 5px;">'.$int.'</b> ';
+    //     print_r($var);
+    //     echo '</pre>';
+    //     $int++;
+    // }
     
     function vardump($var) {
         static $int=0;
