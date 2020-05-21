@@ -18,6 +18,10 @@
             return $this->name;
         }
 
+        public function setName(string $value): void {
+            $this->name = $value;
+        }
+
         public function getMainImg(): string {
             return $this->mainImg;
         }
@@ -32,6 +36,10 @@
 
         public function getPrice(): float {
             return $this->price;
+        }
+
+        public function setPrice(string $value): void {
+            $this->price = $value;
         }
 
         public function getStatus(): string {

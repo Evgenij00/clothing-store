@@ -40,6 +40,8 @@
         echo 'Упс, что-то пошло не так...'; //include error 404;
         return;
     }
+
+    // vardump( new \MyProject\Models\Products\Product() );
     
     unset($matches[0]);
 

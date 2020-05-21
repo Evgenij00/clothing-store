@@ -3,6 +3,7 @@
     namespace MyProject\Models;
     use MyProject\Services\Db;
     use MyProject\Models\Users\User;
+    use MyProject\Models\Products\Product;
 
     abstract class ActiveRecordEntity {
 
@@ -28,13 +29,7 @@
             );
         }
 
-        private  function underscoreToCamelCase(string $source): string {
-            return lcfirst(str_replace('_', '', ucwords($source, '_'))); //ucwords() делает первые буквы в словах большими, str_replace() заменяет в получившейся строке все символы ‘_’ на пустую строку, lcfirst() просто делает первую букву в строке маленькой
-        }
-
-        abstract protected static function getTableName(): string; //интерфейс
-
-        public static function getById(int $id): ?self { //   (: ?self) - ПОДУМАТЬ, ЧТО С ЭТИМ ДЕЛАТЬ!!!
+        public static function getById(int $id): ?self { //   (: ?self) - ПОДУМАТЬ, ЧТО С ЭТИМ ДЕЛАТЬ!!! self возвращает и унаследованные объекты!!!!!!
             $db = Db::getInstace();
 
             // echo static::getTableName();
@@ -49,4 +44,83 @@
 
             return $result ? $result[0] : null;
         }
+
+        public function save(): void {
+
+            $mappedProperies = $this->mapPropertiesToDbFormat();
+
+            if ( $this->id !== null ) { 
+                $this->update($mappedProperies); //update(), если id у объекта есть;
+            } else {
+                $this->insert($mappedProperies); //insert(), если это свойство у объекта равно null.
+            }
+
+            // vardump($mappedProperies);
+
+        }
+
+        // UPDATE table_name
+        // SET column1 = :param1, column2 = :param2, ...
+        // WHERE condition;
+
+        private function update(array $mappedProperies): void {
+
+            $columnsToParams = [];
+            $paramsToValues = [];
+
+            $index = 1;
+            
+            foreach($mappedProperies as $column => $value) {
+                $param = ':param' . $index;
+
+                $columnsToParams[] = $column . '=' . $param;
+                $paramsToValues[$param] =  $value;
+
+                $index++;
+            }
+
+            $sql = 'UPDATE ' . static::getTableName() . ' SET ' . implode(', ', $columnsToParams) . ' WHERE id=' . $this->id;
+
+            $db = Db::getInstace();
+            $sth = $db->query($sql, $paramsToValues, static::class);
+        }
+
+        private function insert(array $mappedProperies) {
+            # code...
+        }
+
+        private function underscoreToCamelCase(string $source): string {
+            return lcfirst(str_replace('_', '', ucwords($source, '_'))); //ucwords() делает первые буквы в словах большими, str_replace() заменяет в получившейся строке все символы ‘_’ на пустую строку, lcfirst() просто делает первую букву в строке маленькой
+        }
+
+        private function camelCaseToUnderscore(string $source): string {
+            return strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $source)); //потом разобраться
+        }
+
+        private function mapPropertiesToDbFormat(): array {
+
+            $reflector = new \ReflectionObject($this);
+            $properties = $reflector->getProperties(); // - return array of objects
+
+            $mappedProperies = [];
+
+            foreach($properties as $property) {
+                $propertyName = $property->getName();
+                $underscorePropertyName = $this->camelCaseToUnderscore($propertyName);
+
+                $mappedProperies[$underscorePropertyName] = $this->$propertyName;
+            }
+
+            return $mappedProperies;
+        }
+
+        abstract protected static function getTableName(): string; //интерфейс
+    }
+
+    function vardump($var) {
+        static $int=0;
+        echo '<pre><b style="background: blue;padding: 1px 5px;">'.$int.'</b> ';
+        var_dump($var);
+        echo '</pre>';
+        $int++;
     }
