@@ -24,6 +24,9 @@
     });
 
     $route = $_GET['route'] ?? '';
+
+    // vardump($route);
+
     $routes = require __DIR__ . '/../src/routes.php';
 
     $isRouteFound = false;
@@ -35,6 +38,8 @@
             break;
         }
     }
+
+    // vardump($matches);
 
     if (!$isRouteFound) {
         echo 'Упс, что-то пошло не так...'; //include error 404;

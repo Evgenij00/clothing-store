@@ -60,7 +60,7 @@
             );
         }
 
-        public function edit(int $productId): void {
+        public function edit(int $productId): void { //редактирование объектов
             
             $product = Product::getById($productId);
 
@@ -73,6 +73,29 @@
             $product->setPrice(99.09);
 
             $product->save();
+        }
+
+        public function add(): void { //редактирование объектов
+            
+            $product = new Product();
+
+            if ($product === null) { //empty($product) или так???
+                $this->view->renderHtml('errors/404.php', [], 404);
+                return;
+            }
+
+            $product->setName('Розовое Худи');
+            $product->setMainImg('/img/goods/14247601-2-sesame.jpg');
+            $product->setPrice(298.75);
+            $product->setStatus('1');
+            $product->setSale(0);
+
+            // vardump($product);
+            // return;
+
+            $product->save();
+
+            vardump($product);
 
         }
     }

@@ -26,19 +26,31 @@
             return $this->mainImg;
         }
 
+        public function setMainImg(string $value): void {
+            $this->mainImg = $value;
+        }
+
         public function getDescription(): string {
             return $this->description;
+        }
+
+        public function setDescription(string $value = null): void {
+            $this->description = $value;
         }
 
         public function getShortDescription(): string {
             return $this->shortDescription;
         }
 
+        public function setShortDescription(string $value = null): void {
+            $this->shortDescription = $value;
+        }
+
         public function getPrice(): float {
             return $this->price;
         }
 
-        public function setPrice(string $value): void {
+        public function setPrice(float $value): void {
             $this->price = $value;
         }
 
@@ -46,8 +58,16 @@
             return $this->status;
         }
 
+        public function setStatus(string $value): void {
+            $this->status = $value;
+        }
+
         public function getSale(): float {
             return $this->sale;
+        }
+
+        public function setSale(float $value): void {
+            $this->sale = $value;
         }
 
         protected static function getTableName(): string {

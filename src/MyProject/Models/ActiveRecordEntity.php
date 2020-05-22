@@ -82,11 +82,44 @@
             $sql = 'UPDATE ' . static::getTableName() . ' SET ' . implode(', ', $columnsToParams) . ' WHERE id=' . $this->id;
 
             $db = Db::getInstace();
-            $sth = $db->query($sql, $paramsToValues, static::class);
+            $db->query($sql, $paramsToValues, static::class);
         }
 
-        private function insert(array $mappedProperies) {
-            # code...
+        private function insert(array $mappedProperties) {
+            //INSERT INTO `articles` (`author_id`, `name`, `text`) VALUES (:author_id, :name, :text)
+
+            // $filteredProperties = array_filter($mappedProperties); //убираем свойства с значением null. Также уберет свойства с значением 0!!!!!;
+
+            // vardump($filteredProperties);
+
+            $columnsName = [];
+            $paramsName = [];
+            $values = [];
+
+            foreach($mappedProperties as $column => $value) {  
+                $columnsName[] = '`' . $column . '`';   //получаем имя свойства
+
+                $param = ':' . $column;
+
+                $paramsName[] = $param;
+                $values[$param] = $value;
+            }
+
+            // vardump($columnsName);
+            // vardump($paramsName);
+            // vardump($values);
+
+            $sql = 'INSERT INTO `'  . static::getTableName() . '`( ' . implode(', ', $columnsName) . ') VALUES ( ' . implode(', ', $paramsName) . ');';
+
+            // vardump($sql);
+            
+            $db = Db::getInstace();
+
+            $db->query($sql, $values, static::class);
+
+            // echo $db->getLastInsertId();
+
+            $this->id = $db->getLastInsertId();
         }
 
         private function underscoreToCamelCase(string $source): string {
