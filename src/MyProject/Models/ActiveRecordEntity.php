@@ -122,6 +122,19 @@
             $this->id = $db->getLastInsertId();
         }
 
+        public function delete() {
+            // vardump($this);
+
+            $sql = 'DELETE FROM `' . static::getTableName() . '` WHERE id = :id;';
+
+            // vardump($sql);
+
+            $db = Db::getInstace();
+            $db->query($sql, [':id' => $this->id], static::class);
+
+            $this->id = null;
+        }
+
         private function underscoreToCamelCase(string $source): string {
             return lcfirst(str_replace('_', '', ucwords($source, '_'))); //ucwords() делает первые буквы в словах большими, str_replace() заменяет в получившейся строке все символы ‘_’ на пустую строку, lcfirst() просто делает первую букву в строке маленькой
         }

@@ -32,8 +32,8 @@
 
             // vardump($product);
 
-            $reflector = new \ReflectionObject($product);  //обязательно вначале - (\)!!
-            $properties = $reflector->getProperties();
+            // $reflector = new \ReflectionObject($product);  //обязательно вначале - (\)!!
+            // $properties = $reflector->getProperties();
 
             // $array = [];
 
@@ -41,8 +41,8 @@
             //     $array[] = $property->getName();
             // }
 
-            vardump($properties);
-            return;
+            // vardump($properties);
+            // return;
 
 
 
@@ -65,7 +65,7 @@
             $product = Product::getById($productId);
 
             if ($product === null) { //empty($product) или так???
-                $this->view->renderHtml('errors/404.php', [], 404);
+                $this->view->renderHtml('error/404.php', [], 404);
                 return;
             }
 
@@ -77,10 +77,11 @@
 
         public function add(): void { //редактирование объектов
             
-            $product = new Product();
+            // $product = new Product();
+            $product;
 
             if ($product === null) { //empty($product) или так???
-                $this->view->renderHtml('errors/404.php', [], 404);
+                $this->view->renderHtml('error/404.php', [], 404);
                 return;
             }
 
@@ -97,6 +98,20 @@
 
             vardump($product);
 
+        }
+
+        public function remove(int $productId): void {
+            $product = Product::getById($productId);
+
+            if ($product === null) {
+                $this->view->renderHtml('error/404.php', [], 404);
+                return;
+            }
+            // vardump($product);
+
+            $product->delete();
+
+            vardump($product);
         }
     }
 
