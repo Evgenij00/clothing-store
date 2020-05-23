@@ -1,6 +1,7 @@
 <?php
 
     namespace MyProject\Services;
+    use MyProject\Exceptions\DbException;
 
     class Db {
 
@@ -19,13 +20,17 @@
         private function __construct(){
             $dbOptions = (require __DIR__ . '/../../settings.php')['db'];
 
-            $this->pdo = new \PDO(
-                'mysql:host=' . $dbOptions['host'] . ';dbname=' . $dbOptions['dbname'] . ';',
-                $dbOptions['user'],
-                $dbOptions['password']
-            );
-
-            $this->pdo->exec('SET NAMES UTF8');
+            try {
+                $this->pdo = new \PDO(
+                    'mysql:host=' . $dbOptions['host'] . ';dbname=' . $dbOptions['dbname'] . ';',
+                    $dbOptions['user'],
+                    $dbOptions['password']
+                );
+    
+                $this->pdo->exec('SET NAMES UTF8');
+            } catch (\PDOException $e) {
+                throw new DbException('Ошибка при подключении к базе данных: ' . $e->getMessage(), $e->getCode());
+            }
         }
 
         public function query(string $sql, array $param = [], string $className = 'stdClass'): ?array { //Третьим аргументом в этот метод будет передаваться имя класса, объекты которого нужно создавать. По умолчанию это будут объекты класса stdClass – это такой встроенный класс в PHP, у которого нет никаких свойств и методов.  PHP мы можем задавать свойства объектов на лету, даже если они не были определены в классе. Это называется динамическим объявлением свойств. Если свойства у объекта нет, но мы попытаемся его задать – будет создано новое публичное свойство.
