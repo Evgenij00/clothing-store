@@ -88,7 +88,11 @@
         private function insert(array $mappedProperties) {
             //INSERT INTO `articles` (`author_id`, `name`, `text`) VALUES (:author_id, :name, :text)
 
-            // $filteredProperties = array_filter($mappedProperties); //убираем свойства с значением null. Также уберет свойства с значением 0!!!!!;
+            //убираем свойства с NULL
+            $filteredProperties = array_filter($mappedProperties, function($param) { //второй аргумент - ф-колбек
+                if (is_null($param)) return false;
+                return true;
+            }); 
 
             // vardump($filteredProperties);
 
@@ -96,7 +100,7 @@
             $paramsName = [];
             $values = [];
 
-            foreach($mappedProperties as $column => $value) {  
+            foreach($filteredProperties as $column => $value) {  
                 $columnsName[] = '`' . $column . '`';   //получаем имя свойства
 
                 $param = ':' . $column;
@@ -109,17 +113,19 @@
             // vardump($paramsName);
             // vardump($values);
 
-            $sql = 'INSERT INTO `'  . static::getTableName() . '`( ' . implode(', ', $columnsName) . ') VALUES ( ' . implode(', ', $paramsName) . ');';
+            $sql = 'INSERT INTO `'  . static::getTableName() . '` (' . implode(', ', $columnsName) . ') VALUES (' . implode(', ', $paramsName) . ');'; //implode — Объединяет элементы массива в строку
 
             // vardump($sql);
             
             $db = Db::getInstace();
 
-            $db->query($sql, $values, static::class);
+            $sth = $db->query($sql, $values, static::class);
 
             // echo $db->getLastInsertId();
 
             $this->id = $db->getLastInsertId();
+
+            // vardump($sth);
         }
 
         public function delete() {
@@ -135,6 +141,21 @@
             $this->id = null;
         }
 
+
+        static public function findOneByColumn(string $columnName, $value): ?self {
+            $sql = 'SELECT * FROM `' . static::getTableName() . '` WHERE `' . $columnName . '` = :value LIMIT 1;';
+            // vardump($sql);
+
+            $db = Db::getInstace();
+            $res = $db->query($sql, [':value' => $value], static::class);
+
+            if ($res === []) return null;
+
+            // vardump($res[0]);
+
+            return $res[0];
+        }
+
         private function underscoreToCamelCase(string $source): string {
             return lcfirst(str_replace('_', '', ucwords($source, '_'))); //ucwords() делает первые буквы в словах большими, str_replace() заменяет в получившейся строке все символы ‘_’ на пустую строку, lcfirst() просто делает первую букву в строке маленькой
         }
@@ -144,20 +165,22 @@
         }
 
         private function mapPropertiesToDbFormat(): array {
+            // vardump($this);
 
             $reflector = new \ReflectionObject($this);
             $properties = $reflector->getProperties(); // - return array of objects
 
-            $mappedProperies = [];
+            $mappedProperties = [];
 
             foreach($properties as $property) {
                 $propertyName = $property->getName();
                 $underscorePropertyName = $this->camelCaseToUnderscore($propertyName);
 
-                $mappedProperies[$underscorePropertyName] = $this->$propertyName;
+                $mappedProperties[$underscorePropertyName] = $this->$propertyName;
             }
 
-            return $mappedProperies;
+            // vardump($mappedProperties);
+            return  $mappedProperties;
         }
 
         abstract protected static function getTableName(): string; //интерфейс

@@ -22,27 +22,64 @@ block content
         li.auth-head__item.cc
           a(href='/pages/sign-in.html') Вы уже Зарегестрированы?
 
-      //- Форма Регистрации 
-      form.auth-form(action='/sign-up.php', method='POST')
-        label.label(for='first_name') Имя:
-        input.inp#first_name(type='text' name='first_name' required)
+      //- Если поле ввода пустое при регистрации
+      <?php if (!empty($error)): ?>
+      div(style='background-color: red; padding: 5px; margin: 15px') 
+      <?= $error ?>
+      <?php endif; ?>
 
-        label.label(for='last_name') Фамилия:
-        input.inp#last_name(type='text' name='last_name' required)
+      //-Форма регистрации с проверкой на стороне php
+      form.auth-form(action='/users/register', method='POST')
+        label.label(for='firstName') Имя:
+        input.inp#first_name(type='text' name='firstName' value="<?=  $_POST['firstName'] ?>")
 
-        label.label(for='patronymic') Отчество:
-        input.inp#last_name(type='text' name='patronymic')
+        label.label(for='lastName') Фамилия:
+        input.inp#last_name(type='text' name='lastName' value="<?=  $_POST['lastName'] ?>")
+
+        //- label.label(for='patronymic') Отчество:
+        //- input.inp#patronymic(type='text' name='patronymic')
 
         label.label(for='email') Адрес электронной почты:
-        input.inp#email(type='text' name='email' required)
+        input.inp#email(type='text' name='email' value="<?=  $_POST['email'] ?>")
 
-        label.label(for='password') Пароль:
-        input.inp#password(type='password' name='password' required)
+        label.label(for='password') Пароль: (не короче восьми символов)
+        input.inp#password(type='password' name='password')
 
-        //- label.label(for='replay-password') Повторите пароль:
-        //- input.inp#replay-password(type='password')
+        label.label(for='r-password') Повторите пароль:
+        input.inp#r-password(type='password' name='r-password')
+
+        label.label(for='gender-m') М
+        input#gender-m(type='radio' name='gender' value='0')
+
+        label.label(for='gender-w') Ж
+        input#gender-w(type='radio' name='gender' value='1')
 
         //- label.label(for='birthday') Дата рождения:
         //- input#birthday(type='date')
 
         button.signin-form__btn Зарегестрироваться
+
+      //- Форма Регистрации с проверкой на стороне css
+      //- form.auth-form(action='/users/register', method='POST')
+      //-   label.label(for='firstName') Имя:
+      //-   input.inp#first_name(type='text' name='firstName' required)
+
+      //-   label.label(for='lastName') Фамилия:
+      //-   input.inp#last_name(type='text' name='lastName' required)
+
+      //-   //- label.label(for='patronymic') Отчество:
+      //-   //- input.inp#patronymic(type='text' name='patronymic')
+
+      //-   label.label(for='email') Адрес электронной почты:
+      //-   input.inp#email(type='text' name='email' required)
+
+      //-   label.label(for='password') Пароль: (не короче восьми символов)
+      //-   input.inp#password(type='password' name='password' required)
+
+      //-   label.label(for='replay-password') Повторите пароль:
+      //-   input.inp#replay-password(type='password')
+
+      //-   //- label.label(for='birthday') Дата рождения:
+      //-   //- input#birthday(type='date')
+
+      //-   button.signin-form__btn Зарегестрироваться

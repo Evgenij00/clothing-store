@@ -15,18 +15,24 @@
         <ul class="auth-head">
           <li class="auth-head__item cc"><span>Впервые на (...)?</span></li>
           <li class="auth-head__item cc"><a href="/pages/sign-in.html">Вы уже Зарегестрированы?</a></li>
-        </ul>
-        <form class="auth-form" action="/sign-up.php" method="POST">
-          <label class="label" for="first_name">Имя:</label>
-          <input class="inp" id="first_name" type="text" name="first_name" required="required"/>
-          <label class="label" for="last_name">Фамилия:</label>
-          <input class="inp" id="last_name" type="text" name="last_name" required="required"/>
-          <label class="label" for="patronymic">Отчество:</label>
-          <input class="inp" id="last_name" type="text" name="patronymic"/>
+        </ul><?php if (!empty($error)): ?>
+        <div style="background-color: red; padding: 5px; margin: 15px"> </div><?= $error ?>
+<?php endif; ?>
+        <form class="auth-form" action="/users/register" method="POST">
+          <label class="label" for="firstName">Имя:</label>
+          <input class="inp" id="first_name" type="text" name="firstName" value="&lt;?=  $_POST['firstName'] ?&gt;"/>
+          <label class="label" for="lastName">Фамилия:</label>
+          <input class="inp" id="last_name" type="text" name="lastName" value="&lt;?=  $_POST['lastName'] ?&gt;"/>
           <label class="label" for="email">Адрес электронной почты:</label>
-          <input class="inp" id="email" type="text" name="email" required="required"/>
-          <label class="label" for="password">Пароль:</label>
-          <input class="inp" id="password" type="password" name="password" required="required"/>
+          <input class="inp" id="email" type="text" name="email" value="&lt;?=  $_POST['email'] ?&gt;"/>
+          <label class="label" for="password">Пароль: (не короче восьми символов)</label>
+          <input class="inp" id="password" type="password" name="password"/>
+          <label class="label" for="r-password">Повторите пароль:</label>
+          <input class="inp" id="r-password" type="password" name="r-password"/>
+          <label class="label" for="gender-m">М</label>
+          <input id="gender-m" type="radio" name="gender" value="0"/>
+          <label class="label" for="gender-w">Ж</label>
+          <input id="gender-w" type="radio" name="gender" value="1"/>
           <button class="signin-form__btn">Зарегестрироваться</button>
         </form>
       </div>

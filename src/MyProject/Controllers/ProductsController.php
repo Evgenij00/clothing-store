@@ -21,7 +21,7 @@
             // if (empty($images)) {  //Сравнить с методом $product === null
             //     $this->view->renderHtml('error/404.php', [], 404);
             //     return;
-            // }
+            // } 
 
             $product = Product::getById($productId);
 

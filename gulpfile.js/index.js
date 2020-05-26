@@ -6,6 +6,56 @@ const pug = require('gulp-pug');                                    //pug to htm
 const htmlValid = require('gulp-w3c-html-validator');            //корректирование html??????
 // const bemlValid = require('gulp-w3c-html-validator');            //бэм валидатор - пока не нужен - САМОПИСНЫЙ ПЛАГИН!!!!!!!!
 
+// styles = function styles(cb) {
+//     return src('src/styles/main.scss')
+//         .pipe(plumber())
+//         .pipe(sass())
+//         .on('error', sass.logError)     //На данный момент, обработку ошибок в sass-файле мы ловим в следующей строке.
+//         .pipe(dest('build/css'))
+//         .pipe(server.stream());
+// }
+
+// //файлы лежащие на уровень ниже индексного
+// pug2html = function pug2html(cb) {
+//     return src('src/pages/*.pug')
+//         .pipe(plumber())
+//         .pipe(pug({ pretty: true }))
+//         .pipe(htmlValid())
+//         .pipe(dest('build/pages'))
+// }
+
+// //отдельный индекс файл
+// pug2htmlindex = function pug2htmlindex(cb) {
+//     return src('src/index.pug')
+//         .pipe(plumber())
+//         .pipe(pug({ pretty: true }))
+//         .pipe(htmlValid())
+//         .pipe(dest('build'))
+//         .pipe(server.stream());
+// }
+
+// function serve(cb) {
+//     // разобраться
+//     server.init({
+//         proxy: 'onlinestore.loc',
+//         browser: 'chrome',
+//         notify: false,
+//     })
+
+//     watch('src/styles/**/*.scss', series(styles));
+//     watch('src/pages/**/*.pug', series(pug2html, pug2htmlindex));
+//     watch('src/index.pug', series(pug2htmlindex));
+//     watch('build/**/*.html').on('change', server.reload);
+//     watch('build/**/*.php').on('change', server.reload);
+    
+//     return cb();
+// }
+
+// exports.default = series(parallel(styles, pug2html, pug2htmlindex), serve);
+
+/////////////////////////////////////////////////////////////////////////////
+
+//{TEMP}
 styles = function styles(cb) {
     return src('src/styles/main.scss')
         .pipe(plumber())
@@ -15,6 +65,7 @@ styles = function styles(cb) {
         .pipe(server.stream());
 }
 
+//файлы лежащие на уровень ниже индексного
 pug2html = function pug2html(cb) {
     return src('src/pages/*.pug')
         .pipe(plumber())
@@ -23,6 +74,7 @@ pug2html = function pug2html(cb) {
         .pipe(dest('build/pages'))
 }
 
+//отдельный индекс файл
 pug2htmlindex = function pug2htmlindex(cb) {
     return src('src/index.pug')
         .pipe(plumber())
@@ -32,21 +84,8 @@ pug2htmlindex = function pug2htmlindex(cb) {
         .pipe(server.stream());
 }
 
-function serve(cb) {
-    // разобраться
-    server.init({
-        proxy: 'onlinestore.loc',
-        browser: 'chrome',
-        notify: false,
-    })
+watch('src/styles/**/*.scss', series(styles));
+watch('src/pages/**/*.pug', series(pug2html, pug2htmlindex));
+watch('src/index.pug', series(pug2htmlindex));
 
-    watch('src/styles/**/*.scss', series(styles));
-    watch('src/pages/**/*.pug', series(pug2html, pug2htmlindex));
-    watch('src/index.pug', series(pug2htmlindex));
-    watch('build/**/*.html').on('change', server.reload);
-    watch('build/**/*.php').on('change', server.reload);
-    
-    return cb();
-}
-
-exports.default = series(parallel(styles, pug2html, pug2htmlindex), serve);
+exports.default = series(parallel(styles, pug2html, pug2htmlindex));
