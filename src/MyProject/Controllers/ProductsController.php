@@ -5,13 +5,9 @@
     use MyProject\View\View;
     use MyProject\Models\Products\Product;
     use MyProject\Exceptions\NotFoundException;
+    use MyProject\Services\UsersAuthService;
 
-    class ProductsController {
-        private $view;
-
-        public function __construct() {
-            $this->view = new View(__DIR__ . '/../../../templates');
-        }
+    class ProductsController extends AbstractController {
 
         public function view(int $productId): void {
 

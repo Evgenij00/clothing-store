@@ -7,5 +7,7 @@
         '~^products/add$~' => [MyProject\Controllers\ProductsController::class, 'add'],
         '~^products/(\d+)/remove$~' => [MyProject\Controllers\ProductsController::class, 'remove'],
         '~^users/register$~' => [MyProject\Controllers\UserController::class, 'signUp'],
+        '~^users/login$~' => [MyProject\Controllers\UserController::class, 'login'],
+        '~^users/exit$~' => [MyProject\Controllers\UserController::class, 'exit'],
         '~^products/(\d+)$~' => [MyProject\Controllers\ProductsController::class, 'view'], //\d означает любой цифровой символ, а '+' означает 1 или более раз
     ];

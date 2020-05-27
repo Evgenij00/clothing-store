@@ -8,13 +8,13 @@
   </head>
   <body>
     <header class="header auth-container-wrap">
-      <div class="logo cc"><a href="/index.html">LOGOTIP</a></div>
+      <div class="logo cc"><a href="/">LOGOTIP</a></div>
     </header>
     <main class="main auth-container-wrap">
       <div class="content">
         <ul class="auth-head">
           <li class="auth-head__item cc"><span>Впервые на (...)?</span></li>
-          <li class="auth-head__item cc"><a href="/pages/sign-in.html">Вы уже Зарегестрированы?</a></li>
+          <li class="auth-head__item cc"><a href="/users/login">Вы уже Зарегестрированы?</a></li>
         </ul>
 
         <!-- Если поле ввода пустое при регистрации -->
@@ -25,11 +25,11 @@
         <!-- проводим валидацию полей на уровне php -->
         <form class="auth-form" action="/users/register" method="POST">
           <label class="label" for="firstName">Имя:</label>
-          <input class="inp" id="first_name" type="text" name="firstName" value="<?=  $_POST['firstName'] ?>"/>
+          <input class="inp" id="first_name" type="text" name="firstName" value="<?=  $_POST['firstName'] ?? '' ?>"/>
           <label class="label" for="lastName">Фамилия:</label>
-          <input class="inp" id="last_name" type="text" name="lastName" value="<?=  $_POST['lastName'] ?>"/>
+          <input class="inp" id="last_name" type="text" name="lastName" value="<?=  $_POST['lastName'] ?? '' ?>"/>
           <label class="label" for="email">Адрес электронной почты:</label>
-          <input class="inp" id="email" type="text" name="email" value="<?=  $_POST['email'] ?>"/>
+          <input class="inp" id="email" type="text" name="email" value="<?=  $_POST['email'] ?? '' ?>"/>
           <label class="label" for="password">Пароль: (не короче восьми символов)</label>
           <input class="inp" id="password" type="password" name="password"/>
           <label class="label" for="r-password">Повторите пароль:</label>

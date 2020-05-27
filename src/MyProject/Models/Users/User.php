@@ -59,6 +59,10 @@
             return $this->gender;
         }
 
+        public function getAuthToken(): string {
+            return $this->authToken;
+        }
+
         public static function signUp(array $userData): User {
             // vardump($userData);
             // return;
@@ -130,17 +134,47 @@
             $user->lastName = $userData['lastName'];
             // $user->patronymic = $userData['patronymic'];
             $user->email = $userData['email'];
-            $user->passwordHash = $userData['password'];
+            $user->passwordHash = password_hash($userData['password'], PASSWORD_DEFAULT);
             $user->gender = (int) $userData['gender'];
 
             $user->role = 'user';
             $user->isConfirmed = (int) false; //MySQL не поддерживает тип boolean и заменяет его на TIMYINT(1), поэтому явно задаем тип int!!!
-            $user->authToken = md5(random_bytes(100)); //random_bytes — Генерирует криптографически безопасные псевдослучайные байты. Мы не будем передавать после того как вошли на сайт в cookie ни пароль, ни его хеш. Мы будем использовать только этот токен, который у каждого пользователя будет свой и он никак не будет связан с паролем – так безопаснее.
+            $user->authToken = md5(random_bytes(100)) . md5(random_bytes(100)); //random_bytes — Генерирует криптографически безопасные псевдослучайные байты. Мы не будем передавать после того как вошли на сайт в cookie ни пароль, ни его хеш. Мы будем использовать только этот токен, который у каждого пользователя будет свой и он никак не будет связан с паролем – так безопаснее.
             $user->createdAt = date('Y-m-d H:i:s');
             // vardump($user);
             $user->save();
 
             return $user;
+        }
+
+        public static function login(array $loginData): User {
+            
+            if (empty($loginData['email'])) {
+                throw new InvalidArgumentException('Введите email');
+            }
+
+            if (empty($loginData['password'])) {
+                throw new InvalidArgumentException('Введите пароль');
+            }
+
+            $user = User::findOneByColumn('email', $loginData['email']);
+
+            if ($user === null) {
+                throw new InvalidArgumentException('Пользователя с такием email не существует');
+            }
+            
+            if (!password_verify($loginData['password'], $user->getPasswordHash())) { //Проверяет, соответствует ли пароль хешу.
+                throw new InvalidArgumentException('Неверный пароль');
+            }
+
+            $user->refreshAuthToken();
+            $user->save();
+
+            return $user;
+        }
+
+        private function refreshAuthToken() {
+            $this->authToken = md5(random_bytes(100)) . md5(random_bytes(100)); //после входа обновляем токен
         }
 
         protected static function getTableName(): string {

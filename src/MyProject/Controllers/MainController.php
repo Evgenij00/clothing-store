@@ -5,16 +5,10 @@
     use MyProject\Models\Products\Product;
     use MyProject\Models\Users\User;
     use MyProject\Models\Images\Image;
+    use MyProject\Services\UsersAuthService;
+    use MyProject\Controllers\AbstractController;
 
-    class MainController {
-
-        private $view;
-
-        public function __construct() {
-
-            $this->view = new View(__DIR__ . '/../../../templates');
-            
-        }
+    class MainController  extends AbstractController {
 
         public function main() {
 
@@ -26,7 +20,9 @@
             // vardump($goods);
             // return;
 
-            $this->view->renderHtml('main/main.php', ['goods' => $goods]);
+            $this->view->renderHtml('main/main.php', [
+                'goods' => $goods,
+            ]);
         }
 
         public function sayHello($name) {

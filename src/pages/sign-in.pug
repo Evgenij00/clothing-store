@@ -21,13 +21,13 @@ block content
 
         li.auth-head__item.cc
           span Вы уже Зарегестрированы?
-
+      
       //- Форма авторизации 
-      form.auth-form(action='/sign-in.php', method='POST')
+      form.auth-form(action='/users/login.php', method='POST')
         label.label(for='signin-email') Адрес электронной почты:
-        input.inp#signin-email(type='text')
+        input.inp#signin-email(type='text' name='email')
 
         label.label(for='signin-password') Пароль:
-        input.inp#signin-password(type='password')
+        input.inp#signin-password(type='password' name='password')
         
         button.auth-form__btn Войти

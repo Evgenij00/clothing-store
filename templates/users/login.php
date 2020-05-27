@@ -8,20 +8,27 @@
   </head>
   <body>
     <header class="header auth-container-wrap">
-      <div class="logo cc"><a href="/index.html">LOGOTIP</a></div>
+      <div class="logo cc"><a href="/">LOGOTIP</a></div>
     </header>
     <main class="main auth-container-wrap">
       <div class="content">
         <ul class="auth-head">
-          <li class="auth-head__item cc"><a href="/pages/sign-up.html">Впервые на (...)?</a></li>
+          <li class="auth-head__item cc"><a href="/users/register">Впервые на (...)?</a></li>
           <li class="auth-head__item cc"><span>Вы уже Зарегестрированы?</span></li>
         </ul>
-        <form class="auth-form" action="/users/login.php" method="POST">
+
+        <!-- ошибка - неверные данные -->
+        <?php if (!empty($error)): ?>
+            <div style="background-color: red;padding: 5px;margin: 15px"><?= $error ?></div>
+        <?php endif; ?>
+
+        <form class="auth-form" action="/users/login" method="POST">
           <label class="label" for="signin-email">Адрес электронной почты:</label>
           <input class="inp" id="signin-email" type="text" name="email"/>
           <label class="label" for="signin-password">Пароль:</label>
           <input class="inp" id="signin-password" type="password" name="password"/>
           <button class="auth-form__btn">Войти</button>
+        </form>
         </form>
       </div>
     </main>

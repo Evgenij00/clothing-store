@@ -5,14 +5,9 @@
     use MyProject\View\View;
     use MyProject\Models\Users\User;
     use MyProject\Exceptions\InvalidArgumentException;
+    use MyProject\Services\UsersAuthService;
 
-    class UserController {
-
-        private $view;
-
-        public function __construct() {
-            $this->view = new View(__DIR__ . '/../../../templates');
-        }
+    class UserController extends AbstractController {
 
         public function signUp() {
             // vardump($_POST);
@@ -33,14 +28,38 @@
             }
 
             $this->view->renderHtml('users/signUp.php');
+        }
 
+        public function login() {
+
+            if (!empty($_POST)) {
+                try {
+                    $user = User::login($_POST);
+                    UsersAuthService::createToken($user);
+                    header('Location: /');
+                    exit();
+                } catch(InvalidArgumentException $e) {
+                    $this->view->renderHtml('users/login.php', ['error' => $e->getMessage()]);
+                    return;
+                }
+            }
+
+            $this->view->renderHtml('users/login.php');
+
+        }
+
+        //типо удалил токен
+        public function exit() {
+            UsersAuthService::deleteToken();
+
+            echo 'зачем так делать :(';
+        }
     }
 
-    function vardump($var) {
-        static $int=0;
-        echo '<pre><b style="background: blue;padding: 1px 5px;">'.$int.'</b> ';
-        var_dump($var);
-        echo '</pre>';
-        $int++;
-    }
+function vardump($var) {
+    static $int=0;
+    echo '<pre><b style="background: blue;padding: 1px 5px;">'.$int.'</b> ';
+    var_dump($var);
+    echo '</pre>';
+    $int++;
 }
