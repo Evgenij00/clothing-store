@@ -48,6 +48,10 @@
 
         }
 
+        public function cart() {
+            $this->view->renderHtml('carts/cart.php');
+        }
+
         //типо удалил токен
         public function exit() {
             UsersAuthService::deleteToken();

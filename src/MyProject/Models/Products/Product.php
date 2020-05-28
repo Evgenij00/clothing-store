@@ -3,6 +3,7 @@
     namespace MyProject\Models\Products;
 
     use MyProject\Models\ActiveRecordEntity;
+    use MyProject\Models\Properties\Property;
 
     class Product extends ActiveRecordEntity {
         
@@ -68,6 +69,11 @@
 
         public function setSale(float $value): void {
             $this->sale = $value;
+        }
+
+        
+        public function getProperties(): ?array {
+            return Property::getPropertiesByProductId($this->getId());
         }
 
         protected static function getTableName(): string {

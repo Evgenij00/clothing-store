@@ -39,7 +39,7 @@
             // vardump($params);
             
             $sth = $this->pdo->prepare($sql);  //Если СУБД успешно подготовила запрос, PDO::prepare() возвращает объект PDOStatement. Если подготовить запрос не удалось, PDO::prepare() возвращает FALSE или выбрасывает исключение PDOException (зависит от текущего режима обработки ошибок).
-
+            // vardump($sth);
 
             $result = $sth->execute($params);  //PDOStatement::execute — Запускает подготовленный запрос на выполнение. Возвращает TRUE в случае успешного завершения или FALSE в случае возникновения ошибки.
 

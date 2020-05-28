@@ -24,10 +24,6 @@
                 'goods' => $goods,
             ]);
         }
-
-        public function sayHello($name) {
-            $this->view->renderHtml('main/hello.php', ['name' => $name]);
-        }
     }
 
     function vardump($var) {

@@ -6,6 +6,7 @@
     use MyProject\Models\Products\Product;
     use MyProject\Exceptions\NotFoundException;
     use MyProject\Services\UsersAuthService;
+    // use MyProject\Models\Properties\Property;
 
     class ProductsController extends AbstractController {
 
@@ -22,6 +23,7 @@
             $product = Product::getById($productId);
 
             // vardump($product);
+            // vardump($product->getProperties());
 
             // $reflector = new \ReflectionObject($product);  //обязательно вначале - (\)!!
             // $properties = $reflector->getProperties();
@@ -37,7 +39,7 @@
 
 
 
-            if (empty($product)) {  //Сравнить с методом $product === null
+            if ($product === null) {  //Сравнить с методом $product === null
                 throw new NotFoundException();
             }
 
@@ -45,6 +47,7 @@
                 'product/product.php', 
                 [
                     'product' => $product,
+                    'properties' => $product->getProperties(),
                     // 'images' => $images,
                 ]
             );
@@ -84,7 +87,7 @@
 
             $product->save();
 
-            vardump($product);
+            // vardump($product);
 
         }
 
@@ -98,7 +101,7 @@
 
             $product->delete();
 
-            vardump($product);
+            // vardump($product);
         }
     }
 

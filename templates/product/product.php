@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <title>Товар</title>
+</head>
+<body>
+
 <?php include __DIR__ . '/../header.php' ?>
 
 <main class="main container">
@@ -18,14 +28,16 @@
           <p class="product__property">Lorem, ipsum dolor.</p>
           <form class="product__form" action="#">
             <label for="product-size">Размер</label>
-            <select class="select-size" id="product-size" name="product-size">
-              <option value="">Пожалуйста, выберите</option>
-              <option value="xs">xs</option>
-              <option value="s">s</option>
-              <option value="m">m</option>
-              <option value="l">l</option>
-              <option value="xl">xl</option>
-            </select>
+            <?php if(!empty($properties)): ?>
+              <select class="select-size" id="product-size" name="product-size">
+                <option value="">Пожалуйста, выберите</option>
+                <?php foreach($properties as $property): ?>
+                  <option value="<?= $property->getValue()?>"><?= $property->getValue()?></option>
+                <?php endforeach; ?>
+              </select>  
+            <?php else: ?>
+              <div>Товар не доступен</div>
+            <?php endif; ?>  
             <div class="buttons">
               <button class="btn__add-cart">Добавить в корзину</button>
               <button class="btn__like-cart f-c-c"><img class="icon-20" src="/img/icons/icon-love.svg" alt="Избранное"/></button>
