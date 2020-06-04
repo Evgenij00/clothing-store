@@ -28,6 +28,8 @@
                         ) AS `res` 
                     WHERE g.id = res.goods_id AND g.id = :id;";
 
+            // vardump($sql);
+
             $sth = $db->query($sql, [':id' => $productId], Property::class);
             // vardump($sth);
 

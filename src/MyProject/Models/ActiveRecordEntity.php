@@ -48,6 +48,7 @@
         public function save(): void {
 
             $mappedProperies = $this->mapPropertiesToDbFormat();
+            // vardump($mappedProperies);
 
             if ( $this->id !== null ) { 
                 $this->update($mappedProperies); //update(), если id у объекта есть;
@@ -115,7 +116,7 @@
 
             $sql = 'INSERT INTO `'  . static::getTableName() . '` (' . implode(', ', $columnsName) . ') VALUES (' . implode(', ', $paramsName) . ');'; //implode — Объединяет элементы массива в строку
 
-            // vardump($sql);
+            // vardump($sql);  
             
             $db = Db::getInstace();
 
@@ -145,6 +146,8 @@
         static public function findOneByColumn(string $columnName, $value): ?self {
             $sql = 'SELECT * FROM `' . static::getTableName() . '` WHERE `' . $columnName . '` = :value LIMIT 1;';
             // vardump($sql);
+
+            // vardump($value);
 
             $db = Db::getInstace();
             $res = $db->query($sql, [':value' => $value], static::class);

@@ -15,6 +15,12 @@
         protected $status;
         protected $sale;
 
+        protected $mainProperty;
+
+        public function getMainProperty(): string {
+            return $this->mainProperty;
+        }
+
         public function getName(): string {
             return $this->name;
         }
@@ -73,10 +79,22 @@
 
         
         public function getProperties(): ?array {
-            return Property::getPropertiesByProductId($this->getId());
+            $properties = Property::getPropertiesByProductId($this->getId());
+            // vardump($properties);
+
+            return $properties;
         }
 
         protected static function getTableName(): string {
             return 'goods';
         }
+        
+    }
+
+    function vardump($var) {
+        static $int=0;
+        echo '<pre><b style="background: blue;padding: 1px 5px;">'.$int.'</b> ';
+        var_dump($var);
+        echo '</pre>';
+        $int++;
     }

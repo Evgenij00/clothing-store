@@ -6,6 +6,7 @@
     use MyProject\Models\Users\User;
     use MyProject\Exceptions\InvalidArgumentException;
     use MyProject\Services\UsersAuthService;
+    use MyProject\Models\Orders\Order;
 
     class UserController extends AbstractController {
 
@@ -49,7 +50,32 @@
         }
 
         public function cart() {
-            $this->view->renderHtml('carts/cart.php');
+
+            $user = UsersAuthService::getUserByToken();
+            // vardump($user);
+            // return;
+
+            if ($user === null) {
+                echo 'Войдите в систему';
+                return;
+            }
+
+            // $cartList = CartItem::view($user);
+            /////////////////////////////////////////////////////////////////////////
+
+            $cartList = Order::view($user);
+            vardump($cartList);
+
+            // foreach($cartList as $product) {
+            //     vardump(($product->getProperties())[1]);
+            // }
+            // return;
+
+            //////////////////////////////////////////////////////////////////////
+
+            $this->view->renderHtml('cart/cart.php', [
+                'cartList' => $cartList
+            ]);
         }
 
         //типо удалил токен

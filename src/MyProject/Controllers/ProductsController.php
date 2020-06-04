@@ -6,11 +6,17 @@
     use MyProject\Models\Products\Product;
     use MyProject\Exceptions\NotFoundException;
     use MyProject\Services\UsersAuthService;
+    use MyProject\Models\Orders\Order;
+    use MyProject\Models\Orders\CartItem;
     // use MyProject\Models\Properties\Property;
 
     class ProductsController extends AbstractController {
 
         public function view(int $productId): void {
+
+            if (!empty($_POST)) {
+                Order::add($productId);
+            }
 
             //массив картинок товара
             // $images = Image::getById($productId);
@@ -21,23 +27,6 @@
             // } 
 
             $product = Product::getById($productId);
-
-            // vardump($product);
-            // vardump($product->getProperties());
-
-            // $reflector = new \ReflectionObject($product);  //обязательно вначале - (\)!!
-            // $properties = $reflector->getProperties();
-
-            // $array = [];
-
-            // foreach ($properties as $property) {
-            //     $array[] = $property->getName();
-            // }
-
-            // vardump($properties);
-            // return;
-
-
 
             if ($product === null) {  //Сравнить с методом $product === null
                 throw new NotFoundException();

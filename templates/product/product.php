@@ -25,22 +25,24 @@
         <div class="product__info">
           <h1 class="product__title"><?= $product->getName() ?></h1>
           <p class="product__price"><?= $product->getPrice() ?></p>
-          <p class="product__property">Lorem, ipsum dolor.</p>
-          <form class="product__form" action="#">
+          <!-- <p class="product__property">Lorem, ipsum dolor.</p> -->
+          <form class="product__form" action="/products/<?= $product->getId()  ?>" method="POST">
             <label for="product-size">Размер</label>
+
+            <!-- нужно обязательно выбрать размер!!!! -->
             <?php if(!empty($properties)): ?>
               <select class="select-size" id="product-size" name="product-size">
                 <option value="">Пожалуйста, выберите</option>
                 <?php foreach($properties as $property): ?>
                   <option value="<?= $property->getValue()?>"><?= $property->getValue()?></option>
-                <?php endforeach; ?>
+                <?php endforeach; ?> 
               </select>  
             <?php else: ?>
               <div>Товар не доступен</div>
             <?php endif; ?>  
             <div class="buttons">
-              <button class="btn__add-cart">Добавить в корзину</button>
-              <button class="btn__like-cart f-c-c"><img class="icon-20" src="/img/icons/icon-love.svg" alt="Избранное"/></button>
+              <button type='submit' class="btn__add-cart">Добавить в корзину</button>
+              <!-- <button class="btn__like-cart f-c-c"><img  class="icon-20" src="/img/icons/icon-love.svg" alt="Избранное"/></button> -->
             </div>
           </form>
         </div>
