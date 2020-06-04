@@ -33,7 +33,6 @@
                       <!-- <p class="cart-item__property-text">Lorem, ipsum.</p> -->
                   </div>
                   <select name="product-size" id="#">
-                      <option value="<?= $product->getMainProperty() ?>"><?= $product->getMainProperty() ?></option>
                       <?php foreach($product->getProperties() as $property): ?>
                       <option value="<?= $property->getValue() ?>"><?= $property->getValue() ?></option> 
                       <?php endforeach; ?> 

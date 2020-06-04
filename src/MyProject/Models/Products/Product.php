@@ -79,10 +79,7 @@
 
         
         public function getProperties(): ?array {
-            $properties = Property::getPropertiesByProductId($this->getId());
-            // vardump($properties);
-
-            return $properties;
+            return Property::getPropertiesByProductId($this->getId());
         }
 
         protected static function getTableName(): string {

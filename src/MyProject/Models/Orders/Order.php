@@ -37,6 +37,7 @@
 
             $product = Product::getById($productId);  //достаем товар из бд
 
+            //ищем товар в корзине
             $check = OrderItem::isFindItem($product->getId(), $order->getId());
             // vardump($check);
 
@@ -47,7 +48,7 @@
                 $orderItem = OrderItem::add($product, $order->getId());
             }
 
-            //добавляем продукт в корзину, return продукт с определенным свойством size
+            //добавляем продукт в корзину, возвращаем продукт с определенным свойством size
 
             $order->updatePrice($user->getId());
             $order->save();
@@ -66,8 +67,7 @@
                 return null;
             }
 
-            // $order->updatePrice();
-
+            //массив для наших товаров с размерами
             $products = [];
 
             $orderList = $order->getList();
@@ -76,14 +76,14 @@
             if ($orderList === null) return null;
 
             foreach($orderList as $orderItem) {
-                // vardump($product);
+                // vardump($orderItem);
                 $id = $orderItem->getGoodsId();
                 $product = Product::findOneByColumn('id', $id);
-                // vardump($product);
-                $product->properties = $orderItem->getGoodsProperties();
+                $product->mainProperty = $orderItem->getGoodsProperties();
+                // vardump($product->getProperties());
                 $products[] = $product;
             }
-
+            // vardump($products);
             return $products;
         }
 
@@ -105,6 +105,7 @@
             $this->price = $totalPrice;
         }
 
+        //получаем именно объекты корзины
         private function getList(): ?array {
 
             $sql = "SELECT oc.* FROM `orders_cart` AS `oc` JOIN orders AS `o` WHERE oc.order_id = o.id AND o.id = :id ORDER BY goods_id;";
@@ -117,20 +118,6 @@
             if ($result === null) return null;
             return $result;
         }
-
-        //получаем товары из корзины юзера
-        // private function getList(): ?array {
-
-        //     $sql = "SELECT g.* FROM `goods` AS `g` JOIN ( SELECT oc.goods_id FROM `orders_cart` AS `oc` JOIN orders AS `o` WHERE oc.order_id = o.id AND o.id = :id ) AS `tb` WHERE g.id = tb.goods_id;";
-        //     // vardump($sql);
-
-        //     $db = Db::getInstace();
-        //     $result = $db->query($sql, [':id' => $this->getId()], Product::class);
-        //     // vardump($result);
-
-        //     if ($result === null) return null;
-        //     return $result;
-        // }
 
         protected static function getTableName(): string {
             return 'orders';

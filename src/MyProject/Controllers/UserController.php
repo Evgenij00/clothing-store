@@ -60,18 +60,8 @@
                 return;
             }
 
-            // $cartList = CartItem::view($user);
-            /////////////////////////////////////////////////////////////////////////
-
             $cartList = Order::view($user);
-            vardump($cartList);
-
-            // foreach($cartList as $product) {
-            //     vardump(($product->getProperties())[1]);
-            // }
-            // return;
-
-            //////////////////////////////////////////////////////////////////////
+            // vardump($cartList);
 
             $this->view->renderHtml('cart/cart.php', [
                 'cartList' => $cartList
