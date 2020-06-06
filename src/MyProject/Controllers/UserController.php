@@ -60,23 +60,29 @@
                 echo 'Войдите в систему';
                 return;
             }
+            //////////////////////////////////////////////
+            // $contents = file_get_contents('php://input');
+            // if (!empty($contents)) {
+            //     $data = json_decode($contents);
+            //     // var_dump($data);
+            //     // return;
 
-            $contents = file_get_contents('php://input');
-            if (!empty($contents)) {
-                $data = json_decode($contents);
-                // var_dump($data);
-                // return;
-                OrderItem::deleteItemFromOrder($data);
-                return;
-            }
+            //     if (isset($data->size) || isset($data->count)) {
+            //         OrderItem::updateProduct($data);
+            //         return;
+            //     }
+            //     OrderItem::deleteItemFromOrder($data);
+            //     return;
+            // }
+                ///////////////////////////////////////////
 
 
-
-            $cartList = Order::view($user);
-            // vardump($cartList);
+            $order = Order::view($user);
+            // vardump($order->orderList);
 
             $this->view->renderHtml('cart/cart.php', [
-                'cartList' => $cartList
+                'orderList' => $order['orderList'],
+                'totalPrice' => $order['totalPrice'],
             ]);
         }
 

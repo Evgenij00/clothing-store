@@ -18,13 +18,13 @@
                 <h2>Моя корзина</h2>
                 <p>Товары будут зарезервированы на 60 минут</p>
             </div>
-            <?php if(!empty($cartList)): ?>
+            <?php if(!empty($orderList)): ?>
             <!-- если в корзине нет товаров консоль ругается, что m.addEventListener call on null!!! -->
             <ul class="cart-goods">
-              <?php foreach($cartList as $product): ?>
-              <li class="cart-item">
+              <?php foreach($orderList as $product): ?>
+              <li data-order-item-id='<?= $product->getOrderItemId()  ?>' class="cart-item">
                   <div class="cart-item__buttons">
-                      <button data-id='<?= $product->getId()  ?>' class="btn-remove cc"><img class="icon-20" src="/img/icons/icon-remove.svg" alt="удалить"/></button>
+                      <button class="btn-remove cc"><img class="icon-20" src="/img/icons/icon-remove.svg" alt="удалить"/></button>
                       <!-- <button class="btn-like cc"><img class="icon-20" src="/img/icons/icon-like.svg" alt="Добавить в избранное"/></button> -->
                   </div>
                   <a href="/products/<?= $product->getId()  ?>"><img class="cart-item__image" src="<?= $product->getMainImg()  ?>" alt="изображение товара"/></a>
@@ -41,9 +41,9 @@
                   </select>
                   </div>
                   <div class="cart-item__control-quentity">
-                      <button class="btn-plus cc"><img class="icon-20" src="/img/icons/icon-plus.svg" alt="Прибавить"/></button>
-                      <input class="cart-item__input-quentity" type="text" value="<?= $product->getCount() ?>"/>
-                      <button class="btn-minus cc"><img class="icon-20" src="/img/icons/icon-minus.svg" alt="уменьшить"/></button>
+                      <!-- <button class="btn-plus cc"><img class="icon-20" src="/img/icons/icon-plus.svg" alt="Прибавить"/></button> -->
+                      <input class="cart-item__input-quentity" type="number" min='1' value="<?= $product->getCount() ?>"/>
+                      <!-- <button class="btn-minus cc"><img class="icon-20" src="/img/icons/icon-minus.svg" alt="уменьшить"/></button> -->
                   </div>
                   <div class="cart-item__total-price">$<?= $product->getPrice() ?></div>
               </li>  
@@ -52,11 +52,11 @@
             <?php else: ?>
             <div>Ваша корзина пуста!</div>
             <?php endif; ?>
-          <div class="total-price__head">Всего 550,00 руб</div>
+          <!-- <div class="total-price__head">Всего 550,00 руб</div> -->
         </div>
         <div class="total-container">
           <h2 class="total__head">Итого</h2>
-          <div class="total__price-full"></div><span>Всего</span><span>550,00 руб</span>
+          <div class="total__price-full"></div><span>Всего</span><span><?= $totalPrice ?> руб</span>
           <form action="#" method="post"></form>
           <label for="delivery-pay">Доставка</label>
           <select class="total__select-delivery" id="delivery-pay" name="name">

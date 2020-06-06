@@ -44,20 +44,36 @@
             return $orderItem;
         }
 
+        static public function updateProduct($data) {
+
+            // vardump($data);
+            // return;
+
+            if (isset($data->size)) {
+                $sql = 'UPDATE `' . static::getTableName() . '` SET goods_properties = :size WHERE id = :id;';
+                $params = [':id' => $data->id, ':size' => $data->size];
+            }
+
+            if (isset($data->count)) {
+                $sql = 'UPDATE `' . static::getTableName() . '` SET count = :count WHERE id = :id;';
+                $params = [':id' => $data->id, ':count' => $data->count];
+            }
+
+            $db = Db::getInstace();
+            $result = $db->query($sql, $params, static::class);
+        }
+
         static public function deleteItemFromOrder($data) {
 
             // vardump($data);
             // return;
 
-            $sql = 'DELETE FROM `' . static::getTableName() . '` WHERE goods_id = :id AND goods_properties = :size';
+            $sql = 'DELETE FROM `' . static::getTableName() . '` WHERE id = :id;';
             // var_dump($sql);
             // return;
 
             $db = Db::getInstace();
-            $result = $db->query($sql, [
-                ':id' => $data->id,
-                ':size' => $data->size
-            ], static::class);
+            $result = $db->query($sql, [':id' => $data->id], static::class);
 
             // if ($result === []) return true;
         }

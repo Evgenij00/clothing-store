@@ -17,7 +17,7 @@
 
         protected $mainProperty;
         protected $count;
-        // protected $orderItemId;
+        protected $orderItemId;
 
         public function getMainProperty(): string {
             return $this->mainProperty;
@@ -27,9 +27,9 @@
             return $this->count;
         }
 
-        // public function getOrderItemId(): int {
-        //     return $this->orderItemId;
-        // }
+        public function getOrderItemId(): int {
+            return $this->orderItemId;
+        }
 
         public function getName(): string {
             return $this->name;

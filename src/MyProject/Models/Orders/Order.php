@@ -55,7 +55,9 @@
         }
 
         static public function view(User $user): ?array {
+
             $order = self::findOneByColumn('user_id', $user->getId());
+
 
             if ($order === null) {
                 $order = new self();
@@ -79,14 +81,21 @@
                 $id = $orderItem->getGoodsId();
                 $product = Product::findOneByColumn('id', $id);
                 // vardump($product);
-                // $product->orderItemId = $orderItem->getId();
+                $product->orderItemId = $orderItem->getId();
                 $product->mainProperty = $orderItem->getGoodsProperties();
                 $product->count = $orderItem->getCount();
                 // vardump($product->getProperties());
                 $products[] = $product;
+                $totalPrice += $product->getPrice();
             }
+
             // vardump($products);
-            return $products;
+            // vardump($totalPrice);
+            $orderData = [];
+            $data['orderList'] = $products;
+            $data['totalPrice'] = $totalPrice;
+            // vardump($products);
+            return $data;
         }
 
         private function updatePrice(): void {
