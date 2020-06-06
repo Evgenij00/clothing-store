@@ -54,7 +54,6 @@
             $order->save();
         }
 
-
         static public function view(User $user): ?array {
             $order = self::findOneByColumn('user_id', $user->getId());
 
@@ -79,7 +78,10 @@
                 // vardump($orderItem);
                 $id = $orderItem->getGoodsId();
                 $product = Product::findOneByColumn('id', $id);
+                // vardump($product);
+                // $product->orderItemId = $orderItem->getId();
                 $product->mainProperty = $orderItem->getGoodsProperties();
+                $product->count = $orderItem->getCount();
                 // vardump($product->getProperties());
                 $products[] = $product;
             }

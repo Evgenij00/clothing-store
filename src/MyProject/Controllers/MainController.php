@@ -13,10 +13,6 @@
         public function main() {
 
             $goods = Product::findAll();
-            // $goods = User::findAll();
-            // $goods = Image::findAll();
-            
-
             // vardump($goods);
             // return;
 

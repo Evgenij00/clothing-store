@@ -7,6 +7,7 @@
     use MyProject\Exceptions\InvalidArgumentException;
     use MyProject\Services\UsersAuthService;
     use MyProject\Models\Orders\Order;
+    use MyProject\Models\Orders\OrderItem;
 
     class UserController extends AbstractController {
 
@@ -59,6 +60,17 @@
                 echo 'Войдите в систему';
                 return;
             }
+
+            $contents = file_get_contents('php://input');
+            if (!empty($contents)) {
+                $data = json_decode($contents);
+                // var_dump($data);
+                // return;
+                OrderItem::deleteItemFromOrder($data);
+                return;
+            }
+
+
 
             $cartList = Order::view($user);
             // vardump($cartList);

@@ -15,6 +15,12 @@
         public function view(int $productId): void {
 
             if (!empty($_POST)) {
+
+                if ( empty($_POST['product-size']) ) {
+                    echo 'Выберите размер!!!';
+                    return;
+                }
+
                 Order::add($productId);
             }
 

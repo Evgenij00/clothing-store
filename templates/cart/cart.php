@@ -19,11 +19,12 @@
                 <p>Товары будут зарезервированы на 60 минут</p>
             </div>
             <?php if(!empty($cartList)): ?>
+            <!-- если в корзине нет товаров консоль ругается, что m.addEventListener call on null!!! -->
             <ul class="cart-goods">
               <?php foreach($cartList as $product): ?>
               <li class="cart-item">
                   <div class="cart-item__buttons">
-                      <button id='<?= $product->getId()  ?>' class="btn-remove cc"><img class="icon-20" src="/img/icons/icon-remove.svg" alt="удалить"/></button>
+                      <button data-id='<?= $product->getId()  ?>' class="btn-remove cc"><img class="icon-20" src="/img/icons/icon-remove.svg" alt="удалить"/></button>
                       <!-- <button class="btn-like cc"><img class="icon-20" src="/img/icons/icon-like.svg" alt="Добавить в избранное"/></button> -->
                   </div>
                   <a href="/products/<?= $product->getId()  ?>"><img class="cart-item__image" src="<?= $product->getMainImg()  ?>" alt="изображение товара"/></a>
@@ -32,15 +33,16 @@
                       <a class="cart-item__title" href="/products/<?= $product->getId()  ?>"><?= $product->getName()  ?></a>
                       <!-- <p class="cart-item__property-text">Lorem, ipsum.</p> -->
                   </div>
-                  <select name="product-size" id="#">
-                      <?php foreach($product->getProperties() as $property): ?>
-                      <option value="<?= $property->getValue() ?>"><?= $property->getValue() ?></option> 
-                      <?php endforeach; ?> 
+                  <select class='product-size' name="product-size" id="#">
+                    <option hidden value="<?= $product->getMainProperty() ?>"><?= $product->getMainProperty() ?></option> 
+                    <?php foreach($product->getProperties() as $property): ?>
+                    <option value="<?= $property->getValue() ?>"><?= $property->getValue() ?></option> 
+                    <?php endforeach; ?> 
                   </select>
                   </div>
                   <div class="cart-item__control-quentity">
                       <button class="btn-plus cc"><img class="icon-20" src="/img/icons/icon-plus.svg" alt="Прибавить"/></button>
-                      <input class="cart-item__input-quentity" type="text" value="1"/>
+                      <input class="cart-item__input-quentity" type="text" value="<?= $product->getCount() ?>"/>
                       <button class="btn-minus cc"><img class="icon-20" src="/img/icons/icon-minus.svg" alt="уменьшить"/></button>
                   </div>
                   <div class="cart-item__total-price">$<?= $product->getPrice() ?></div>

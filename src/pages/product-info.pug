@@ -2,6 +2,7 @@ extends common/_layout.pug
 
 block head
     title Корзина
+    script(src='/js/product-info.js')
 
 block header
     include common/_header.pug
@@ -10,15 +11,15 @@ block content
   main.main.container
     //-Реализация блока - вся информация о товаре
     .product-box
-        ul.product-list-img
-            li
-                img.img-item(src="/img/goods/14247601-1-sesame.jpg", alt="фото")
-            li
-                img.img-item(src="/img/goods/14247601-1-sesame.jpg", alt="фото")
-            li
-                img.img-item(src="/img/goods/14247601-1-sesame.jpg", alt="фото")
-            li
-                img.img-item(src="/img/goods/14247601-1-sesame.jpg", alt="фото")
+        //- ul.product-list-img
+        //-     li
+        //-         img.img-item(src="/img/goods/14247601-1-sesame.jpg", alt="фото")
+        //-     li
+        //-         img.img-item(src="/img/goods/14247601-1-sesame.jpg", alt="фото")
+        //-     li
+        //-         img.img-item(src="/img/goods/14247601-1-sesame.jpg", alt="фото")
+        //-     li
+        //-         img.img-item(src="/img/goods/14247601-1-sesame.jpg", alt="фото")
         
         img.product__main-image(src="/img/goods/14247601-1-sesame.jpg", alt="Главное фото")
 
@@ -42,5 +43,5 @@ block content
 
                 .buttons
                     button.btn__add-cart Добавить в корзину
-                    button.btn__like-cart.f-c-c
-                        img.icon-20(src="/img/icons/icon-love.svg", alt="Избранное")
+                    //- button.btn__like-cart.f-c-c
+                    //-     img.icon-20(src="/img/icons/icon-love.svg", alt="Избранное")

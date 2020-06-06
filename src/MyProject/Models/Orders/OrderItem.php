@@ -44,6 +44,24 @@
             return $orderItem;
         }
 
+        static public function deleteItemFromOrder($data) {
+
+            // vardump($data);
+            // return;
+
+            $sql = 'DELETE FROM `' . static::getTableName() . '` WHERE goods_id = :id AND goods_properties = :size';
+            // var_dump($sql);
+            // return;
+
+            $db = Db::getInstace();
+            $result = $db->query($sql, [
+                ':id' => $data->id,
+                ':size' => $data->size
+            ], static::class);
+
+            // if ($result === []) return true;
+        }
+
         static public function isFindItem(int $productId, int $orderId) {
             $sql = "SELECT * FROM `orders_cart` WHERE order_id = :order_id AND goods_id = :goods_id AND  goods_properties = :goods_properties;";
 
@@ -61,6 +79,14 @@
 
         protected static function getTableName(): string {
             return 'orders_cart';
+        }
+
+        function vardump($var) {
+            static $int=0;
+            echo '<pre><b style="background: blue;padding: 1px 5px;">'.$int.'</b> ';
+            var_dump($var);
+            echo '</pre>';
+            $int++;
         }
 
     }

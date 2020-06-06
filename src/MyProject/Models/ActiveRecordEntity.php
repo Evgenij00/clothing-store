@@ -129,7 +129,7 @@
             // vardump($sth);
         }
 
-        public function delete() {
+        public function delete(): void {
             // vardump($this);
 
             $sql = 'DELETE FROM `' . static::getTableName() . '` WHERE id = :id;';

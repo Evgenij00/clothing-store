@@ -44,6 +44,10 @@
             $result = $sth->execute($params);  //PDOStatement::execute — Запускает подготовленный запрос на выполнение. Возвращает TRUE в случае успешного завершения или FALSE в случае возникновения ошибки.
 
             // vardump($result);
+
+            // if ($result === 1) {
+            //     return true;
+            // }
             
             if ($result === false) {
                 return null;

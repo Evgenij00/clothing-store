@@ -1,6 +1,8 @@
 <?php
     // index.php - FRONT CONTROLLER!
 
+    // print_r($_GET);
+
     try {
         //Функция spl_autoload_register() принимает первым аргументом имя функции, в которую будет передаваться имя класса, каждый раз, когда этот класс ещё не был загружен.
         spl_autoload_register( function($className) {

@@ -1,36 +1,52 @@
+'use strict'
 
 let cartGoods = document.querySelector('.cart-goods');
 // console.log(cartGoods);
 
-let xhr = new XMLHttpRequest();
+cartGoods.addEventListener('click', function(event) {
+    //получаем объект по которому кликнули
+    let target = event.target;
+    // console.log(target);
 
-xhr.open("GET", '/users/cart');
+    //если дочерний элемент, находим нужный
+    target = target.closest('.btn-remove');
 
-xhr.send();
+    if (target) {
+        // deleteFromOrder(target);
+        // return;
+    }
+})
 
-// let response = fetch('/users/cart');
+cartGoods.addEventListener('change', function(event) {
+    // console.log(event.target.value)
+    let size = event.target.value;
+})
 
-// console.log(respons);
+function deleteFromOrder(target) {
+    let item = target.closest('.cart-item');
+    let sizeItem = item.querySelector('.product-size');
+    // console.log(sizeItem.value);
 
-// if (response.ok) alert('ok');
+    let orderItemId = target.dataset.id;
 
-// console.log(cartGoods);
+    const bodyObject = {
+        id: orderItemId,
+        size: sizeItem.value
+    }
 
-// cartGoods.addEventListener('click', function(event) {
-//     //получаем объект по которому кликнули
-//     let target = event.target;
-//     //если дочерний элемент, находим нужный
-//     target = target.closest('.btn-remove');
-//     if (!target) {
-//         return;
-//     }
-//     // console.log(target);
+    sendRequest('/users/cart', bodyObject)
 
-//     let response = fetch('/users/cart.php', [options]);
+    item.classList.add('hidden');
+}
 
-//     if (response.ok) {
-//         //...
-//     } else {
-//         //ошибка alert("Ошибка HTTP: " + response.status);
-//     }
-// })
+
+
+function sendRequest(url = '', data = {}) {
+    return fetch(url, {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'applicaton/www-form-urlencoded'
+        },
+        body: JSON.stringify(data)
+    })
+}

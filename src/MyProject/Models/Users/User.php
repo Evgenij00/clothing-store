@@ -153,6 +153,10 @@
                 throw new InvalidArgumentException('Введите email');
             }
 
+            if (!filter_var($loginData['email'], FILTER_VALIDATE_EMAIL)) {
+                throw new InvalidArgumentException('Некорректный Email');
+            }
+
             if (empty($loginData['password'])) {
                 throw new InvalidArgumentException('Введите пароль');
             }
