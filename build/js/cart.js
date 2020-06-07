@@ -35,8 +35,7 @@ cartGoods.addEventListener('change', function(event) {
     }
 
     ///////////////////////////////////////////////////////////
-    let target = event.target;
-    target = target.closest('.cart-item__input-quentity');
+    target = event.target.closest('.cart-item__input-quentity');
 
     if (target) {
         let item = target.closest('.cart-item');
@@ -54,7 +53,14 @@ cartGoods.addEventListener('change', function(event) {
         }
 
         sendRequest('/users/cart', body)
-        return;
+            .then(data => {
+                let orderPrice = document.querySelector('#order-price');
+                // console.log(orderPrice);
+                let text = data + ' руб';
+                console.log(text);
+                orderPrice.textContent = text;
+            })
+            
     }
 })
 
@@ -78,17 +84,20 @@ function deleteFromOrder(target) {
     }
 
     sendRequest('/users/cart', body)
+        .then(data => console.log(data));
 
-    item.classList.add('hidden');
+    item.remove();
 }
 
 function sendRequest(url = '', data = {}) {
     return fetch(url, {
         method: 'POST',
         headers: {
-        'Content-Type': 'applicaton/www-form-urlencoded'
+        'Content-Type': 'applicaton/json'
         },
         body: JSON.stringify(data)
+    }).then(response => {
+        return response.text()
     })
 }
 

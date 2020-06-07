@@ -47,12 +47,11 @@
 
         static public function findOneByColumn(string $columnName, $value): ?self {
             $sql = 'SELECT * FROM `' . static::getTableName() . '` WHERE `' . $columnName . '` = :value LIMIT 1;';
-
+            // vardump($sql);
             $db = Db::getInstace();
             $res = $db->query($sql, [':value' => $value], static::class);
-
+            // vardump($res);
             if ($res === []) return null;
-
             return $res[0];
         }
 
@@ -118,7 +117,6 @@
         }
 
         public function delete(): void {
-            vardump($this->id);
             $sql = 'DELETE FROM `' . static::getTableName() . '` WHERE id = :id;';
 
             $db = Db::getInstace();

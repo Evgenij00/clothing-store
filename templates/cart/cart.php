@@ -45,7 +45,7 @@
                       <input class="cart-item__input-quentity" type="number" min='1' value="<?= $orderItem->getCount() ?>"/>
                       <!-- <button class="btn-minus cc"><img class="icon-20" src="/img/icons/icon-minus.svg" alt="уменьшить"/></button> -->
                   </div>
-                  <div class="cart-item__total-price">$<?= $orderItem->getProduct()->getPrice() ?></div>
+                  <div class="cart-item__total-price"><?= $orderItem->getProduct()->getPrice() ?> руб</div>
               </li>  
               <?php endforeach; ?>
             </ul>
@@ -56,7 +56,7 @@
         </div>
         <div class="total-container">
           <h2 class="total__head">Итого</h2>
-          <div class="total__price-full"></div><span>Всего</span><span><?= $totalPrice ?> руб</span>
+          <div class="total__price-full"></div><span>Всего</span><span id='order-price'><?= $orderPrice ?> руб</span>
           <form action="#" method="post"></form>
           <label for="delivery-pay">Доставка</label>
           <select class="total__select-delivery" id="delivery-pay" name="name">

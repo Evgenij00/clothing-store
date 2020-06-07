@@ -15,6 +15,10 @@
         protected $price;
         protected $state;
 
+        public function getPrice(): float {
+            return $this->price;
+        }
+
         static public function add(int $productId) {
 
             $user = UsersAuthService::getUserByToken();
@@ -67,22 +71,32 @@
             //заказ пустой, поэтому выходим
             if ($orderList === null) return null;
             //иначе
-            return $orderList;
+            $dataOrder = [];
+            $dataOrder['orderList'] = $orderList;
+            $dataOrder['orderPrice'] = $order->getPrice();
+            return $dataOrder;
         }
 
-        private function updatePrice(): void {
-            // $this->price = 0.0;
+        public function updatePrice() {
+            $this->price = 0.0;
+            // vardump($this->price);
             
             //массив товаров-ссылок заказа
             $orderList = $this->getList();
+            // vardump($orderList);
+
+
+            if ($orderList === []) return $this->price;
 
             //считаем цену
             foreach ($orderList as $orderItem) {
-                $price = $orderItem->getProduct()->getPrice();
+                $count = $orderItem->getCount();
+                $price = $orderItem->getProduct()->getPrice() * $count;
                 $totalPrice += $price;
             }
 
             $this->price = $totalPrice;
+            return $this->price;
         }
 
         //получаем именно объекты корзины

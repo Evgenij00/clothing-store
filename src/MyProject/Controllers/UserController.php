@@ -66,15 +66,18 @@
             if (!empty($contents)) {
                 //превращаем JSON в объект
                 $data = json_decode($contents);
-                OrderItem::ajax($data);
+                $result = OrderItem::ajax($data, $user);
+
+                if ($result !== null) echo $result;
                 return;
             }
 
             //если их нет
-            $orderList = Order::view($user);
+            $orderData = Order::view($user);
 
             $this->view->renderHtml('cart/cart.php', [
-                'orderList' => $orderList
+                'orderList' => $orderData['orderList'],
+                'orderPrice' => $orderData['orderPrice'],
             ]);
         }
 
