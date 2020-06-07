@@ -55,6 +55,44 @@
             return $orderItem;
         }
 
+        static public function ajax($data) {
+            
+            $orderItem = self::getById($data->id);
+
+            //определяем метод обработки
+            //если запрос на обновление размера
+            if (isset($data->size)) {
+                $orderItem->goodsProperties = $data->size;
+                $orderItem->save();
+                return;
+            //если запрос на обновление кол-ва
+            } else if (isset($data->count)) {
+                $orderItem->count = $data->count;
+                $orderItem->save();
+                return;
+            }
+
+            //если запрос на удаление
+            $orderItem->delete();
+        }
+
+        static public function change($data) {
+            $orderItem = OrderItem::getById($data->id);
+                // vardump($orderItem);
+                // return;
+
+                //определяем метод обработки
+                if (isset($data->size)) {
+                    $orderItem->goodsProperties = $data->size;
+                    $orderItem->save();
+                    return;
+                } else if (isset($data->count)) {
+                    $orderItem->count = $data->count;
+                    $orderItem->save();
+                    return;
+                }
+        }
+
         // static public function updateProduct($data) {
 
         //     // vardump($data);

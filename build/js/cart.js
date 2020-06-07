@@ -1,12 +1,10 @@
 'use strict'
 
 let cartGoods = document.querySelector('.cart-goods');
-// console.log(cartGoods);
 
 cartGoods.addEventListener('click', function(event) {
     //получаем объект по которому кликнули
     let target = event.target;
-    // console.log(target);
 
     //если дочерний элемент, находим нужный
     target = target.closest('.btn-remove');
@@ -14,8 +12,94 @@ cartGoods.addEventListener('click', function(event) {
     if (target) {
         deleteFromOrder(target);
         return;
-        // console.log(0);
     }
+})
+
+cartGoods.addEventListener('change', function(event) {
+    let target = event.target;
+    target = target.closest('.product-size');
+
+    if (target) {
+        let item = target.closest('.cart-item');
+        let orderItemId = item.dataset.orderItemId;
+
+        let size = target.value;
+
+        const body = {
+            id: orderItemId,
+            size: size
+        }
+
+        sendRequest('/users/cart', body)
+        return;
+    }
+
+    ///////////////////////////////////////////////////////////
+    let target = event.target;
+    target = target.closest('.cart-item__input-quentity');
+
+    if (target) {
+        let item = target.closest('.cart-item');
+        let orderItemId = item.dataset.orderItemId;
+
+        let count = target.value;
+
+        //кол-во не может быть (-) или (0)
+        if (count <= 0) count = 1;
+        target.setAttribute('value', count)
+
+        const body = {
+            id: orderItemId,
+            count: count
+        }
+
+        sendRequest('/users/cart', body)
+        return;
+    }
+})
+
+
+
+
+
+
+
+
+
+
+function deleteFromOrder(target) {
+    //находим главный элемент который нужно удалить
+    let item = target.closest('.cart-item');
+    //записываем его id
+    let orderItemId = item.dataset.orderItemId;
+
+    const body = {
+        id: orderItemId,
+    }
+
+    sendRequest('/users/cart', body)
+
+    item.classList.add('hidden');
+}
+
+function sendRequest(url = '', data = {}) {
+    return fetch(url, {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'applicaton/www-form-urlencoded'
+        },
+        body: JSON.stringify(data)
+    })
+}
+
+
+
+
+
+
+
+
+
 
     // код для кнопок +-
     ///////////////////////////////////////////
@@ -37,76 +121,3 @@ cartGoods.addEventListener('click', function(event) {
     //     console.log(count);
     // }
     ////////////////////////////////////////////
-})
-
-cartGoods.addEventListener('change', function(event) {
-    // console.log(event.target.value)
-    let target = event.target;
-    target = target.closest('.product-size');
-    // console.log(target);
-    if (target) {
-        let size = target.value;
-        let item = target.closest('.cart-item');
-        // console.log('size')
-        let orderItemId = item.dataset.orderItemId;
-
-        const bodyObject = {
-            id: orderItemId,
-            size: size
-        }
-
-        sendRequest('/users/cart', bodyObject)
-        return;
-    }
-
-    target = event.target.closest('.cart-item__input-quentity');
-    // console.log(target);
-
-    if (target) {
-        let count = target.value;
-        // console.log('count')
-        if (count <= 0) count = 1;
-        target.setAttribute('value', count)
-        // console.log(count);
-        let item = target.closest('.cart-item');
-        // console.log(item)
-        let orderItemId = item.dataset.orderItemId;
-        // console.log(orderItemId);
-        const bodyObject = {
-            id: orderItemId,
-            count: count
-        }
-
-        sendRequest('/users/cart', bodyObject)
-        return;
-    }
-})
-
-function deleteFromOrder(target) {
-    let item = target.closest('.cart-item');
-    // let sizeItem = item.querySelector('.product-size');
-    // console.log(sizeItem.value);
-
-    let orderItemId = item.dataset.orderItemId;
-
-    const bodyObject = {
-        id: orderItemId,
-        // size: sizeItem.value
-    }
-
-    sendRequest('/users/cart', bodyObject)
-
-    item.classList.add('hidden');
-}
-
-
-
-function sendRequest(url = '', data = {}) {
-    return fetch(url, {
-        method: 'POST',
-        headers: {
-        'Content-Type': 'applicaton/www-form-urlencoded'
-        },
-        body: JSON.stringify(data)
-    })
-}

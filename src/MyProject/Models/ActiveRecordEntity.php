@@ -59,21 +59,28 @@
         public function save(): void {
             $mappedProperies = $this->mapPropertiesToDbFormat();
 
+            //убираем свойства с NULL
+            //второй аргумент - ф-колбек
+            $filteredProperties = array_filter($mappedProperies, function($param) {
+                if (is_null($param)) return false;
+                return true;
+            }); 
+
             if ( $this->id !== null ) { 
-                $this->update($mappedProperies); //update(), если id у объекта есть;
+                $this->update($filteredProperties); //update(), если id у объекта есть;
             } else {
-                $this->insert($mappedProperies); //insert(), если это свойство у объекта равно null.
+                $this->insert($filteredProperties); //insert(), если это свойство у объекта равно null.
             }
         }
 
-        private function update(array $mappedProperies): void {
+        private function update(array $filteredProperties): void {
 
             $columnsToParams = [];
             $paramsToValues = [];
 
             $index = 1;
             
-            foreach($mappedProperies as $column => $value) {
+            foreach($filteredProperties as $column => $value) {
                 $param = ':param' . $index;
 
                 $columnsToParams[] = $column . '=' . $param;
@@ -88,13 +95,7 @@
             $db->query($sql, $paramsToValues, static::class);
         }
 
-        private function insert(array $mappedProperties) {
-            //убираем свойства с NULL
-            //второй аргумент - ф-колбек
-            $filteredProperties = array_filter($mappedProperties, function($param) {
-                if (is_null($param)) return false;
-                return true;
-            }); 
+        private function insert(array $filteredProperties) {
 
             $columnsName = [];
             $paramsName = [];
@@ -117,6 +118,7 @@
         }
 
         public function delete(): void {
+            vardump($this->id);
             $sql = 'DELETE FROM `' . static::getTableName() . '` WHERE id = :id;';
 
             $db = Db::getInstace();

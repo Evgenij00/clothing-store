@@ -53,8 +53,6 @@
         public function cart() {
 
             $user = UsersAuthService::getUserByToken();
-            // vardump($user);
-            // return;
 
             if ($user === null) {
                 echo 'Войдите в систему';
@@ -63,34 +61,19 @@
 
             //получаем AJAX данные
             $contents = file_get_contents('php://input');
+
+            //если они есть
             if (!empty($contents)) {
                 //превращаем JSON в объект
                 $data = json_decode($contents);
-                // vardump($data->count);
-
-                $orderItem = OrderItem::getById($data->id);
-                // vardump($orderItem);
-                // return;
-
-                //определяем метод обработки
-                // if (isset($data->size) || isset($data->count)) {
-                    $orderItem->setGoodsProperties($data->size);
-                    $orderItem->setCount((int)$data->count);
-                    $orderItem->save();
-                    console.log($orderItem);
-                    return;
-                // }
-
-                //если запрос на удаление
-                // $orderItem->delete($data);
+                OrderItem::ajax($data);
                 return;
             }
 
+            //если их нет
             $orderList = Order::view($user);
-            // vardump($order->orderList);
 
             $this->view->renderHtml('cart/cart.php', [
-                // 'products' => $order['products'],
                 'orderList' => $orderList
             ]);
         }
