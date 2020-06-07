@@ -15,9 +15,6 @@
         public static function deleteToken(): bool {
             $token = $_COOKIE['token'] ?? '';
 
-            // vardump($token);
-            // return;
-
             if(empty($token)) {
                 return null;
             }

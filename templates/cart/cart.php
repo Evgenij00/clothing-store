@@ -21,31 +21,31 @@
             <?php if(!empty($orderList)): ?>
             <!-- если в корзине нет товаров консоль ругается, что m.addEventListener call on null!!! -->
             <ul class="cart-goods">
-              <?php foreach($orderList as $product): ?>
-              <li data-order-item-id='<?= $product->getOrderItemId()  ?>' class="cart-item">
+              <?php foreach($orderList as $orderItem): ?>
+              <li data-order-item-id='<?= $orderItem->getId()  ?>' class="cart-item">
                   <div class="cart-item__buttons">
                       <button class="btn-remove cc"><img class="icon-20" src="/img/icons/icon-remove.svg" alt="удалить"/></button>
                       <!-- <button class="btn-like cc"><img class="icon-20" src="/img/icons/icon-like.svg" alt="Добавить в избранное"/></button> -->
                   </div>
-                  <a href="/products/<?= $product->getId()  ?>"><img class="cart-item__image" src="<?= $product->getMainImg()  ?>" alt="изображение товара"/></a>
+                  <a href="/products/<?= $orderItem->getProduct()->getId() ?>"><img class="cart-item__image" src="<?= $orderItem->getProduct()->getMainImg() ?>" alt="изображение товара"/></a>
                   <div>
                   <div class="cart-item__description">
-                      <a class="cart-item__title" href="/products/<?= $product->getId()  ?>"><?= $product->getName()  ?></a>
+                      <a class="cart-item__title" href="/products/<?= $orderItem->getProduct()->getId() ?>"><?= $orderItem->getProduct()->getName()  ?></a>
                       <!-- <p class="cart-item__property-text">Lorem, ipsum.</p> -->
                   </div>
                   <select class='product-size' name="product-size" id="#">
-                    <option hidden value="<?= $product->getMainProperty() ?>"><?= $product->getMainProperty() ?></option> 
-                    <?php foreach($product->getProperties() as $property): ?>
+                    <option hidden value="<?= $orderItem->getGoodsProperties() ?>"><?= $orderItem->getGoodsProperties() ?></option> 
+                    <?php foreach($orderItem->getProduct()->getProperties() as $property): ?>
                     <option value="<?= $property->getValue() ?>"><?= $property->getValue() ?></option> 
                     <?php endforeach; ?> 
                   </select>
                   </div>
                   <div class="cart-item__control-quentity">
                       <!-- <button class="btn-plus cc"><img class="icon-20" src="/img/icons/icon-plus.svg" alt="Прибавить"/></button> -->
-                      <input class="cart-item__input-quentity" type="number" min='1' value="<?= $product->getCount() ?>"/>
+                      <input class="cart-item__input-quentity" type="number" min='1' value="<?= $orderItem->getCount() ?>"/>
                       <!-- <button class="btn-minus cc"><img class="icon-20" src="/img/icons/icon-minus.svg" alt="уменьшить"/></button> -->
                   </div>
-                  <div class="cart-item__total-price">$<?= $product->getPrice() ?></div>
+                  <div class="cart-item__total-price">$<?= $orderItem->getProduct()->getPrice() ?></div>
               </li>  
               <?php endforeach; ?>
             </ul>

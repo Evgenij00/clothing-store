@@ -15,21 +15,21 @@
         protected $status;
         protected $sale;
 
-        protected $mainProperty;
-        protected $count;
-        protected $orderItemId;
+        // protected $mainProperty;
+        // protected $count;
+        // protected $orderItemId;
 
-        public function getMainProperty(): string {
-            return $this->mainProperty;
-        }
+        // public function getMainProperty(): string {
+        //     return $this->mainProperty;
+        // }
 
-        public function getCount(): int {
-            return $this->count;
-        }
+        // public function getCount(): int {
+        //     return $this->count;
+        // }
 
-        public function getOrderItemId(): int {
-            return $this->orderItemId;
-        }
+        // public function getOrderItemId(): int {
+        //     return $this->orderItemId;
+        // }
 
         public function getName(): string {
             return $this->name;

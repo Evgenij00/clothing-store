@@ -4,6 +4,7 @@
 
     use MyProject\Models\ActiveRecordEntity;
     use MyProject\Models\Products\Product;
+    use MyProject\Models\Orders\Order;
     use MyProject\Services\Db;
 
     class OrderItem extends ActiveRecordEntity {
@@ -13,11 +14,13 @@
         protected $goodsProperties;
         protected $count;
 
+        protected $dproduct;
+
         public function getCount(): int {
             return $this->count;
         }
 
-        public function setCount($count) {
+        public function setCount(int $count) {
             $this->count = $count;
         }
 
@@ -29,68 +32,83 @@
             return $this->goodsProperties;
         }
 
-        static public function add(Product $product, int $orderId): self {
+        public function setGoodsProperties(string $property) {
+            $this->goodsProperties = $property;
+        }
+
+        static public function add(Product $product, Order $order): self {
 
             //Если такого товара с таким же свойством нет!!!
             $orderItem = new OrderItem();
-            $orderItem->orderId = $orderId;
+
+            //заполняем поля товара
+            $orderItem->orderId = $order->getId();
             $orderItem->goodsId = $product->getId();
-            //добавленное свойство
+
+            //добавляем размер
             $orderItem->goodsProperties = $_POST['product-size'];
             $orderItem->count = 1;
-            // vardump($orderItem);
+
+            //сохраняем товар в бд
             $orderItem->save();
-            //с ценой пока не знаю че делать
+
             return $orderItem;
         }
 
-        static public function updateProduct($data) {
+        // static public function updateProduct($data) {
 
-            // vardump($data);
-            // return;
+        //     // vardump($data);
+        //     // return;
 
-            if (isset($data->size)) {
-                $sql = 'UPDATE `' . static::getTableName() . '` SET goods_properties = :size WHERE id = :id;';
-                $params = [':id' => $data->id, ':size' => $data->size];
-            }
+        //     if (isset($data->size)) {
+        //         $sql = 'UPDATE `' . static::getTableName() . '` SET goods_properties = :size WHERE id = :id;';
+        //         $params = [':id' => $data->id, ':size' => $data->size];
+        //     }
 
-            if (isset($data->count)) {
-                $sql = 'UPDATE `' . static::getTableName() . '` SET count = :count WHERE id = :id;';
-                $params = [':id' => $data->id, ':count' => $data->count];
-            }
+        //     if (isset($data->count)) {
+        //         $sql = 'UPDATE `' . static::getTableName() . '` SET count = :count WHERE id = :id;';
+        //         $params = [':id' => $data->id, ':count' => $data->count];
+        //     }
 
-            $db = Db::getInstace();
-            $result = $db->query($sql, $params, static::class);
-        }
+        //     $db = Db::getInstace();
+        //     $result = $db->query($sql, $params, static::class);
+        // }
 
-        static public function deleteItemFromOrder($data) {
+        // static public function deleteItemFromOrder($data) {
 
-            // vardump($data);
-            // return;
+        //     // vardump($data);
+        //     // return;
 
-            $sql = 'DELETE FROM `' . static::getTableName() . '` WHERE id = :id;';
-            // var_dump($sql);
-            // return;
+        //     $sql = 'DELETE FROM `' . static::getTableName() . '` WHERE id = :id;';
+        //     // var_dump($sql);
+        //     // return;
 
-            $db = Db::getInstace();
-            $result = $db->query($sql, [':id' => $data->id], static::class);
+        //     $db = Db::getInstace();
+        //     $result = $db->query($sql, [':id' => $data->id], static::class);
 
-            // if ($result === []) return true;
-        }
+        //     // if ($result === []) return true;
+        // }
 
-        static public function isFindItem(int $productId, int $orderId) {
+        static public function search(Product $product, Order $order) {
             $sql = "SELECT * FROM `orders_cart` WHERE order_id = :order_id AND goods_id = :goods_id AND  goods_properties = :goods_properties;";
 
             $db = Db::getInstace();
             $result = $db->query($sql, [
-                ':order_id' => $orderId,
-                ':goods_id' => $productId,
+                ':order_id' => $order->getId(),
+                ':goods_id' => $product->getId(),
                 ':goods_properties' => $_POST['product-size']
             ], self::class);
 
             if ($result === []) return null;
 
             return $result[0];
+        }
+
+        public function getProduct(): Product {
+            if ($this->dproduct === null) {
+                $this->dproduct = Product::getById($this->goodsId);
+            }
+            return $this->dproduct;
         }
 
         protected static function getTableName(): string {

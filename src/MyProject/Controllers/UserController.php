@@ -60,29 +60,38 @@
                 echo 'Войдите в систему';
                 return;
             }
-            //////////////////////////////////////////////
-            // $contents = file_get_contents('php://input');
-            // if (!empty($contents)) {
-            //     $data = json_decode($contents);
-            //     // var_dump($data);
-            //     // return;
 
-            //     if (isset($data->size) || isset($data->count)) {
-            //         OrderItem::updateProduct($data);
-            //         return;
-            //     }
-            //     OrderItem::deleteItemFromOrder($data);
-            //     return;
-            // }
-                ///////////////////////////////////////////
+            //получаем AJAX данные
+            $contents = file_get_contents('php://input');
+            if (!empty($contents)) {
+                //превращаем JSON в объект
+                $data = json_decode($contents);
+                // vardump($data->count);
 
+                $orderItem = OrderItem::getById($data->id);
+                // vardump($orderItem);
+                // return;
 
-            $order = Order::view($user);
+                //определяем метод обработки
+                // if (isset($data->size) || isset($data->count)) {
+                    $orderItem->setGoodsProperties($data->size);
+                    $orderItem->setCount((int)$data->count);
+                    $orderItem->save();
+                    console.log($orderItem);
+                    return;
+                // }
+
+                //если запрос на удаление
+                // $orderItem->delete($data);
+                return;
+            }
+
+            $orderList = Order::view($user);
             // vardump($order->orderList);
 
             $this->view->renderHtml('cart/cart.php', [
-                'orderList' => $order['orderList'],
-                'totalPrice' => $order['totalPrice'],
+                // 'products' => $order['products'],
+                'orderList' => $orderList
             ]);
         }
 

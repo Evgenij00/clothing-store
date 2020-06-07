@@ -15,102 +15,71 @@
         protected $price;
         protected $state;
 
-        //остальные св-ва
-
-        //добавляем товар в бд
         static public function add(int $productId) {
 
             $user = UsersAuthService::getUserByToken();
             $order = self::findOneByColumn('user_id', $user->getId()); //находим корзину пользователя
-            // vardump($user);
-            // vardump($product);
 
             //если корзины нет, создаем новую
             if ($order === null) {
                 $order = new self();
-                $order->userId = $user->getId();
-                $order->price = 0;
-                $order->state = 0;
+                $order->defaultInit();
                 $order->save(); //загружаем в бд
             }
-            // vardump($order);
 
-            $product = Product::getById($productId);  //достаем товар из бд
+            //достаем товар из бд
+            $product = Product::getById($productId);
 
-            //ищем товар в корзине
-            $check = OrderItem::isFindItem($product->getId(), $order->getId());
-            // vardump($check);
+            //проверяем, нет ли товара уже в корзине
+            $result = OrderItem::search($product, $order);
 
-            if ($check !== null) {
-                $check->setCount(($check->getCount()) + 1);
-                $check->save();
+            if ($result === null) {
+                //добавляем новый товар
+                $orderItem = OrderItem::add($product, $order);
             } else {
-                $orderItem = OrderItem::add($product, $order->getId());
+                //увеличиваем кол-во товара на ед.
+                $result->setCount(($result->getCount()) + 1);
+                //сохраняем елемент в бд
+                $result->save();
             }
 
-            //добавляем продукт в корзину, возвращаем продукт с определенным свойством size
-
-            $order->updatePrice($user->getId());
+            $order->updatePrice();
             $order->save();
         }
 
+        //отрабатывает при загрузке корзины
         static public function view(User $user): ?array {
-
+            //получаем корзину пользователя
             $order = self::findOneByColumn('user_id', $user->getId());
 
-
+            //если ее нет, создаем
             if ($order === null) {
                 $order = new self();
-                $order->userId = $user->getId();
-                $order->price = 0;
-                $order->state = 0;
+                $order->defaultInit();
                 $order->save(); //загружаем в бд
+                //дальше нет смысла т.к заказ пустой, поэтому выходим
                 return null;
             }
 
-            //массив для наших товаров с размерами
-            $products = [];
-
+            //массив товаров-ссылок заказа
             $orderList = $order->getList();
-            // vardump($orderList);
 
+            //заказ пустой, поэтому выходим
             if ($orderList === null) return null;
-
-            foreach($orderList as $orderItem) {
-                // vardump($orderItem);
-                $id = $orderItem->getGoodsId();
-                $product = Product::findOneByColumn('id', $id);
-                // vardump($product);
-                $product->orderItemId = $orderItem->getId();
-                $product->mainProperty = $orderItem->getGoodsProperties();
-                $product->count = $orderItem->getCount();
-                // vardump($product->getProperties());
-                $products[] = $product;
-                $totalPrice += $product->getPrice();
-            }
-
-            // vardump($products);
-            // vardump($totalPrice);
-            $orderData = [];
-            $data['orderList'] = $products;
-            $data['totalPrice'] = $totalPrice;
-            // vardump($products);
-            return $data;
+            //иначе
+            return $orderList;
         }
 
         private function updatePrice(): void {
             // $this->price = 0.0;
             
-            //получаем все продукты из корзины
+            //массив товаров-ссылок заказа
             $orderList = $this->getList();
-            // vardump($orderList);
 
             //считаем цену
             foreach ($orderList as $orderItem) {
-                // vardump($orderItem);
-                $product = Product::findOneByColumn('id', $orderItem->getGoodsId());
-                // vardump($product);
-                $totalPrice += $product->getPrice();
+                $price = $orderItem->getProduct()->getPrice();
+                $totalPrice += $price;
             }
 
             $this->price = $totalPrice;
@@ -128,6 +97,12 @@
 
             if ($result === null) return null;
             return $result;
+        }
+
+        private function defaultInit(): Order {
+            $this->userId = $user->getId();
+            $this->price = 0;
+            $this->state = 0;
         }
 
         protected static function getTableName(): string {

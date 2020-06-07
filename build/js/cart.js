@@ -47,7 +47,7 @@ cartGoods.addEventListener('change', function(event) {
     if (target) {
         let size = target.value;
         let item = target.closest('.cart-item');
-        // console.log(item)
+        // console.log('size')
         let orderItemId = item.dataset.orderItemId;
 
         const bodyObject = {
@@ -64,7 +64,7 @@ cartGoods.addEventListener('change', function(event) {
 
     if (target) {
         let count = target.value;
-
+        // console.log('count')
         if (count <= 0) count = 1;
         target.setAttribute('value', count)
         // console.log(count);

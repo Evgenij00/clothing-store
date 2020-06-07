@@ -45,24 +45,26 @@
             return $result ? $result[0] : null;
         }
 
-        public function save(): void {
+        static public function findOneByColumn(string $columnName, $value): ?self {
+            $sql = 'SELECT * FROM `' . static::getTableName() . '` WHERE `' . $columnName . '` = :value LIMIT 1;';
 
+            $db = Db::getInstace();
+            $res = $db->query($sql, [':value' => $value], static::class);
+
+            if ($res === []) return null;
+
+            return $res[0];
+        }
+
+        public function save(): void {
             $mappedProperies = $this->mapPropertiesToDbFormat();
-            // vardump($mappedProperies);
 
             if ( $this->id !== null ) { 
                 $this->update($mappedProperies); //update(), если id у объекта есть;
             } else {
                 $this->insert($mappedProperies); //insert(), если это свойство у объекта равно null.
             }
-
-            // vardump($mappedProperies);
-
         }
-
-        // UPDATE table_name
-        // SET column1 = :param1, column2 = :param2, ...
-        // WHERE condition;
 
         private function update(array $mappedProperies): void {
 
@@ -87,76 +89,40 @@
         }
 
         private function insert(array $mappedProperties) {
-            //INSERT INTO `articles` (`author_id`, `name`, `text`) VALUES (:author_id, :name, :text)
-
             //убираем свойства с NULL
-            $filteredProperties = array_filter($mappedProperties, function($param) { //второй аргумент - ф-колбек
+            //второй аргумент - ф-колбек
+            $filteredProperties = array_filter($mappedProperties, function($param) {
                 if (is_null($param)) return false;
                 return true;
             }); 
-
-            // vardump($filteredProperties);
 
             $columnsName = [];
             $paramsName = [];
             $values = [];
 
             foreach($filteredProperties as $column => $value) {  
-                $columnsName[] = '`' . $column . '`';   //получаем имя свойства
-
+                //формируем имена столбцов в таблице бд
+                $columnsName[] = '`' . $column . '`';
                 $param = ':' . $column;
 
                 $paramsName[] = $param;
                 $values[$param] = $value;
             }
 
-            // vardump($columnsName);
-            // vardump($paramsName);
-            // vardump($values);
-
             $sql = 'INSERT INTO `'  . static::getTableName() . '` (' . implode(', ', $columnsName) . ') VALUES (' . implode(', ', $paramsName) . ');'; //implode — Объединяет элементы массива в строку
 
-            // vardump($sql);  
-            
             $db = Db::getInstace();
-
             $sth = $db->query($sql, $values, static::class);
-
-            // echo $db->getLastInsertId();
-
             $this->id = $db->getLastInsertId();
-
-            // vardump($sth);
         }
 
         public function delete(): void {
-            // vardump($this);
-
             $sql = 'DELETE FROM `' . static::getTableName() . '` WHERE id = :id;';
-
-            // vardump($sql);
 
             $db = Db::getInstace();
             $db->query($sql, [':id' => $this->id], static::class);
 
             $this->id = null;
-        }
-
-
-        static public function findOneByColumn(string $columnName, $value): ?self {
-            $sql = 'SELECT * FROM `' . static::getTableName() . '` WHERE `' . $columnName . '` = :value LIMIT 1;';
-            // vardump($sql);
-
-            // vardump($value);
-
-            $db = Db::getInstace();
-            $res = $db->query($sql, [':value' => $value], static::class);
-
-            if ($res === []) return null;
-
-            // vardump($res[0]);
-
-            return $res[0];
         }
 
         protected function underscoreToCamelCase(string $source): string {
