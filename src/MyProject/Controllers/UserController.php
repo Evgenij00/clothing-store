@@ -8,6 +8,7 @@
     use MyProject\Services\UsersAuthService;
     use MyProject\Models\Orders\Order;
     use MyProject\Models\Orders\OrderItem;
+    use MyProject\Models\Addresses\Address;
 
     class UserController extends AbstractController {
 
@@ -79,6 +80,47 @@
                 'orderList' => $orderData['orderList'],
                 'orderPrice' => $orderData['orderPrice'],
             ]);
+        }
+
+        public function checkout() {
+            $user = UsersAuthService::getUserByToken();
+
+            //по идее сюда так просто через get запрос попасть нельзя!!!
+            if ($user === null) {
+                echo 'Войдите в систему';
+                return;
+            }
+
+            //получаем AJAX данные
+            $contents = file_get_contents('php://input');
+
+            //если они есть
+            if (!empty($contents)) {
+                //превращаем JSON в объект
+                $data = json_decode($contents);
+                $result = Address::ajax($data, $user);
+
+                if ($result !== null) echo $result;
+                return;
+            }
+
+            //если их нет
+            $orderData = Order::view($user);
+            // vardump($orderData);
+            $address = Address::findOneByColumn('user_id', $user->getId());
+            vardump($address);
+
+            $this->view->renderHtml('checkout/checkout.php', [
+                'orderList' => $orderData['orderList'],
+                'orderPrice' => $orderData['orderPrice'],
+                'address' => $address,
+                'user' => $user
+            ]);
+        }
+
+        public function orderSuccess() {
+            Order::success();
+            // echo 'Успех!!!';
         }
 
         //типо удалил токен

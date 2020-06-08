@@ -14,4 +14,7 @@
         // '~^users/info$~' => [MyProject\Controllers\UserController::class, 'info'],
         // '~^users/order$~' => [MyProject\Controllers\UserController::class, 'info'],
         '~^users/cart$~' => [MyProject\Controllers\UserController::class, 'cart'],
+        '~^users/checkout$~' => [MyProject\Controllers\UserController::class, 'checkout'],
+        '~^users/checkout/success$~' => [MyProject\Controllers\UserController::class, 'orderSuccess'],
+
     ];

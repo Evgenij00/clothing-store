@@ -27,7 +27,7 @@
                       <button class="btn-remove cc"><img class="icon-20" src="/img/icons/icon-remove.svg" alt="удалить"/></button>
                       <!-- <button class="btn-like cc"><img class="icon-20" src="/img/icons/icon-like.svg" alt="Добавить в избранное"/></button> -->
                   </div>
-                  <a href="/products/<?= $orderItem->getProduct()->getId() ?>"><img class="cart-item__image" src="<?= $orderItem->getProduct()->getMainImg() ?>" alt="изображение товара"/></a>
+                  <a href="/products/<?= $orderItem->getProduct()->getId() ?>"><img class="cart-item__image"  src="<?= $orderItem->getProduct()->getMainImg() ?>" alt="изображение товара"/></a>
                   <div>
                   <div class="cart-item__description">
                       <a class="cart-item__title" href="/products/<?= $orderItem->getProduct()->getId() ?>"><?= $orderItem->getProduct()->getName()  ?></a>
@@ -57,14 +57,14 @@
         <div class="total-container">
           <h2 class="total__head">Итого</h2>
           <div class="total__price-full"></div><span>Всего</span><span id='order-price'><?= $orderPrice ?> руб</span>
-          <form action="#" method="post"></form>
-          <label for="delivery-pay">Доставка</label>
+          <!-- <form action="#" method="post"></form> -->
+          <!-- <label for="delivery-pay">Доставка</label>
           <select class="total__select-delivery" id="delivery-pay" name="name">
-            <option value="value">Стандартная доставка</option>
-            <option value="value">Стандартная доставка - Пункт самовызова</option>
-            <option value="value">Экспресс - доставка</option>
-            <option value="value">Экспресс - доставка курьером Пункт выдачи товаров</option>
-          </select><a class="btn-2 btn-pay-order cc" href="/pages/checkout.html">Оплатить</a>
+            <option value="value">Почта России</option>
+            <option value="value">Курьерская доставка</option>
+            <option value="value">Самовывоз из офиса или пункта выдачи</option>
+          </select> -->
+          <a class="btn-2 btn-pay-order cc" href="/users/checkout">Оплатить</a>
         </div>
       </div>
     </main>

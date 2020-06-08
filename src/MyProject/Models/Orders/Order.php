@@ -8,26 +8,72 @@
     use MyProject\Models\Products\Product;
     use MyProject\Models\Orders\OrderItem;
     use MyProject\Models\Users\User;
+    use MyProject\Models\Addresses\Address;
 
     class Order extends ActiveRecordEntity {
 
         protected $userId;
         protected $price;
         protected $state;
+        protected $addressId;
+        protected $deliveryWay;
+        protected $payWay;
+        protected $dateTime;
+
+        // public function getAddressId(): string {
+        //     return $this->addressId;
+        // }
 
         public function getPrice(): float {
             return $this->price;
         }
 
+        static public function getOrder(string $columnName, $value): ?self {
+            $sql = 'SELECT * FROM `' . static::getTableName() . '` WHERE `' . $columnName . '` = :value AND state = :value2 LIMIT 1;';
+            // vardump($sql);
+            $value2 = 0;
+            $db = Db::getInstace();
+
+            $res = $db->query($sql, [
+                ':value' => $value,
+                ':value2' => $value2
+            ], static::class);
+
+            // vardump($res);
+            if ($res === []) return null;
+            return $res[0];
+        }
+
+        static public function success() {
+            $user = UsersAuthService::getUserByToken();
+            $order = self::getOrder('user_id', $user->getId()); //находим корзину пользователя
+            $address = Address::findOneByColumn('user_id', $user->getId());
+            // vardump($address)
+
+            $order->addressId = $address->getId();
+            $order->deliveryWay = $_POST['deliveryWay'];
+            $order->payWay = $_POST['payWay'];
+            $order->dateTime = date("Y-m-d H:i:s");
+            $order->state = 1;
+            vardump($order);
+            $order->save();
+
+            $order = new self();
+            $order->defaultInit($user);
+            $order->save(); //загружаем в бд
+
+        }
+
         static public function add(int $productId) {
 
             $user = UsersAuthService::getUserByToken();
-            $order = self::findOneByColumn('user_id', $user->getId()); //находим корзину пользователя
-
+            $order = self::getOrder('user_id', $user->getId()); //находим корзину пользователя
+            // vardump($order);
+            // return;
             //если корзины нет, создаем новую
             if ($order === null) {
                 $order = new self();
-                $order->defaultInit();
+                $order->defaultInit($user);
                 $order->save(); //загружаем в бд
             }
 
@@ -54,12 +100,12 @@
         //отрабатывает при загрузке корзины
         static public function view(User $user): ?array {
             //получаем корзину пользователя
-            $order = self::findOneByColumn('user_id', $user->getId());
+            $order = self::getOrder('user_id', $user->getId());
 
             //если ее нет, создаем
             if ($order === null) {
                 $order = new self();
-                $order->defaultInit();
+                $order->defaultInit($user);
                 $order->save(); //загружаем в бд
                 //дальше нет смысла т.к заказ пустой, поэтому выходим
                 return null;
@@ -113,10 +159,12 @@
             return $result;
         }
 
-        private function defaultInit(): Order {
+        private function defaultInit(User $user): Order {
             $this->userId = $user->getId();
             $this->price = 0;
             $this->state = 0;
+
+            return $this;
         }
 
         protected static function getTableName(): string {

@@ -55,6 +55,16 @@
             return $res[0];
         }
 
+        static public function findByColumn(string $columnName, $value): ?array {
+            $sql = 'SELECT * FROM `' . static::getTableName() . '` WHERE `' . $columnName . '` = :value;';
+            // vardump($sql);
+            $db = Db::getInstace();
+            $res = $db->query($sql, [':value' => $value], static::class);
+            // vardump($res);
+            if ($res === []) return null;
+            return $res;
+        }
+
         public function save(): void {
             $mappedProperies = $this->mapPropertiesToDbFormat();
 

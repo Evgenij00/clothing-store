@@ -1,65 +1,65 @@
 .check-container
     .email
-    h2 Адрес электронной почты
-    p porojtyg@gmail.com
+        h2 Адрес электронной почты
+        p porojtyg@gmail.com
 
     //- форма - выбора/добавления адресса два состояния - нет адресса - адресс есть и предлагают добавить или выбрать адресс 
     //- Адресса нет - реализация 
     form(action, method='POST')
-    .adress-conrainer
-        h2.adress__title Адрес доставки
+        .adress-conrainer
+            h2.adress__title Адрес доставки
 
-        label.label(for='first-name') Имя:
-        input#first-name(type='text', name='first-name')
+            label.label(for='first-name') Имя:
+            input#first-name(type='text', name='first-name')
 
-        label.label(for='last-name') Фамилия:
-        input#last-name(type='text', name='last-name')
-        
-        label.label(for='middle-name') Отчество:
-        input#middle-name(type='text', name='middle-name')
+            label.label(for='last-name') Фамилия:
+            input#last-name(type='text', name='last-name')
+            
+            label.label(for='middle-name') Отчество:
+            input#middle-name(type='text', name='middle-name')
 
-        label.label(for='phone-contact') Мобильный телефон:
-        input#phone-contact(type='text', name='phone-contact')
+            label.label(for='phone-contact') Мобильный телефон:
+            input#phone-contact(type='text', name='phone-contact')
 
-        label.label(for='country') Страна:
-        input#country(type='text', name='country')
+            label.label(for='country') Страна:
+            input#country(type='text', name='country')
 
-        label.label(for='city') Город:
-        input#city(type='text', name='city')
+            label.label(for='city') Город:
+            input#city(type='text', name='city')
 
-        label.label(for='street-adress') Улица, дом, квартира
-        input#street-adress(type='text', name='street-adress')
+            label.label(for='street-adress') Улица, дом, квартира
+            input#street-adress(type='text', name='street-adress')
 
-        label.label(for='post-index') Почтовый идекс
-        input#post-index(type='text', name='post-index')
+            label.label(for='post-index') Почтовый идекс
+            input#post-index(type='text', name='post-index')
 
-        button.adress__btn Доставить по этому адрессу
+            button.adress__btn Доставить по этому адрессу
     
-    //- Способ доставки 
-    .delivery-way
-        h2.delivery-way__title Способы доставки
+        //- Способ доставки 
+        .delivery-way
+            h2.delivery-way__title Способы доставки
 
-        .delivery-way__item
-        p Бесплатно
-        .descripton-way
-            p Стандартная доставка:
-            p Ожидаемая дата доставки Вторник, 2 июнь, 2020
-        input#delivery-way-1(type='radio', checked, name='delivery-way', value='free')
+            .delivery-way__item
+            p Бесплатно
+            .descripton-way
+                p Стандартная доставка:
+                p Ожидаемая дата доставки Вторник, 2 июнь, 2020
+            input#delivery-way-1(type='radio', checked, name='delivery-way', value='free')
 
-        .delivery-way__item
-        p Бесплатно
-        .descripton-way
-            p Экспресс доставка:
-            p Ожидаемая дата доставки Среда, 20 май, 2020
-        input#delivery-way-2(type='radio', name='delivery-way', value='express')
+            .delivery-way__item
+            p Бесплатно
+            .descripton-way
+                p Экспресс доставка:
+                p Ожидаемая дата доставки Среда, 20 май, 2020
+            input#delivery-way-2(type='radio', name='delivery-way', value='express')
 
-    .pay-way
+        .pay-way
 
-        //- Реализация, если пользователь еще не вводил данные карт 
-        h2.pay-way__title Способ оплаты
-        button Добавитькредитною/дебетовую карту
-        span или
-        button Paypal
+            //- Реализация, если пользователь еще не вводил данные карт 
+            h2.pay-way__title Способ оплаты
+            button Добавитькредитною/дебетовую карту
+            span или
+            button Paypal
 
-    //- green buttons - шаблон
-    button.main-btn(type='submit') Заказать
+        //- green buttons - шаблон
+        button.main-btn(type='submit') Заказать
